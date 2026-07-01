@@ -4,13 +4,7 @@ node_modules
 .pnp.js
 
 # Large assets (served via Vercel from public/ at runtime, but too big for git)
-public/assets/doggy3dd.png
-public/assets/snifflogo.png
-public/assets/servicelogo.png
-public/assets/pet_clinic_reception.png
-public/assets/pet_spa_bath.png
-public/assets/premium_pet_grooming_box.png
-public/assets/vd1.mp4
+# We will commit them in small steps to avoid RPC 408 timeout
 
 # Build output
 .next/
