@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   EXISTING FLOAT / BUBBLE ANIMATIONS
+   (UNCHANGED)
+========================= */
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-bounce-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+@keyframes floatFast {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-bounce-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+@keyframes floatMedium {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-bounce-medium {
+  animation: floatMedium 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes doggyFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-doggy-float {
+  animation: doggyFloat 6s ease-in-out infinite;
+}
+
+/* =========================
+   PREMIUM SOAP BUBBLES
+   (UNCHANGED)
+========================= */
+
+.bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(255, 255, 255, 0.15) 60%,
+      rgba(255, 255, 255, 0.05)
+    );
+  backdrop-filter: blur(2px);
+  box-shadow:
+    inset -6px -6px 12px rgba(255,255,255,0.6),
+    inset 6px 6px 12px rgba(255,255,255,0.15),
+    0 12px 24px rgba(0,0,0,0.05);
+  animation: bubbleFloat 14s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.bubble-xl { width: 120px; height: 120px; animation-duration: 18s; }
+.bubble-lg { width: 90px;  height: 90px;  animation-duration: 16s; }
+.bubble-md { width: 64px;  height: 64px;  animation-duration: 14s; }
+.bubble-sm { width: 42px;  height: 42px;  animation-duration: 12s; }
+.bubble-xs { width: 28px;  height: 28px;  animation-duration: 10s; }
+
+@keyframes bubbleFloat {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-14px) translateX(6px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* =========================
+   INPUT STYLE (UNCHANGED)
+========================= */
+
+.input {
+  width: 100%;
+  border: 1px solid currentColor;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.input:focus {
+  outline: 2px solid rgba(91, 58, 38, 0.3);
+}
+
+/* ===============================
+   GLASSMORPHISM BASE (UNCHANGED)
+================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 28px;
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* ===============================
+   PAGE ENTRANCE ANIMATION
+   (UNCHANGED)
+================================ */
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-animate {
+  animation: floatUp 0.8s ease-out both;
+}
+
+.page-delay-1 { animation-delay: 0.1s; }
+.page-delay-2 { animation-delay: 0.2s; }
+.page-delay-3 { animation-delay: 0.3s; }
+.page-delay-4 { animation-delay: 0.4s; }
+.page-delay-5 { animation-delay: 0.5s; }
+
+/* =====================================================
+   ✅ NEW ADDITIONS (NO DELETIONS)
+===================================================== */
+
+/* 🌈 GLOBAL PAGE BACKGROUND (ALL PAGES SAME) */
+.page-bg {
+  background: linear-gradient(
+    135deg,
+    #f6efe6 0%,
+    #f2e9df 50%,
+    #eadfce 100%
+  );
+}
+
+/* 🫧 SOFTER GLASS VARIANT (for inner sections) */
+.glass-soft {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ✨ HOVER LIFT (cards / services / packages) */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===============================
+   HOME SERVICE AUTO SLIDER
+================================ */
+
+.slider-track {
+  animation: slide-left 35s linear infinite;
+}
+
+.slider-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-x {
+  animation: scrollX 28s linear infinite;
+}
+
+
+/* ===============================
+   PREMIUM FLOATING GLASS CARDS
+================================ */
+
+.glass-float {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-radius: 24px;
+
+  box-shadow:
+    0 18px 35px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.65);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  transform: translateZ(0);
+  will-change: transform;
+  transition:
+    transform 0.45s cubic-bezier(.22,.61,.36,1),
+    box-shadow 0.45s ease;
+}
+
+.glass-float:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:
+    0 28px 60px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+/* Slow breathing float (GPU safe) */
+@keyframes slowFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.float-slow {
+  animation: slowFloat 6s ease-in-out infinite;
+}
+
+/* ===============================
+   GPU OPTIMIZED SLIDER
+================================ */
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: slideX 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes slideX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover (UX premium) */
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
+
+
+/* ===============================
+   GLOBAL BUBBLE LAYER (SAFE)
+================================ */
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(255, 255, 255, 0.15) 60%,
+      rgba(255, 255, 255, 0.05)
+    );
+  backdrop-filter: blur(2px);
+  box-shadow:
+    inset -6px -6px 12px rgba(255,255,255,0.6),
+    inset 6px 6px 12px rgba(255,255,255,0.15),
+    0 12px 24px rgba(0,0,0,0.05);
+  animation: bubbleFloat 14s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.bubble-layer {
+  z-index: 1;
+}
+
+
+@keyframes heroFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-18px) scale(1.02);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px) scale(1);
+  }
+}
+
+.animate-hero-float {
+  animation: heroFloat 8s ease-in-out infinite;
+}
+
+
+.parallax-image {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+
+.animate-hero-float {
+  animation: heroFloat 8s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+  100% { transform: translate(-50%, -50%) translateY(0px); }
+}
