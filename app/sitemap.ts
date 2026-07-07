@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/news',
     '/testimonials',
     '/contact',
+    '/veterinary',
+    '/veterinary-booking',
     '/privacy-policy',
     '/terms',
   ]
