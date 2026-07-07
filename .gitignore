@@ -54,3 +54,6 @@ Thumbs.db
 seed_news.js
 update_photos.js
 test_mongo.js
+
+.vercel
+.env*

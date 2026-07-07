@@ -13,6 +13,30 @@ const nextConfig: NextConfig = {
   },
   // Needed for Vercel: disable x-powered-by header
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: '/vetic',
+        destination: 'https://vetic.in',
+        permanent: false,
+      },
+      {
+        source: '/deepet',
+        destination: 'https://deepetservices.com',
+        permanent: false,
+      },
+      {
+        source: '/incredipets',
+        destination: 'https://incredipets.in',
+        permanent: false,
+      },
+      {
+        source: '/pawfriend',
+        destination: 'https://pawfriend.in',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

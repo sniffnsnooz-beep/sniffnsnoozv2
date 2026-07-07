@@ -5,13 +5,15 @@ import connectToDatabase from "@/libs/db";
 import Booking from "@/models/booking";
 
 /* ---------------- EMAIL TRANSPORT ---------------- */
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASS,
-  },
-});
+function createTransporter() {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASS,
+    },
+  });
+}
 
 /* ---------------- POST BOOKING ---------------- */
 export async function POST(req: Request) {
@@ -34,19 +36,21 @@ export async function POST(req: Request) {
     
     // Nested Extraction
     const petDetails = body.petDetails || {};
-    const behavior = body.behavior || {};
     const styling = body.styling || {};
     const booking = body.booking || {};
 
     const { basePrice, total, date, slot, items } = booking;
     const { petName, petBreed, petAge, petAllergies } = petDetails;
     
+    // ✅ FIX: Read friendly flags directly from petDetails (as sent by the form)
+    const friendlyHuman = petDetails.friendlyWithHumans;
+    const friendlyPets = petDetails.friendlyWithPets;
+
     // Backward compatibility for root variables
     const finalStyle = styling.styleSelected || styling.style || body.styleSelected;
     const finalHairLength = styling.hairLength || body.hairLength;
     const finalMatting = styling.mattingApproval || body.mattingApproval;
-    const friendlyHuman = behavior.friendlyHuman || body.friendlyWithHumans;
-    const friendlyPets = behavior.friendlyPets || body.friendlyWithPets;
+
 
     const consentAccepted = body.consentAccepted === true || body.consentAccepted === "Yes";
 
@@ -81,22 +85,16 @@ export async function POST(req: Request) {
       console.log("✅ Booking saved to Database successfully!");
     } catch (dbError) {
       console.error("⚠️ Failed to save to Database:", dbError);
-      // Wait: user might want this to crash the API if it fails, but better to degrade gracefully if email still sends?
-      // Actually, we'll let it continue to send emails so business isn't halted.
+      return NextResponse.json(
+        { success: false, message: "Failed to save booking. Please try again later." },
+        { status: 500 }
+      );
     }
 
-    /* ================= SAFETY CHECKS ================= */
+    /* ================= EMAIL SETUP ================= */
 
-    const OWNER_EMAIL =
-      process.env.OWNER_EMAIL || process.env.GMAIL_USER;
-
-    if (!OWNER_EMAIL) {
-      throw new Error("OWNER_EMAIL not configured");
-    }
-
-    if (!email) {
-      throw new Error("Customer email missing");
-    }
+    const OWNER_EMAIL = process.env.OWNER_EMAIL || process.env.GMAIL_USER || "";
+    const transporter = createTransporter();
 
     /* ================= LOCATION HANDLING ================= */
 

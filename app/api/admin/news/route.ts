@@ -49,6 +49,41 @@ export async function POST(req: Request) {
   }
 }
 
+// --- PATCH: Article edit karne ke liye ---
+export async function PATCH(req: Request) {
+  try {
+    await connectToDatabase();
+    const body = await req.json();
+    const { id, title, content, image, video, category } = body;
+
+    if (!id) {
+      return NextResponse.json({ message: "ID is required" }, { status: 400 });
+    }
+
+    // Regenerate slug if title changed
+    const slug = title
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w ]+/g, "")
+      .replace(/ +/g, "-");
+
+    const updated = await News.findByIdAndUpdate(
+      id,
+      { title, slug, content, image: image || "", video: video || "", category },
+      { new: true }
+    );
+
+    if (!updated) {
+      return NextResponse.json({ message: "Article not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true, data: updated }, { status: 200 });
+  } catch (error: any) {
+    console.error("PATCH ERROR:", error);
+    return NextResponse.json({ message: error.message }, { status: 500 });
+  }
+}
+
 // --- DELETE: Dashboard se news hatane ke liye ---
 export async function DELETE(req: Request) {
   try {

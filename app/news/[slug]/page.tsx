@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${post.title} | Sniff n Snooz News`,
-    description: post.content.substring(0, 160),
+    description: post.content.replace(/<[^>]*>?/gm, '').substring(0, 160),
     openGraph: { images: [post.image || post.video] },
   };
 }
@@ -34,6 +34,37 @@ export default async function SingleNews({ params }: { params: Promise<{ slug: s
 
   return (
     <article className="pt-32 pb-20 px-6 bg-white min-h-screen">
+      {/* 🧠 Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "image": [
+              post.image || post.video
+            ],
+            "datePublished": post.createdAt,
+            "dateModified": post.updatedAt || post.createdAt,
+            "author": [{
+                "@type": "Organization",
+                "name": "Sniffnsnooz",
+                "url": "https://sniffnsnooz.in"
+            }],
+            "publisher": {
+              "@type": "Organization",
+              "name": "Sniffnsnooz",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://sniffnsnooz.in/assets/snifflogo.png"
+              }
+            },
+            "description": post.content.replace(/<[^>]*>?/gm, '').substring(0, 160)
+          }),
+        }}
+      />
+      
       <div className="max-w-4xl mx-auto">
         {post.video ? (
           <video 
@@ -62,9 +93,10 @@ export default async function SingleNews({ params }: { params: Promise<{ slug: s
         </div>
 
         {/* Content Area with spacing fix */}
-        <div className="whitespace-pre-wrap prose prose-lg max-w-none text-gray-700 leading-relaxed">
-          {post.content}
-        </div>
+        <div 
+          className="prose prose-lg max-w-none text-[#5b3a26] leading-relaxed mt-8"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
       </div>
     </article>
   );

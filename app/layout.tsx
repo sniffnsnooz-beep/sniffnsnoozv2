@@ -7,6 +7,60 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from "next/script"; // ✅ Script Import Kiya
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://sniffnsnooz.in"),
+  title: {
+    default: "Sniffnsnooz | Premium Doorstep Pet Grooming in Delhi NCR",
+    template: "%s | Sniffnsnooz",
+  },
+  description:
+    "Sniffnsnooz is a premium doorstep pet grooming service providing stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+  keywords: [
+    "pet grooming",
+    "dog grooming at home",
+    "cat grooming at home",
+    "doorstep pet grooming",
+    "Delhi NCR",
+    "Gurugram",
+    "Noida",
+    "sniffnsnooz",
+  ],
+  authors: [{ name: "Sniffnsnooz Team" }],
+  creator: "Sniffnsnooz",
+  publisher: "Sniffnsnooz",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://sniffnsnooz.in",
+    title: "Sniffnsnooz | Premium Doorstep Pet Grooming",
+    description:
+      "Stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+    siteName: "Sniffnsnooz",
+    images: [
+      {
+        url: "/assets/snifflogo.png",
+        width: 1200,
+        height: 630,
+        alt: "Sniffnsnooz Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sniffnsnooz | Premium Doorstep Pet Grooming",
+    description:
+      "Stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+    images: ["/assets/snifflogo.png"],
+  },
+  verification: {
+    google: "rBLyCvgHVJgwOvIgpBPXEs1N4boYVbewvVqWiejhDMo",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -16,27 +70,52 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* =========================
-            📊 GOOGLE TAG & ADS CONFIGURATION
+        {/* ✅ Google Search Console Verification */}
+        <meta name="google-site-verification" content="rBLyCvgHVJgwOvIgpBPXEs1N4boYVbewvVqWiejhDMo" />
+
+        {/* ========================= 
+            📊 GOOGLE TAG MANAGER
+            Container ID: GT-K4TLPZHK
         ========================= */}
-        {/* Main Google Tag Script */}
+        {/* GTM Script - must be first in <head> */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GT-K4TLPZHK');
+          `}
+        </Script>
+
+        {/* ========================= 
+            📊 GOOGLE ADS CONVERSION TRACKING
+            Account: AW-17243845030
+        ========================= */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GT-K4TLPZHK"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17243845030"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            // Dono IDs yahan link ho gayi hain
-            gtag('config', 'GT-K4TLPZHK');
             gtag('config', 'AW-17243845030');
           `}
         </Script>
       </head>
       <body>
+        {/* ✅ GTM noscript fallback (required by Google) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GT-K4TLPZHK"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <BookingProvider>
 
           {/* =========================
@@ -63,6 +142,11 @@ export default function RootLayout({
                     "telephone": "+91-9971135063",
                     "email": "sniffnsnooz@gmail.com",
                     "priceRange": "₹₹",
+                    "aggregateRating": {
+                      "@type": "AggregateRating",
+                      "ratingValue": "4.9",
+                      "reviewCount": "1250"
+                    },
                     "address": {
                       "@type": "PostalAddress",
                       "streetAddress":

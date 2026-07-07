@@ -1,32 +1,36 @@
 import { MetadataRoute } from 'next'
+import { locations } from '../data/locations'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.sniffnsnooz.in'
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/gallery`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/book-now`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+  const baseUrl = 'https://sniffnsnooz.in'
+  
+  const staticRoutes = [
+    '',
+    '/services',
+    '/packages',
+    '/gallery',
+    '/booking',
+    '/store-booking',
+    '/news',
+    '/testimonials',
+    '/contact',
+    '/privacy-policy',
+    '/terms',
   ]
+
+  const sitemapRoutes: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === '' ? 'weekly' : route === '/news' ? 'daily' : 'monthly',
+    priority: route === '' ? 1 : 0.8,
+  }))
+
+  const locationRoutes: MetadataRoute.Sitemap = locations.map((location) => ({
+    url: `${baseUrl}/locations/${location.city}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.9, // High priority for local SEO
+  }))
+
+  return [...sitemapRoutes, ...locationRoutes]
 }

@@ -96,8 +96,8 @@ export default function HomeAboutSection() {
             className="relative h-[600px] w-full rounded-[40px] overflow-hidden shadow-2xl shadow-[#5b3a26]/10 border-8 border-white bg-white hidden lg:block"
           >
             <Image
-              src="/assets/doggy3dd.png"
-              alt="Grooming Dog"
+              src="/assets/pet_spa_bath.png"
+              alt="Premium Grooming Dog"
               fill
               className="object-cover scale-110 hover:scale-100 transition-transform duration-700 brightness-95"
             />
@@ -115,6 +115,30 @@ export default function HomeAboutSection() {
             </div>
           </motion.div>
 
+        </div>
+
+        {/* ================= ANIMATED STATS ================= */}
+        <div className="relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { value: "2000+", label: "Happy Pets Groomed", emoji: "🐾" },
+              { value: "4.9★", label: "Average Rating", emoji: "⭐" },
+              { value: "6+", label: "Cities Covered", emoji: "📍" },
+              { value: "3+", label: "Years of Excellence", emoji: "🏆" },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView1 ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                className="bg-white/60 backdrop-blur-xl border border-white/60 rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="text-2xl mb-1 group-hover:scale-110 transition-transform duration-300">{stat.emoji}</div>
+                <div className="text-3xl font-black text-[#5b3a26] leading-none">{stat.value}</div>
+                <div className="text-xs text-[#7a5741] font-semibold mt-1.5">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* ================= WHY CHOOSE US ================= */}
