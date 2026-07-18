@@ -200,11 +200,12 @@ export default function Footer() {
               <ul className="space-y-2.5 text-sm text-[#c8b8a8]">
                 {[
                   { label: "Home", href: "/" },
-                  { label: "Services", href: "/services" },
-                  { label: "Packages & Pricing", href: "/packages" },
-                  { label: "Book Appointment", href: "/booking" },
-                  { label: "News & Tips", href: "/news" },
+                  { label: "Grooming Services", href: "/services" },
+                  { label: "Veterinary Care", href: "/veterinary" },
+                  { label: "Find a Companion", href: "/find-a-companion" },
+                  { label: "Pet Insurance", href: "/pet-insurance" },
                   { label: "Gallery", href: "/gallery" },
+                  { label: "Blog & News", href: "/news" },
                   { label: "Contact Us", href: "/contact" },
                 ].map((item) => (
                   <li key={item.href}>
@@ -233,6 +234,10 @@ export default function Footer() {
 
             <p className="text-xs leading-relaxed max-w-5xl mx-auto opacity-60">
               Doorstep Pet Grooming in Delhi NCR | Dog Grooming at Home | Cat Grooming Services | Pet Spa &amp; Hygiene Care | Professional Groomers at Home | Sniffnsnooz Premium Pet Grooming
+            </p>
+
+            <p className="mt-4 text-xs font-semibold max-w-3xl mx-auto text-amber-100/70 border-t border-white/5 pt-4">
+              ⚠️ Sniffnsnooz does not support unethical breeding or illegal pet trade. We connect pet lovers with trusted guidance and consultation services.
             </p>
 
             <p className="mt-4 text-xs opacity-40">

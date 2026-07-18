@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/veterinary-booking',
     '/privacy-policy',
     '/terms',
+    '/find-a-companion',
+    '/pet-insurance',
   ]
 
   const sitemapRoutes: MetadataRoute.Sitemap = staticRoutes.map((route) => ({

@@ -57,3 +57,4 @@ test_mongo.js
 
 .vercel
 .env*
+.npm-cache/

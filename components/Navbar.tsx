@@ -8,15 +8,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Menu, X, Phone, Star } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-const navLinks = [
+const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
   { href: "/", label: "Home", emoji: "🏠" },
-  { href: "/services", label: "Services", emoji: "✂️" },
-  { href: "/veterinary", label: "Vet Care", emoji: "🩺", highlight: true },
-  { href: "/packages", label: "Packages", emoji: "📦" },
+  { href: "/services", label: "Grooming", emoji: "✂️" },
+  { href: "/veterinary", label: "Veterinary", emoji: "🩺" },
+  { href: "/find-a-companion", label: "Find a Companion", emoji: "🐾" },
+  { href: "/pet-insurance", label: "Pet Insurance", emoji: "🛡️" },
   { href: "/gallery", label: "Gallery", emoji: "🖼️" },
-  { href: "/booking", label: "Book", emoji: "📅" },
-  { href: "/testimonials", label: "Reviews", emoji: "⭐" },
-  { href: "/news", label: "News", emoji: "📰" },
+  { href: "/news", label: "Blog", emoji: "📰" },
   { href: "/contact", label: "Contact", emoji: "📞" },
 ];
 

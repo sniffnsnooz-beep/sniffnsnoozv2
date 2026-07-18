@@ -80,39 +80,48 @@ export default function HeroSection() {
             className="section-label mb-6"
           >
             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-            <span>India's #1 Doorstep Pet Grooming</span>
+            <span>Complete Pet Ecosystem Solutions</span>
           </motion.div>
 
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] font-serif text-[#5b3a26] mb-6">
-            Premium Pet <br className="hidden md:block" />
-            <span className="shimmer-text">Grooming &amp; Spa</span>
+            Everything Your Pet Needs, <br className="hidden md:block" />
+            <span className="shimmer-text">All in One Place.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-[#7a5741] mb-10 leading-relaxed max-w-lg">
-            Experience luxury care for your furry friends without leaving your home.
-            Stress-free, hygienic, and purr-fectly professional.
+          <p className="text-lg md:text-xl text-[#7a5741] mb-10 leading-relaxed max-w-xl">
+            From grooming and veterinary care to pet guidance, insurance and trusted companionship services — Sniffnsnooz brings complete pet solutions to your doorstep.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/store-booking">
+          <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
+            <Link href="/booking">
               <motion.span
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center gap-2"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-primary flex items-center gap-2 !py-3 !px-5 !text-sm"
               >
-                Book Grooming <ArrowRight className="w-5 h-5" />
+                Book Grooming <ArrowRight className="w-4 h-4" />
               </motion.span>
             </Link>
 
-            <Link href="/services">
+            <Link href="/veterinary-booking">
               <motion.span
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-ghost flex items-center gap-2"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-red-50 text-red-800 border-2 border-red-100 hover:bg-red-100/80 transition px-5 py-3 rounded-full font-bold text-sm flex items-center gap-2"
               >
-                View Packages <Heart className="w-5 h-5 text-[#8c5a3b]" />
+                🩺 Consult Vet
+              </motion.span>
+            </Link>
+
+            <Link href="/find-a-companion">
+              <motion.span
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-ghost flex items-center gap-2 !py-3 !px-5 !text-sm"
+              >
+                Find a Companion <Heart className="w-4 h-4 text-[#8c5a3b]" />
               </motion.span>
             </Link>
           </div>

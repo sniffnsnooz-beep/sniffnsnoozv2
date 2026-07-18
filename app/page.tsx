@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/Hero3D";
 import HomeServiceSlider from "../components/HomeServiceSlider";
+import HomeServiceGrid from "@/components/HomeServiceGrid";
 import HomeAboutSection from "@/components/HomeAboutSection";
 import HomeFAQSection from "@/components/HomeFAQSection";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
@@ -8,16 +9,16 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Premium Doorstep Pet Grooming in Delhi NCR | Sniffnsnooz",
+  title: "Complete Pet Care Ecosystem & Doorstep Services | Sniffnsnooz",
   description:
-    "Sniffnsnooz offers premium doorstep dog and cat grooming across Delhi, Gurugram, Noida, Ghaziabad, Faridabad & Greater Noida. Stress-free, hygienic grooming at home using imported professional products.",
+    "Sniffnsnooz is Delhi NCR's premium pet ecosystem providing doorstep pet grooming, veterinary care, pet companion guidance, and insurance protection plans.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Sniffnsnooz | #1 Doorstep Pet Grooming Delhi NCR",
+    title: "Sniffnsnooz | Premium Pet Ecosystem Delhi NCR",
     description:
-      "Book a doorstep pet grooming session today! Serving dogs and cats across Delhi NCR.",
+      "Grooming, veterinary home visits, companion consultation, and pet insurance - all in one place.",
     url: "https://sniffnsnooz.in",
     images: [{ url: "/assets/snifflogo.png", width: 1200, height: 630 }],
   },
@@ -83,6 +84,9 @@ export default function Home() {
           <ReviewsCarousel />
         </ScrollReveal>
       </section>
+
+      {/* ECOSYSTEM HIGHLIGHTS GRID */}
+      <HomeServiceGrid />
 
       {/* ════ HOW IT WORKS SECTION ════ */}
       <section className="py-24 bg-white relative overflow-hidden">
