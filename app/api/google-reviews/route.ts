@@ -9,8 +9,8 @@ export async function GET() {
     if (!API_KEY || !PLACE_ID) {
       console.error("Missing Google API Configuration");
       return NextResponse.json(
-        { error: "API Key or Place ID not configured" },
-        { status: 500 }
+        { reviews: [], error: "API Key or Place ID not configured" },
+        { status: 200 }
       );
     }
 
@@ -26,8 +26,8 @@ export async function GET() {
     // Google API status check
     if (data.status !== "OK") {
       return NextResponse.json(
-        { error: data.error_message || "Failed to fetch from Google" },
-        { status: 400 }
+        { reviews: [], error: data.error_message || "Failed to fetch from Google" },
+        { status: 200 }
       );
     }
 

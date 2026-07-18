@@ -229,7 +229,7 @@ export default function Footer() {
               <span className="opacity-30">|</span>
               <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               <span className="opacity-30">|</span>
-              <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>
+              <a href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</a>
             </div>
 
             <p className="text-xs leading-relaxed max-w-5xl mx-auto opacity-60">
