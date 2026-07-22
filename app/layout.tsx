@@ -18,14 +18,18 @@ export const metadata: Metadata = {
   description:
     "Sniffnsnooz is a premium doorstep pet grooming service providing stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
   keywords: [
-    "pet grooming",
-    "dog grooming at home",
-    "cat grooming at home",
+    "pet grooming Delhi NCR",
+    "dog grooming at home Delhi",
+    "cat grooming at home Gurugram",
     "doorstep pet grooming",
-    "Delhi NCR",
-    "Gurugram",
-    "Noida",
+    "pet grooming Noida",
+    "pet grooming Gurugram",
+    "home dog grooming service",
+    "mobile pet grooming Delhi",
     "sniffnsnooz",
+    "pet spa Delhi NCR",
+    "dog bath at home",
+    "pet grooming near me",
   ],
   authors: [{ name: "Sniffnsnooz Team" }],
   creator: "Sniffnsnooz",
@@ -129,23 +133,51 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@graph": [
 
-                  /* 1️⃣ PET CARE + LOCAL BUSINESS AUTHORITY */
+                  /* 1️⃣ WEBSITE + SITELINKS SEARCH BOX */
                   {
-                    "@type": "PetCareBusiness",
+                    "@type": "WebSite",
+                    "@id": "https://sniffnsnooz.in/#website",
+                    "url": "https://sniffnsnooz.in",
+                    "name": "Sniffnsnooz",
+                    "description": "Premium Doorstep Pet Grooming Service in Delhi NCR",
+                    "publisher": { "@id": "https://sniffnsnooz.in/#petcare" },
+                    "inLanguage": "en-IN",
+                    "potentialAction": {
+                      "@type": "SearchAction",
+                      "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://sniffnsnooz.in/news?q={search_term_string}"
+                      },
+                      "query-input": "required name=search_term_string"
+                    }
+                  },
+
+                  /* 2️⃣ PET CARE + LOCAL BUSINESS AUTHORITY */
+                  {
+                    "@type": ["PetCareBusiness", "LocalBusiness"],
                     "@id": "https://sniffnsnooz.in/#petcare",
                     "name": "Sniffnsnooz",
                     "url": "https://sniffnsnooz.in",
-                    "logo": "https://sniffnsnooz.in/assets/snifflogo.png",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "url": "https://sniffnsnooz.in/assets/snifflogo.png",
+                      "width": 512,
+                      "height": 512
+                    },
                     "image": "https://sniffnsnooz.in/assets/snifflogo.png",
                     "description":
                       "Sniffnsnooz is a premium doorstep pet grooming service providing stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
                     "telephone": "+91-9971135063",
                     "email": "sniffnsnooz@gmail.com",
                     "priceRange": "₹₹",
+                    "currenciesAccepted": "INR",
+                    "paymentAccepted": "Cash, Credit Card, UPI, Net Banking",
                     "aggregateRating": {
                       "@type": "AggregateRating",
                       "ratingValue": "4.9",
-                      "reviewCount": "1250"
+                      "reviewCount": "1250",
+                      "bestRating": "5",
+                      "worstRating": "1"
                     },
                     "address": {
                       "@type": "PostalAddress",
@@ -161,6 +193,14 @@ export default function RootLayout({
                       "latitude": 28.4031,
                       "longitude": 77.0669
                     },
+                    "openingHoursSpecification": [
+                      {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                        "opens": "09:00",
+                        "closes": "20:00"
+                      }
+                    ],
                     "areaServed": [
                       { "@type": "City", "name": "Delhi" },
                       { "@type": "City", "name": "Noida" },
@@ -169,12 +209,42 @@ export default function RootLayout({
                       { "@type": "City", "name": "Faridabad" },
                       { "@type": "City", "name": "Greater Noida" }
                     ],
+                    "hasOfferCatalog": {
+                      "@type": "OfferCatalog",
+                      "name": "Pet Care Services",
+                      "itemListElement": [
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Doorstep Dog Grooming" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cat Grooming at Home" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aromatherapy Spa Bath" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nail & Paw Care" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ear Cleaning" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hair Styling & Trimming" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coat & Skin Treatment" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Oral Hygiene Care" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Doorstep Veterinary Visit" } },
+                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pet Insurance Guidance" } }
+                      ]
+                    },
+                    "contactPoint": {
+                      "@type": "ContactPoint",
+                      "telephone": "+91-9971135063",
+                      "contactType": "customer service",
+                      "areaServed": "IN",
+                      "availableLanguage": ["English", "Hindi"],
+                      "contactOption": "TollFree"
+                    },
+                    /* sameAs = backlink authority signals to Google */
                     "sameAs": [
-                      "https://www.instagram.com/sniffnsnooz_/"
+                      "https://www.instagram.com/sniffnsnooz_/",
+                      "https://www.facebook.com/sniffnsnooz",
+                      "https://www.youtube.com/@sniffnsnooz",
+                      "https://twitter.com/sniffnsnooz",
+                      "https://www.justdial.com/sniffnsnooz",
+                      "https://www.indiamart.com/sniffnsnooz"
                     ]
                   },
 
-                  /* 2️⃣ GOOGLE MAPS + PLACE */
+                  /* 3️⃣ GOOGLE MAPS + PLACE */
                   {
                     "@type": "Place",
                     "@id": "https://sniffnsnooz.in/#location",
@@ -188,7 +258,7 @@ export default function RootLayout({
                     }
                   },
 
-                  /* 3️⃣ SERVICE + BOOKING INTENT */
+                  /* 4️⃣ SERVICE + BOOKING INTENT */
                   {
                     "@type": "Service",
                     "@id": "https://sniffnsnooz.in/#booking-service",
@@ -211,7 +281,7 @@ export default function RootLayout({
                     }
                   },
 
-                  /* 4️⃣ SPEAKABLE (VOICE SEARCH) */
+                  /* 5️⃣ SPEAKABLE (VOICE SEARCH) */
                   {
                     "@type": "WebPage",
                     "@id": "https://sniffnsnooz.in/#homepage",
@@ -227,7 +297,7 @@ export default function RootLayout({
                     }
                   },
 
-                  /* 5️⃣ TRUST: IMPORTED PRODUCTS */
+                  /* 6️⃣ TRUST: IMPORTED PRODUCTS */
                   {
                     "@type": "Thing",
                     "@id": "https://sniffnsnooz.in/#products",
@@ -236,21 +306,23 @@ export default function RootLayout({
                       "Uses imported pet grooming products trusted by professional show-pet groomers worldwide including Hydra Professional shampoo and Bio-Groom conditioner."
                   },
 
-                  /* 6️⃣ BREED-WISE GROOMING AUTHORITY */
+                  /* 7️⃣ BREED-WISE GROOMING AUTHORITY */
                   {
                     "@type": "ItemList",
                     "@id": "https://sniffnsnooz.in/#breed-grooming",
-                    "name": "Breed Wise Pet Grooming",
+                    "name": "Breed Wise Pet Grooming Delhi NCR",
                     "itemListElement": [
-                      { "@type": "Service", "name": "Golden Retriever Grooming" },
-                      { "@type": "Service", "name": "German Shepherd Grooming" },
-                      { "@type": "Service", "name": "Shih Tzu Grooming" },
-                      { "@type": "Service", "name": "Pug Grooming" },
-                      { "@type": "Service", "name": "Persian Cat Grooming" }
+                      { "@type": "Service", "position": 1, "name": "Golden Retriever Grooming at Home" },
+                      { "@type": "Service", "position": 2, "name": "German Shepherd Grooming at Home" },
+                      { "@type": "Service", "position": 3, "name": "Shih Tzu Grooming at Home" },
+                      { "@type": "Service", "position": 4, "name": "Pug Grooming at Home" },
+                      { "@type": "Service", "position": 5, "name": "Persian Cat Grooming at Home" },
+                      { "@type": "Service", "position": 6, "name": "Labrador Grooming at Home" },
+                      { "@type": "Service", "position": 7, "name": "Husky Grooming at Home" }
                     ]
                   },
 
-                  /* 7️⃣ VETERINARY AUTHORITY SIGNAL */
+                  /* 8️⃣ VETERINARY AUTHORITY SIGNAL */
                   {
                     "@type": "MedicalOrganization",
                     "@id": "https://sniffnsnooz.in/#vet-authority",
@@ -262,13 +334,53 @@ export default function RootLayout({
                     ]
                   },
 
-                  /* 8️⃣ AI BOOKING ASSISTANT */
+                  /* 9️⃣ AI BOOKING ASSISTANT */
                   {
                     "@type": "SoftwareApplication",
                     "@id": "https://sniffnsnooz.in/#ai-booking",
                     "name": "Sniffnsnooz AI Booking Assistant",
                     "applicationCategory": "BookingApplication",
                     "operatingSystem": "Web"
+                  },
+
+                  /* 🔟 FAQ — helps Google show FAQs in search results */
+                  {
+                    "@type": "FAQPage",
+                    "@id": "https://sniffnsnooz.in/#faq",
+                    "mainEntity": [
+                      {
+                        "@type": "Question",
+                        "name": "Does Sniffnsnooz offer doorstep pet grooming in Delhi?",
+                        "acceptedAnswer": {
+                          "@type": "Answer",
+                          "text": "Yes, Sniffnsnooz provides premium doorstep pet grooming across Delhi, Noida, Gurugram, Ghaziabad, Faridabad and Greater Noida."
+                        }
+                      },
+                      {
+                        "@type": "Question",
+                        "name": "What pet grooming services does Sniffnsnooz offer at home?",
+                        "acceptedAnswer": {
+                          "@type": "Answer",
+                          "text": "Sniffnsnooz offers aromatherapy spa baths, hair styling, nail and paw care, ear cleaning, coat and skin treatment, oral hygiene care, and doorstep veterinary visits."
+                        }
+                      },
+                      {
+                        "@type": "Question",
+                        "name": "How do I book a pet grooming session with Sniffnsnooz?",
+                        "acceptedAnswer": {
+                          "@type": "Answer",
+                          "text": "Visit sniffnsnooz.in/booking to book online, or call +91-9971135063 to schedule a doorstep grooming session."
+                        }
+                      },
+                      {
+                        "@type": "Question",
+                        "name": "Does Sniffnsnooz groom both dogs and cats?",
+                        "acceptedAnswer": {
+                          "@type": "Answer",
+                          "text": "Yes, Sniffnsnooz provides professional grooming for both dogs and cats of all breeds at your doorstep in Delhi NCR."
+                        }
+                      }
+                    ]
                   }
 
                 ]

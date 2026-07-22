@@ -392,12 +392,16 @@ export default function AdminDashboard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...galleryData, tags: tagsArr }),
       });
-      if (res.ok) {
-        alert("Gallery media published! 📸");
+      const resData = await res.json();
+      if (res.ok && resData.data) {
+        // Immediately add the new item to state (no waiting for fetchData)
+        setGalleryList((prev) => [resData.data, ...prev]);
         setGalleryData({ title: "", url: "", mediaType: "image", category: "Grooming", tags: "", featured: false, visible: true });
-        fetchData();
+        alert("Gallery media published! 📸");
+      } else {
+        alert("Failed to publish: " + (resData.message || "Unknown error"));
       }
-    } catch (e) { console.error(e); }
+    } catch (e) { console.error(e); alert("Error publishing media. Check console."); }
   };
 
   const toggleGalleryVisibility = async (id: string, currentVisible: boolean) => {
@@ -407,7 +411,12 @@ export default function AdminDashboard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, visible: !currentVisible }),
       });
-      if (res.ok) fetchData();
+      if (res.ok) {
+        // Immediately update the item in state
+        setGalleryList((prev) =>
+          prev.map((item) => item._id === id ? { ...item, visible: !currentVisible } : item)
+        );
+      }
     } catch (e) { console.error(e); }
   };
 
@@ -419,7 +428,10 @@ export default function AdminDashboard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       });
-      if (res.ok) fetchData();
+      if (res.ok) {
+        // Immediately remove item from state
+        setGalleryList((prev) => prev.filter((item) => item._id !== id));
+      }
     } catch (e) { console.error(e); }
   };
 
@@ -1004,9 +1016,25 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Gallery Media Grid */}
           <div className="lg:col-span-2 space-y-8">
+            {/* Stats Row */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Total Media</p>
+                <p className="text-2xl font-black text-[#5b3a26] mt-1">{galleryList.length}</p>
+              </div>
+              <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">📸 Photos</p>
+                <p className="text-2xl font-black text-orange-600 mt-1">{galleryList.filter(g => g.mediaType === "image").length}</p>
+              </div>
+              <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">🎥 Videos</p>
+                <p className="text-2xl font-black text-purple-600 mt-1">{galleryList.filter(g => g.mediaType === "video").length}</p>
+              </div>
+            </div>
             <div className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
-              <div className="p-6 bg-[#fcf9f5] border-b border-gray-100">
-                <h2 className="text-xl font-bold text-[#5b3a26]">Gallery Media List 📸</h2>
+              <div className="p-6 bg-[#fcf9f5] border-b border-gray-100 flex items-center justify-between">
+                <h2 className="text-xl font-bold text-[#5b3a26]">Gallery Media List 📸🎥</h2>
+                <span className="text-xs text-gray-400 font-semibold">{galleryList.filter(g => g.visible).length} visible</span>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
@@ -1021,17 +1049,33 @@ export default function AdminDashboard() {
                   </thead>
                   <tbody>
                     {galleryList.length === 0 ? (
-                      <tr><td colSpan={5} className="p-10 text-center text-gray-300">No media items in database.</td></tr>
+                      <tr><td colSpan={6} className="p-10 text-center text-gray-300">No media items in database.</td></tr>
                     ) : galleryList.map((item) => (
                       <tr key={item._id} className="border-b hover:bg-gray-50 transition">
                         <td className="p-5">
                           {item.mediaType === "video" ? (
-                            <div className="w-16 h-12 rounded-lg bg-black text-white flex items-center justify-center font-bold text-xs">🎥 Vid</div>
+                            <div className="relative w-20 h-14 rounded-lg overflow-hidden bg-black">
+                              <video
+                                src={item.url}
+                                className="w-full h-full object-cover opacity-80"
+                                preload="metadata"
+                                muted
+                                playsInline
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-white text-[10px] font-black bg-purple-600/80 px-1.5 py-0.5 rounded">▶ VIDEO</span>
+                              </div>
+                            </div>
                           ) : (
-                            <img src={item.url} alt={item.title} className="w-16 h-12 object-cover rounded-lg border border-gray-100" />
+                            <img src={item.url} alt={item.title} className="w-20 h-14 object-cover rounded-lg border border-gray-100" />
                           )}
                         </td>
-                        <td className="p-5 font-bold text-gray-700">{item.title}</td>
+                        <td className="p-5">
+                          <p className="font-bold text-gray-700 text-sm">{item.title}</p>
+                          <span className={`text-[9px] font-black px-1.5 py-0.5 rounded mt-1 inline-block ${
+                            item.mediaType === "video" ? "bg-purple-100 text-purple-700" : "bg-orange-100 text-orange-700"
+                          }`}>{item.mediaType === "video" ? "🎥 VIDEO" : "📸 IMAGE"}</span>
+                        </td>
                         <td className="p-5"><span className="bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">{item.category}</span></td>
                         <td className="p-5">
                           <button
@@ -1054,29 +1098,31 @@ export default function AdminDashboard() {
             </div>
           </div>
 
-          {/* Add Gallery Media Form */}
+          {/* Add / Upload Media Form */}
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200 sticky top-8">
-              <h2 className="text-xl font-bold text-[#5b3a26] mb-6">Add Gallery Media 📸</h2>
+              <h2 className="text-xl font-bold text-[#5b3a26] mb-1">Add Media 📸🎥</h2>
+              <p className="text-[10px] text-gray-400 mb-5 font-semibold">Upload photos or videos — auto-detected</p>
               <form onSubmit={handleGallerySubmit} className="space-y-4">
                 <input
                   type="text"
-                  placeholder="Media Title"
+                  placeholder="Media Title (e.g. Golden Retriever Bath)"
                   required
                   value={galleryData.title}
                   onChange={(e) => setGalleryData({ ...galleryData, title: e.target.value })}
                   className="w-full p-3 border rounded-xl bg-gray-50 text-xs outline-none"
                 />
 
-                <div className="grid grid-cols-2 gap-4">
-                  <select
-                    value={galleryData.mediaType}
-                    onChange={() => {}} // noop
-                    className="p-3 border rounded-xl bg-gray-50 text-xs outline-none font-semibold text-[#5b3a26]"
-                    disabled
-                  >
-                    <option value={galleryData.mediaType}>{galleryData.mediaType.toUpperCase()}</option>
-                  </select>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* Auto-detected type badge */}
+                  <div className={`p-3 border rounded-xl text-xs font-black flex items-center justify-center gap-1.5 ${
+                    galleryData.mediaType === "video"
+                      ? "bg-purple-50 border-purple-200 text-purple-700"
+                      : "bg-orange-50 border-orange-200 text-orange-700"
+                  }`}>
+                    {galleryData.mediaType === "video" ? "🎥 VIDEO" : "📸 IMAGE"}
+                    <span className="text-[9px] font-normal opacity-60">auto</span>
+                  </div>
                   <select
                     value={galleryData.category}
                     onChange={(e) => setGalleryData({ ...galleryData, category: e.target.value })}
@@ -1092,7 +1138,7 @@ export default function AdminDashboard() {
 
                 <input
                   type="text"
-                  placeholder="Tags (comma-separated, e.g. spa, dog)"
+                  placeholder="Tags: spa, dog, grooming"
                   value={galleryData.tags}
                   onChange={(e) => setGalleryData({ ...galleryData, tags: e.target.value })}
                   className="w-full p-3 border rounded-xl bg-gray-50 text-xs outline-none"
@@ -1100,68 +1146,90 @@ export default function AdminDashboard() {
 
                 <div className="flex gap-4 items-center">
                   <div className="flex items-center gap-1.5">
-                    <input
-                      type="checkbox"
-                      id="galFeatured"
-                      checked={galleryData.featured}
-                      onChange={(e) => setGalleryData({ ...galleryData, featured: e.target.checked })}
-                      className="rounded"
-                    />
-                    <label htmlFor="galFeatured" className="text-xs font-bold text-[#5b3a26]">Featured</label>
+                    <input type="checkbox" id="galFeatured" checked={galleryData.featured}
+                      onChange={(e) => setGalleryData({ ...galleryData, featured: e.target.checked })} className="rounded" />
+                    <label htmlFor="galFeatured" className="text-xs font-bold text-[#5b3a26]">⭐ Featured</label>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <input
-                      type="checkbox"
-                      id="galVisible"
-                      checked={galleryData.visible}
-                      onChange={(e) => setGalleryData({ ...galleryData, visible: e.target.checked })}
-                      className="rounded"
-                    />
-                    <label htmlFor="galVisible" className="text-xs font-bold text-[#5b3a26]">Visible</label>
+                    <input type="checkbox" id="galVisible" checked={galleryData.visible}
+                      onChange={(e) => setGalleryData({ ...galleryData, visible: e.target.checked })} className="rounded" />
+                    <label htmlFor="galVisible" className="text-xs font-bold text-[#5b3a26]">👁 Visible</label>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3">
-                  <CldUploadWidget
-                    uploadPreset="sniff_preset"
-                    options={{ cloudName: "dfwpzolir", sources: ["local", "url"], resourceType: "auto" }}
-                    onSuccess={(result: any) => {
-                      if (result.event === "success") {
-                        const url = result.info.secure_url;
-                        const mType = result.info.resource_type === "video" ? "video" : "image";
-                        setGalleryData((prev) => ({ ...prev, url, mediaType: mType }));
-                        alert("Media uploaded successfully!");
-                      }
-                    }}
-                  >
-                    {({ open }) => (
-                      <button
-                        type="button"
-                        onClick={() => open()}
-                        className={`w-full py-3 rounded-xl font-bold text-xs transition-all border ${galleryData.url ? "bg-green-100 text-green-700 border-green-200" : "bg-orange-100 text-orange-700 border-orange-200"}`}
-                      >
-                        {galleryData.url ? "Media Uploaded ✅ (Click to change)" : "Upload Photo / Video 📸🎥"}
-                      </button>
-                    )}
-                  </CldUploadWidget>
-                </div>
+                {/* Cloudinary Upload Widget */}
+                <CldUploadWidget
+                  uploadPreset="sniff_preset"
+                  options={{
+                    cloudName: "dfwpzolir",
+                    sources: ["local", "url", "camera"],
+                    resourceType: "auto",
+                    multiple: false,
+                    clientAllowedFormats: ["jpg", "jpeg", "png", "webp", "gif", "mp4", "mov", "avi", "mkv", "webm"],
+                    maxFileSize: 100000000, // 100MB for videos
+                  }}
+                  onSuccess={(result: any) => {
+                    const info = result?.info;
+                    if (info?.secure_url) {
+                      const url = info.secure_url;
+                      const mType = info.resource_type === "video" ? "video" : "image";
+                      setGalleryData((prev) => ({ ...prev, url, mediaType: mType }));
+                    }
+                  }}
+                  onError={(error: any) => {
+                    console.error("Cloudinary upload error:", error);
+                    alert("Upload failed. Please try again.");
+                  }}
+                >
+                  {({ open }) => (
+                    <button
+                      type="button"
+                      onClick={() => open()}
+                      className={`w-full py-3.5 rounded-xl font-bold text-xs transition-all border-2 ${
+                        galleryData.url
+                          ? "bg-green-50 text-green-700 border-green-300"
+                          : "bg-gradient-to-r from-orange-50 to-purple-50 text-[#5b3a26] border-dashed border-[#5b3a26]/30 hover:border-[#5b3a26]/60"
+                      }`}
+                    >
+                      {galleryData.url
+                        ? `✅ ${galleryData.mediaType === "video" ? "Video" : "Photo"} uploaded — Click to change`
+                        : "📸 Upload Photo   /   🎥 Upload Video"}
+                    </button>
+                  )}
+                </CldUploadWidget>
 
+                {/* Preview */}
                 {galleryData.url && (
-                  <div className="rounded-xl overflow-hidden border border-gray-200">
+                  <div className="rounded-xl overflow-hidden border-2 border-gray-200">
                     {galleryData.mediaType === "video" ? (
-                      <video src={galleryData.url} className="w-full h-40 object-cover" muted />
+                      <video
+                        src={galleryData.url}
+                        className="w-full h-44 object-cover"
+                        controls
+                        muted
+                        playsInline
+                      />
                     ) : (
-                      <img src={galleryData.url} alt="preview" className="w-full h-40 object-cover" />
+                      <img src={galleryData.url} alt="preview" className="w-full h-44 object-cover" />
                     )}
+                    <div className={`text-center py-1.5 text-[9px] font-black ${
+                      galleryData.mediaType === "video" ? "bg-purple-600 text-white" : "bg-orange-500 text-white"
+                    }`}>
+                      {galleryData.mediaType === "video" ? "🎥 VIDEO PREVIEW" : "📸 PHOTO PREVIEW"}
+                    </div>
                   </div>
                 )}
 
                 <button
                   type="submit"
-                  disabled={!galleryData.url}
-                  className={`w-full py-3.5 rounded-xl font-bold text-xs transition ${!galleryData.url ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-[#5b3a26] text-white hover:bg-orange-950"}`}
+                  disabled={!galleryData.url || !galleryData.title}
+                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition ${
+                    !galleryData.url || !galleryData.title
+                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      : "bg-[#5b3a26] text-white hover:bg-orange-950 shadow-md"
+                  }`}
                 >
-                  Publish to Gallery 📸
+                  {galleryData.mediaType === "video" ? "🎥 Publish Video to Gallery" : "📸 Publish Photo to Gallery"}
                 </button>
               </form>
             </div>
