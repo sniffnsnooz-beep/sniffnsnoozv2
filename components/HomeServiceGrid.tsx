@@ -3,14 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Star, Users, MapPin, CheckCircle2, Search, Trophy, ShieldCheck, Award, Sparkles, Home } from "lucide-react";
+import { Star, Users, MapPin, CheckCircle2, Search, ShieldCheck, Award, Sparkles, Home } from "lucide-react";
 
 export default function HomeServiceGrid() {
   return (
-    <section className="py-6 sm:py-10 bg-[#faf6f0]">
+    <section className="py-6 sm:py-10 bg-[#faf4ec] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
 
-        {/* 1. FIND A TRUSTED COMPANY BANNER (Matching Screenshot) */}
+        {/* 1. FIND A TRUSTED COMPANY BANNER (Matching Image 2) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,10 +37,11 @@ export default function HomeServiceGrid() {
           </Link>
         </motion.div>
 
-        {/* 2. STATS GRID & PETS IMAGE (Matching Screenshot) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+        {/* 2. STATS GRID & SEAMLESS PETS GRAPHIC (NO BOX BORDER - MATCHING IMAGE 2) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2 relative">
+          
           {/* STATS 2x2 GRID */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-4 relative z-10">
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1">
                 <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
@@ -74,21 +75,25 @@ export default function HomeServiceGrid() {
             </div>
           </div>
 
-          {/* PETS IMAGE */}
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-3xl overflow-hidden border-4 border-white shadow-lg bg-white">
+          {/* SEAMLESS PETS IMAGE (NO BOX BORDER / MIX-BLEND MULTIPLY - MATCHING IMAGE 2) */}
+          <div className="lg:col-span-6 flex justify-center relative z-10">
+            {/* FLOATING HEART DOODLES (Matching Image 2) */}
+            <div className="absolute top-2 left-4 text-2xl text-[#d4ad78] animate-bounce-slow opacity-60">💛</div>
+            <div className="absolute bottom-4 right-6 text-2xl text-[#d4ad78] opacity-60">💛</div>
+
+            <div className="relative w-full max-w-[460px] aspect-square flex items-center justify-center">
               <Image
-                src="/assets/stats_pets.png"
-                alt="Happy Golden Retriever, Poodle and Kitten"
+                src="/assets/stats_pets_blend.png"
+                alt="Golden Retriever, Poodle and Kitten"
                 fill
-                style={{ objectFit: "cover" }}
-                className="hover:scale-105 transition-transform duration-700"
+                style={{ objectFit: "contain" }}
+                className="mix-blend-multiply drop-shadow-lg hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>
         </div>
 
-        {/* 3. TRUSTED BY 2000+ AVATAR BAR (Matching Screenshot) */}
+        {/* 3. TRUSTED BY 2000+ AVATAR BAR (Matching Image 2) */}
         <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 flex items-center gap-4 shadow-sm">
           <div className="flex -space-x-3 shrink-0">
             <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-[#e6d3c2]">
@@ -111,7 +116,7 @@ export default function HomeServiceGrid() {
           </div>
         </div>
 
-        {/* 4. FOUR FEATURE BADGES (Matching Bottom of Screenshot) */}
+        {/* 4. FOUR FEATURE BADGES (Matching Image 2) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center pt-2">
           {[
             { title: "Trained & Experienced Professionals", icon: <Award className="w-5 h-5 text-[#4e3323] mx-auto mb-1.5" /> },
