@@ -2,106 +2,86 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Scissors, ShieldCheck, HeartPulse, Smile, Droplet } from "lucide-react";
+import { Scissors, Stethoscope, Shield, Heart, ShoppingBag, ArrowRight } from "lucide-react";
 
-const services = [
+const serviceCards = [
   {
-    title: "Hair & Styling",
-    desc: "Hair cut, face & eye styling",
-    price: "Starting ₹199",
-    href: "/services/hair-styling",
-    icon: <Scissors className="w-6 h-6 text-[#5b3a26]" />
+    title: "Grooming",
+    desc: "Spa, haircut, de-shedding & more",
+    href: "/grooming",
+    icon: <Scissors className="w-6 h-6 text-[#d48c38]" />,
+    iconBg: "bg-amber-50 border-amber-100",
   },
   {
-    title: "Ear Care",
-    desc: "Ear cleaning & hygiene",
-    price: "Starting ₹199",
-    href: "/services/ear-care",
-    icon: <ShieldCheck className="w-6 h-6 text-[#5b3a26]" />
+    title: "Veterinary Care",
+    desc: "Home vet visits & consultations",
+    href: "/veterinary",
+    icon: <Stethoscope className="w-6 h-6 text-[#4e3323]" />,
+    iconBg: "bg-orange-50 border-orange-100",
   },
   {
-    title: "Nail & Paw Care",
-    desc: "Nail trimming & paw care",
-    price: "Starting ₹199",
-    href: "/services/nail-paw-care",
-    icon: <HeartPulse className="w-6 h-6 text-[#5b3a26]" />
+    title: "Pet Insurance",
+    desc: "Secure their health & your peace",
+    href: "/pet-insurance",
+    icon: <Shield className="w-6 h-6 text-[#d48c38]" />,
+    iconBg: "bg-amber-50 border-amber-100",
   },
   {
-    title: "Oral Hygiene",
-    desc: "Oral cleaning & care",
-    price: "Starting ₹249",
-    href: "/services/oral-hygiene-care",
-    icon: <Smile className="w-6 h-6 text-[#5b3a26]" />
+    title: "Pet Companionship",
+    desc: "Trusted companionship services",
+    href: "/find-a-companion",
+    icon: <Heart className="w-6 h-6 text-[#4e3323]" />,
+    iconBg: "bg-orange-50 border-orange-100",
   },
   {
-    title: "Bath & Spa",
-    desc: "Spa & medicated bath",
-    price: "Starting ₹899",
-    href: "/services/bath-spa-addons",
-    icon: <Droplet className="w-6 h-6 text-[#5b3a26]" />
+    title: "Pet Essentials",
+    desc: "Premium food, products & more",
+    href: "/services",
+    icon: <ShoppingBag className="w-6 h-6 text-[#d48c38]" />,
+    iconBg: "bg-amber-50 border-amber-100",
   },
 ];
 
 export default function HomeServiceSlider() {
   return (
-    <section className="relative z-20 mt-[-30px] md:mt-[-50px]">
-      <div className="max-w-[1400px] mx-auto px-5 overflow-hidden">
+    <section className="py-8 sm:py-12 bg-[#faf6f0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Infinite CSS Scroll Wrapper */}
-        <div className="flex gap-6 w-max animate-scroll-x hover:[animation-play-state:paused] py-4">
+        {/* SECTION HEADER MATCHING SCREENSHOT */}
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-sm sm:text-base font-bold text-[#7a5741] flex items-center justify-center gap-2">
+            <span>🐾</span> Everything your pet needs, at your doorstep <span>🐾</span>
+          </h2>
+        </div>
 
-          {/* Duplicating the array multiple times to ensure smooth infinite scroll */}
-          {[...services, ...services, ...services, ...services].map((s, i) => (
-            <Link key={i} href={s.href} className="shrink-0 group outline-none">
+        {/* HORIZONTAL CAROUSEL / GRID MATCHING SCREENSHOT */}
+        <div className="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none no-scrollbar">
+          {serviceCards.map((card, idx) => (
+            <Link key={idx} href={card.href} className="snap-start shrink-0 w-[160px] sm:w-[200px] group">
               <motion.div
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="
-                  bg-white/40
-                  backdrop-blur-xl
-                  border border-white/50
-                  min-w-[280px]
-                  max-w-[300px]
-                  p-6
-                  rounded-3xl
-                  shadow-lg
-                  shadow-[#5b3a26]/5
-                  cursor-pointer
-                  transition-all
-                  duration-300
-                  group-hover:shadow-[#5b3a26]/15
-                  group-hover:bg-white/60
-                  relative
-                  overflow-hidden
-                "
+                whileHover={{ y: -4 }}
+                className="bg-white border border-[#eae0d5] rounded-2xl p-4 flex flex-col justify-between h-[210px] shadow-sm group-hover:shadow-md transition-all text-center items-center"
               >
-                {/* Decorative Glow inside card */}
-                <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#e6d3c2] rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
-
-                <div className="w-12 h-12 rounded-full bg-white/70 border border-white flex items-center justify-center mb-4 shadow-sm relative z-10 transition-transform group-hover:rotate-12">
-                  {s.icon}
+                <div>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${card.iconBg} mb-3 group-hover:scale-105 transition-transform`}>
+                    {card.icon}
+                  </div>
+                  <h3 className="font-serif font-bold text-[#4e3323] text-sm sm:text-base mb-1 group-hover:text-[#8c5a3b] transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-[#7a5741] leading-tight font-medium">
+                    {card.desc}
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-serif text-[#5b3a26] mb-2 font-bold relative z-10">
-                  {s.title}
-                </h3>
-
-                <p className="text-[#7a5741] text-sm leading-relaxed relative z-10">
-                  {s.desc}
-                </p>
-
-                <p className="mt-4 font-semibold text-[#5b3a26] relative z-10">
-                  {s.price}
-                </p>
-
-                <div className="mt-6 flex align-center">
-                  <span className="bg-[#5b3a26] text-white px-6 py-2 rounded-full text-sm font-medium shadow-md group-hover:shadow-xl transition-all relative z-10 w-full text-center group-hover:bg-[#462c1d]">
-                    Book Now
-                  </span>
+                <div className="w-7 h-7 rounded-full bg-[#faf4ec] border border-[#e8dccf] flex items-center justify-center text-[#4e3323] group-hover:bg-[#4e3323] group-hover:text-white transition-colors mt-2">
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </motion.div>
             </Link>
           ))}
         </div>
+
       </div>
     </section>
   );

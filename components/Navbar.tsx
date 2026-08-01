@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useBooking } from "@/context/BookingContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Menu, X, Phone, Star } from "lucide-react";
+import { ShoppingCart, Menu, X, Phone, Star, CalendarCheck } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
@@ -52,10 +52,10 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="announcement-bar fixed top-0 left-0 w-full z-[60] overflow-hidden"
+            className="announcement-bar fixed top-0 left-0 w-full z-[60] overflow-hidden bg-[#5b3a26] text-white text-xs py-1.5"
           >
-            <div className="flex items-center justify-center gap-4 relative px-8">
-              <span>🐾 Free doorstep grooming consultation across Delhi NCR</span>
+            <div className="flex items-center justify-center gap-4 relative px-8 font-medium">
+              <span>🚚 Free doorstep grooming consultation across Delhi NCR</span>
               <a href="tel:+919818728444" className="hidden sm:flex items-center gap-1 bg-white/20 rounded-full px-3 py-0.5 text-xs hover:bg-white/30 transition">
                 <Phone size={11} /> Call Now
               </a>
@@ -73,23 +73,23 @@ export default function Navbar() {
 
       {/* MAIN NAVBAR */}
       <nav
-        className={`fixed left-0 w-full z-50 transition-all duration-300 ${showAnnouncement ? "top-[37px]" : "top-0"
+        className={`fixed left-0 w-full z-50 transition-all duration-300 ${showAnnouncement ? "top-[32px]" : "top-0"
           } ${scrolled
             ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-white/40"
-            : "bg-white/50 backdrop-blur-md"
+            : "bg-white/60 backdrop-blur-md"
           }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-[68px]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-6 h-[64px]">
 
           {/* LOGO */}
           <Link href="/" className="flex items-center h-full py-1 shrink-0">
             <Image
               src="/assets/snifflogo.png"
               alt="Sniffnsnooz logo"
-              width={200}
-              height={64}
+              width={180}
+              height={56}
               priority
-              className="object-contain h-[48px] w-auto"
+              className="object-contain h-[42px] sm:h-[48px] w-auto"
             />
           </Link>
 
@@ -135,12 +135,13 @@ export default function Navbar() {
               </AnimatePresence>
             </Link>
 
-            {/* BOOK CTA */}
+            {/* BOOK CTA - Visible on Mobile too! */}
             <Link
               href="/store-booking"
-              className="hidden md:inline-flex items-center gap-1.5 btn-primary !py-2.5 !px-5 !text-sm"
+              className="inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
             >
-              Book Now 🐾
+              <CalendarCheck size={14} className="text-white" />
+              <span>Book Now</span>
             </Link>
 
             {/* HAMBURGER */}
