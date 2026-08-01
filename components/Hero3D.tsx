@@ -92,6 +92,8 @@ export default function HeroSection() {
                 alt="Golden Retriever puppy and Kitten"
                 fill
                 priority
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, 480px"
                 style={{ objectFit: "contain" }}
                 className="mix-blend-multiply drop-shadow-xl hover:scale-105 transition-transform duration-700"
               />

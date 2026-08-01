@@ -89,6 +89,8 @@ export default function Navbar() {
               width={180}
               height={56}
               priority
+              fetchPriority="high"
+              sizes="(max-width: 640px) 140px, 180px"
               className="object-contain h-[42px] sm:h-[48px] w-auto"
             />
           </Link>

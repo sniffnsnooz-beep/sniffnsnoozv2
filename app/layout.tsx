@@ -77,12 +77,17 @@ export default function RootLayout({
         {/* ✅ Google Search Console Verification */}
         <meta name="google-site-verification" content="rBLyCvgHVJgwOvIgpBPXEs1N4boYVbewvVqWiejhDMo" />
 
+        {/* ⚡ CRITICAL LCP PERFORMANCE & RESOURCE PRELOADS FOR MOBILE PAGESPEED */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preload" href="/assets/hero_pets_blend.png" as="image" type="image/png" fetchPriority="high" />
+        <link rel="preload" href="/assets/snifflogo.png" as="image" type="image/png" fetchPriority="high" />
+
         {/* ========================= 
-            📊 GOOGLE TAG MANAGER
+            📊 GOOGLE TAG MANAGER (LAZY LOADED TO PREVENT MAIN THREAD BLOCKING)
             Container ID: GT-K4TLPZHK
         ========================= */}
-        {/* GTM Script - must be first in <head> */}
-        <Script id="gtm-script" strategy="afterInteractive">
+        <Script id="gtm-script" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -93,14 +98,14 @@ export default function RootLayout({
         </Script>
 
         {/* ========================= 
-            📊 GOOGLE ADS CONVERSION TRACKING
+            📊 GOOGLE ADS CONVERSION TRACKING (LAZY LOADED)
             Account: AW-17243845030
         ========================= */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17243845030"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-ads" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
