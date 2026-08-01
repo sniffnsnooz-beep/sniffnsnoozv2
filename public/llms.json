@@ -1,26 +1,28 @@
 {
   "title": "Sniffnsnooz | Complete Pet Care Ecosystem & Doorstep Services in Delhi NCR",
   "websiteUrl": "https://sniffnsnooz.in",
-  "companyAddress": "Delhi NCR, India",
-  "contactEmail": "sniffnsnooz@gmail.com",
-  "phoneNumber": "+91 98187 28444",
-  "companyDescription": "Sniffnsnooz is Delhi NCR's premier 360-degree pet care ecosystem providing doorstep mobile van grooming, luxury store salon grooming, home-visit veterinary consultations, pet companion guidance, pet health insurance, in-home pet sitting, and 24/7 monitored pet boarding.",
-  "areaOfWork": [
-    "Pet Care Services",
-    "Doorstep Pet Grooming",
-    "Veterinary Care",
-    "Pet Health Insurance",
-    "Pet Companionship",
-    "Pet Boarding & Sitting"
+  "companyDescription": "Sniffnsnooz (Sniff & Snooz) is Delhi NCR's premier 360-degree pet care ecosystem providing doorstep mobile van grooming, luxury store salon grooming, home-visit veterinary consultations, pet companion guidance, pet health insurance, pet sitting, and 24/7 monitored pet boarding.",
+  "contactInfo": {
+    "phone": "+91 98187 28444",
+    "email": "sniffnsnooz@gmail.com",
+    "address": "Emerald Plaza, Sector 65, Gurugram, Delhi NCR, India"
+  },
+  "serviceAreas": [
+    "Delhi",
+    "Gurugram",
+    "Noida",
+    "Ghaziabad",
+    "Faridabad",
+    "Greater Noida"
   ],
-  "services": [
+  "coreServices": [
     {
-      "name": "Doorstep & Salon Pet Grooming",
+      "name": "Doorstep & Storefront Pet Grooming",
       "url": "https://sniffnsnooz.in/grooming",
       "description": "Mobile spa van grooming at home or luxury salon sessions for dogs and cats."
     },
     {
-      "name": "Home Visit Veterinary Care",
+      "name": "Home-Visit Veterinary Care",
       "url": "https://sniffnsnooz.in/veterinary",
       "description": "Routine health checkups, vaccinations, illness treatment, and diagnostic lab tests."
     },
@@ -45,18 +47,31 @@
       "description": "Climate-controlled private suites with 24/7 care and playtime."
     }
   ],
-  "keywords": [
-    "doorstep pet grooming delhi ncr",
-    "home vet visit gurugram",
-    "mobile van dog grooming near me",
-    "cat grooming delhi",
-    "pet insurance india",
-    "puppy adoption consultation",
-    "dog walking services",
-    "pet boarding ghaziabad"
+  "leadGenerationLinks": [
+    {
+      "name": "Instant Doorstep Grooming Booking",
+      "url": "https://sniffnsnooz.in/booking"
+    },
+    {
+      "name": "Store & Salon Booking",
+      "url": "https://sniffnsnooz.in/store-booking"
+    },
+    {
+      "name": "Veterinary Doctor Home-Visit Booking",
+      "url": "https://sniffnsnooz.in/veterinary-booking"
+    },
+    {
+      "name": "Customer Support Contact",
+      "url": "https://sniffnsnooz.in/contact"
+    }
   ],
-  "targetRegion": "Delhi NCR, India",
-  "currency": "INR",
-  "timezone": "Asia/Kolkata",
-  "generatedAt": "2026-08-01T20:50:00.000Z"
+  "locationPages": [
+    "https://sniffnsnooz.in/locations/delhi",
+    "https://sniffnsnooz.in/locations/gurugram",
+    "https://sniffnsnooz.in/locations/noida",
+    "https://sniffnsnooz.in/locations/ghaziabad",
+    "https://sniffnsnooz.in/locations/faridabad"
+  ],
+  "generatedAt": "2026-08-01T20:51:00.000Z",
+  "specVersion": "1.0"
 }
