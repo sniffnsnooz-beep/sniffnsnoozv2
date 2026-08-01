@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
   { href: "/", label: "Home", emoji: "🏠" },
-  { href: "/services", label: "Grooming", emoji: "✂️" },
+  { href: "/services", label: "Services", emoji: "✂️" },
   { href: "/veterinary", label: "Veterinary", emoji: "🩺" },
   { href: "/find-a-companion", label: "Find a Companion", emoji: "🐾" },
   { href: "/pet-insurance", label: "Pet Insurance", emoji: "🛡️" },
@@ -72,13 +72,11 @@ export default function Navbar() {
 
       {/* MAIN NAVBAR */}
       <nav
-        className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-          showAnnouncement ? "top-[37px]" : "top-0"
-        } ${
-          scrolled
+        className={`fixed left-0 w-full z-50 transition-all duration-300 ${showAnnouncement ? "top-[37px]" : "top-0"
+          } ${scrolled
             ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-white/40"
             : "bg-white/50 backdrop-blur-md"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-[68px]">
 
@@ -100,11 +98,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 py-1.5 rounded-full transition-all duration-200 group ${
-                  isActive(link.href)
+                className={`relative px-3 py-1.5 rounded-full transition-all duration-200 group ${isActive(link.href)
                     ? "bg-[#5b3a26]/10 text-[#5b3a26] font-semibold"
                     : "hover:bg-[#5b3a26]/6 hover:text-[#4a2f1f]"
-                } ${link.highlight && !isActive(link.href) ? "text-orange-800 font-bold" : ""}`}
+                  } ${link.highlight && !isActive(link.href) ? "text-orange-800 font-bold" : ""}`}
               >
                 {link.label}
                 {isActive(link.href) && (
@@ -187,7 +184,7 @@ export default function Navbar() {
               </div>
 
               <div className="mx-4 mt-3 mb-1 flex items-center gap-1.5 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2">
-                {[1,2,3,4,5].map(i => <Star key={i} size={12} className="text-amber-400 fill-amber-400" />)}
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} className="text-amber-400 fill-amber-400" />)}
                 <span className="text-xs font-semibold text-amber-800 ml-1">4.9 · 2000+ happy pets</span>
               </div>
 
@@ -202,11 +199,10 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
-                        isActive(link.href)
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${isActive(link.href)
                           ? "bg-[#5b3a26] text-white shadow-md"
                           : "text-[#5b3a26] hover:bg-[#f6efe6]"
-                      } ${link.highlight && !isActive(link.href) ? "text-orange-800 bg-orange-50/50" : ""}`}
+                        } ${link.highlight && !isActive(link.href) ? "text-orange-800 bg-orange-50/50" : ""}`}
                     >
                       <span className="text-base">{link.emoji}</span>
                       {link.label}
