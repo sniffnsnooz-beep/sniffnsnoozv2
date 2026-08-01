@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Tier 2: High-traffic discovery pages ───────────────────
     { url: '/gallery',              priority: 0.9,  changeFrequency: 'weekly' },
     { url: '/services',             priority: 0.9,  changeFrequency: 'monthly'},
+    { url: '/grooming',             priority: 0.9,  changeFrequency: 'weekly' },
     { url: '/packages',             priority: 0.85, changeFrequency: 'monthly'},
     { url: '/veterinary',           priority: 0.85, changeFrequency: 'monthly'},
     { url: '/find-a-companion',     priority: 0.8,  changeFrequency: 'weekly' },

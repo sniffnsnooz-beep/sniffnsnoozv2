@@ -10,7 +10,8 @@ import { usePathname } from "next/navigation";
 
 const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
   { href: "/", label: "Home", emoji: "🏠" },
-  { href: "/services", label: "Services", emoji: "✂️" },
+  { href: "/services", label: "Services", emoji: "✨" },
+  { href: "/grooming", label: "Grooming", emoji: "✂️" },
   { href: "/veterinary", label: "Veterinary", emoji: "🩺" },
   { href: "/find-a-companion", label: "Find a Companion", emoji: "🐾" },
   { href: "/pet-insurance", label: "Pet Insurance", emoji: "🛡️" },
