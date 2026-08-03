@@ -8,22 +8,22 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [
           "/admin/",        // Admin panel
-          "/api/",          // API routes — no need to crawl
+          "/api/",          // API routes
           "/_next/",        // Next.js internals
-          "/api/admin/",    // Admin API endpoints
         ],
       },
       {
-        // Block GPTBot and similar AI scrapers from crawling content
-        userAgent: "GPTBot",
-        disallow: ["/"],
-      },
-      {
-        userAgent: "ChatGPT-User",
-        disallow: ["/"],
-      },
-      {
-        userAgent: "Google-Extended",
+        userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "GPTBot",
+          "ChatGPT-User",
+          "Google-Extended",
+          "ClaudeBot",
+          "PerplexityBot",
+          "Applebot",
+          "DuckDuckBot"
+        ],
         allow: "/",
       },
     ],
