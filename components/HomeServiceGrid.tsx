@@ -5,12 +5,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, Users, MapPin, CheckCircle2, Search, ShieldCheck, Award, Sparkles, Home } from "lucide-react";
 import FoliageAccents from "@/components/FoliageAccents";
+import PetDoodleAccents from "@/components/PetDoodleAccents";
 
 export default function HomeServiceGrid() {
   return (
     <section className="py-6 sm:py-10 bg-[#faf4ec] relative overflow-hidden">
       <FoliageAccents position="top-right" size="lg" className="opacity-80" />
       <FoliageAccents position="bottom-left" size="lg" className="opacity-80" />
+      <PetDoodleAccents variant="dog-and-cat" position="bottom-right" size="lg" className="opacity-80" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 relative z-10">
 
         {/* 1. FIND A TRUSTED COMPANY BANNER (Matching Image 2) */}

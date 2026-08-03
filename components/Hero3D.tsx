@@ -3,10 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Stethoscope } from "lucide-react";
+import PetDoodleAccents from "@/components/PetDoodleAccents";
 
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#faf4ec] via-[#f7efe6] to-[#f4e9dc] pt-[95px] pb-12 sm:pb-16 md:py-20">
+      <PetDoodleAccents variant="dog-and-cat" position="bottom-left" size="lg" className="opacity-80" />
+      <PetDoodleAccents variant="playful-cat" position="top-left" size="md" className="opacity-70" />
 
       {/* WARM SOFT GOLDEN GLOW IN BACKGROUND */}
       <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] md:w-[650px] h-[350px] sm:h-[550px] md:h-[650px] bg-[#f2e2d0] rounded-full blur-3xl opacity-60 pointer-events-none z-0" />

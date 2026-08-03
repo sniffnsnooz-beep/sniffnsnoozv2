@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Scissors, Stethoscope, Shield, Heart, ShoppingBag, ArrowRight } from "lucide-react";
 import FoliageAccents from "@/components/FoliageAccents";
+import PetDoodleAccents from "@/components/PetDoodleAccents";
 
 const serviceCards = [
   {
@@ -48,6 +49,7 @@ export default function HomeServiceSlider() {
     <section className="relative overflow-hidden py-8 sm:py-12 bg-[#faf6f0]">
       <FoliageAccents position="top-right" size="md" className="opacity-70" />
       <FoliageAccents position="bottom-left" size="md" className="opacity-70" />
+      <PetDoodleAccents variant="sitting-dog" position="bottom-right" size="lg" className="opacity-80" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* SECTION HEADER MATCHING SCREENSHOT */}
