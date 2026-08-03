@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] md:w-[650px] h-[350px] sm:h-[550px] md:h-[650px] bg-[#f2e2d0] rounded-full blur-3xl opacity-60 pointer-events-none z-0" />
 
       {/* GREEN LEAVES GRAPHIC IN TOP RIGHT */}
-      <div className="absolute top-6 right-0 w-28 sm:w-48 md:w-64 h-28 sm:h-48 md:h-64 pointer-events-none z-20 select-none">
+      <div className="absolute top-6 right-0 w-28 sm:w-48 md:w-64 h-28 sm:h-48 md:h-64 pointer-events-none z-0 select-none">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <path d="M190 0C130 30 90 110 50 180C120 120 170 70 190 0Z" fill="#4a7051" opacity="0.8" />
           <path d="M210 20C150 50 110 130 70 200C140 140 190 90 210 20Z" fill="#36543b" opacity="0.6" />

@@ -34,7 +34,7 @@ export default function FoliageAccents({
 
   return (
     <div
-      className={`absolute pointer-events-none z-20 select-none overflow-hidden ${positionClasses[position] || "top-0 right-0"} ${sizeClasses[size]} ${className}`}
+      className={`absolute pointer-events-none z-0 select-none overflow-hidden ${positionClasses[position] || "top-0 right-0"} ${sizeClasses[size]} ${className}`}
     >
       <svg
         viewBox="0 0 200 200"

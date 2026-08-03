@@ -34,7 +34,7 @@ export default function PetDoodleAccents({
 
   return (
     <div
-      className={`absolute pointer-events-none z-20 select-none ${positionClasses[position]} ${sizeClasses[size]} ${className}`}
+      className={`absolute pointer-events-none z-0 select-none ${positionClasses[position]} ${sizeClasses[size]} ${className}`}
     >
       {variant === "dog-and-cat" && (
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm">
