@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { locations } from '../data/locations'
+import { neighborhoods } from '../data/neighborhoods'
 import connectToDatabase from '@/libs/db'
 import News from '@/models/news'
 
@@ -53,12 +54,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }))
 
-  // Location pages — high local SEO priority
+  // City Location pages — high local SEO priority
   const locationRoutes: MetadataRoute.Sitemap = locations.map((location) => ({
     url: `${baseUrl}/locations/${location.city}`,
     lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: 0.9,
+  }))
+
+  // Posh Neighborhood Hyper-Local pages — Highest Local Conversion Priority
+  const neighborhoodRoutes: MetadataRoute.Sitemap = neighborhoods.map((n) => ({
+    url: `${baseUrl}/locations/${n.citySlug}/${n.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.95,
   }))
 
   // Dynamic News / Blog Routes — Essential for TOFU & MOFU GEO Visibility
@@ -76,5 +85,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Error fetching news routes for sitemap:", error);
   }
 
-  return [...sitemapRoutes, ...locationRoutes, ...newsRoutes]
+  return [...sitemapRoutes, ...locationRoutes, ...neighborhoodRoutes, ...newsRoutes]
 }
