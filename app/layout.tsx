@@ -80,8 +80,8 @@ export default function RootLayout({
         {/* ⚡ CRITICAL LCP PERFORMANCE & RESOURCE PRELOADS FOR MOBILE PAGESPEED */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preload" href="/assets/doggy3dd.png" as="image" type="image/png" fetchPriority="high" />
-        <link rel="preload" href="/assets/snifflogo.png" as="image" type="image/png" fetchPriority="high" />
+        <link rel="preload" href="/assets/doggy3dd.webp" as="image" type="image/webp" fetchPriority="high" />
+        <link rel="preload" href="/assets/snifflogo.webp" as="image" type="image/webp" fetchPriority="high" />
 
         {/* ========================= 
             📊 GOOGLE TAG MANAGER (LAZY LOADED TO PREVENT MAIN THREAD BLOCKING)

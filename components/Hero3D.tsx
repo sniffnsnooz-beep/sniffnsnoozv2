@@ -119,7 +119,7 @@ export default function HeroSection() {
             {/* TRANSPARENT 3D PET GRAPHIC */}
             <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
               <Image
-                src="/assets/doggy3dd.png"
+                src="/assets/doggy3dd.webp"
                 alt="Sniffnsnooz Pet"
                 width={700}
                 height={650}

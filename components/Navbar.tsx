@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center h-full py-1 shrink-0">
             <Image
-              src="/assets/snifflogo.png"
+              src="/assets/snifflogo.webp"
               alt="Sniffnsnooz logo"
               width={180}
               height={56}

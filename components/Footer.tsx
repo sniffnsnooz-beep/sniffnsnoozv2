@@ -90,9 +90,13 @@ export default function Footer() {
                   <input
                     type="email"
                     placeholder="your@email.com"
+                    aria-label="Your email address"
                     className="flex-1 bg-white/5 px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none"
                   />
-                  <button className="bg-[#5b3a26] hover:bg-[#7a5741] px-3 py-2.5 transition-colors">
+                  <button
+                    aria-label="Subscribe to newsletter"
+                    className="bg-[#5b3a26] hover:bg-[#7a5741] px-3 py-2.5 transition-colors"
+                  >
                     <Send size={16} className="text-white" />
                   </button>
                 </div>
