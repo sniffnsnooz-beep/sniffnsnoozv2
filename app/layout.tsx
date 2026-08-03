@@ -84,33 +84,36 @@ export default function RootLayout({
         <link rel="preload" href="/assets/snifflogo.webp" as="image" type="image/webp" fetchPriority="high" />
 
         {/* ========================= 
-            📊 GOOGLE TAG MANAGER (LAZY LOADED TO PREVENT MAIN THREAD BLOCKING)
-            Container ID: GT-K4TLPZHK
+            📊 GOOGLE TAG MANAGER & ADS (DEFERRED FOR ZERO TBT BLOCKING)
         ========================= */}
-        <Script id="gtm-script" strategy="lazyOnload">
+        <Script id="deferred-analytics" strategy="afterInteractive">
           {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GT-K4TLPZHK');
-          `}
-        </Script>
+            function loadAnalytics() {
+              if (window.__analyticsLoaded) return;
+              window.__analyticsLoaded = true;
 
-        {/* ========================= 
-            📊 GOOGLE ADS CONVERSION TRACKING (LAZY LOADED)
-            Account: AW-17243845030
-        ========================= */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17243845030"
-          strategy="lazyOnload"
-        />
-        <Script id="google-ads" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17243845030');
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GT-K4TLPZHK');
+
+              var gads = document.createElement('script');
+              gads.async = true;
+              gads.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17243845030';
+              document.head.appendChild(gads);
+
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17243845030');
+            }
+
+            var events = ['pointerdown', 'scroll', 'keydown', 'touchstart'];
+            events.forEach(function(e) {
+              window.addEventListener(e, loadAnalytics, { once: true, passive: true });
+            });
+            setTimeout(loadAnalytics, 3500);
           `}
         </Script>
       </head>

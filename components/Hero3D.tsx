@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Stethoscope, Star } from "lucide-react";
+import { ArrowRight, Stethoscope } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -32,12 +31,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-12">
 
           {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 text-left relative z-20"
-          >
+          <div className="lg:col-span-6 text-left relative z-20">
             {/* HEADING WITH GOLDEN HEART DOODLE */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#4e3323] font-bold leading-[1.12] tracking-tight mb-4 sm:mb-6">
               Complete Care.<br />
@@ -56,42 +50,26 @@ export default function HeroSection() {
             {/* ACTION BUTTONS */}
             <div className="flex flex-row items-center gap-3 sm:gap-4 flex-wrap">
               <Link href="/booking">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-[#4e3323] text-white hover:bg-[#3b2518] px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-md cursor-pointer whitespace-nowrap"
-                >
+                <span className="bg-[#4e3323] text-white hover:bg-[#3b2518] active:scale-95 transition-transform duration-200 px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-md cursor-pointer whitespace-nowrap">
                   <span>Book Grooming</span>
                   <ArrowRight className="w-4 h-4" />
-                </motion.span>
+                </span>
               </Link>
 
               <Link href="/veterinary-booking">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white text-[#4e3323] border border-[#4e3323]/25 hover:bg-[#4e3323]/5 px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm cursor-pointer whitespace-nowrap"
-                >
+                <span className="bg-white text-[#4e3323] border border-[#4e3323]/25 hover:bg-[#4e3323]/5 active:scale-95 transition-transform duration-200 px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm cursor-pointer whitespace-nowrap">
                   <Stethoscope className="w-4 h-4 text-[#4e3323]" />
                   <span>Consult Vet</span>
-                </motion.span>
+                </span>
               </Link>
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT TRANSPARENT PET IMAGE (doggy3dd.png WITHOUT BACKGROUND) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-6 relative flex justify-center lg:justify-end mt-4 lg:mt-0 z-10"
-          >
+          {/* RIGHT TRANSPARENT PET IMAGE (doggy3dd.webp WITHOUT BACKGROUND) */}
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-4 lg:mt-0 z-10">
+
             {/* FLOATING BADGE 1 */}
-            <motion.div
-              animate={{ y: [-6, 6, -6] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute top-4 left-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80"
-            >
+            <div className="animate-float-slow absolute top-4 left-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🏆</span>
                 <div>
@@ -99,14 +77,10 @@ export default function HeroSection() {
                   <div className="text-[10px] text-[#7a5741] font-semibold">Delhi NCR</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* FLOATING BADGE 2 */}
-            <motion.div
-              animate={{ y: [6, -6, 6] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute bottom-6 right-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80"
-            >
+            <div className="animate-float-reverse absolute bottom-6 right-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
               <div className="flex items-center gap-2">
                 <span className="text-xl">✨</span>
                 <div>
@@ -114,9 +88,9 @@ export default function HeroSection() {
                   <div className="text-[10px] text-[#7a5741] font-semibold">At Your Doorstep</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* TRANSPARENT 3D PET GRAPHIC */}
+            {/* TRANSPARENT 3D PET GRAPHIC (WEB-P OPTIMIZED 90KB) */}
             <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
               <Image
                 src="/assets/doggy3dd.webp"
@@ -129,7 +103,7 @@ export default function HeroSection() {
                 className="relative z-20 drop-shadow-2xl hover:scale-105 transition-transform duration-700 object-contain"
               />
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
