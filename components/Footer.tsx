@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import FoliageAccents from "@/components/FoliageAccents";
+import { neighborhoods } from "@/data/neighborhoods";
 import {
   Phone,
   Mail,
@@ -228,6 +229,38 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+
+          {/* HYPER-LOCAL NEIGHBORHOOD QUICK LINKS FOR SEO & NAVIGATION */}
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider text-center mb-6 flex items-center justify-center gap-2">
+              <MapPin size={16} className="text-[#8c5a3b]" />
+              <span>Doorstep Pet Grooming &amp; Vet Care Locations in Delhi NCR</span>
+            </h4>
+
+            <div className="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
+              {neighborhoods.map((n) => (
+                <Link
+                  key={n.slug}
+                  href={`/locations/${n.citySlug}/${n.slug}`}
+                  className="inline-flex items-center gap-1.5 bg-white/5 hover:bg-[#5b3a26] border border-white/10 hover:border-[#8c5a3b] text-[#c8b8a8] hover:text-white px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 hover:scale-105"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8c5a3b]" />
+                  <span>{n.name} ({n.cityName})</span>
+                </Link>
+              ))}
+
+              {/* Main City Links */}
+              {["delhi", "gurugram", "noida", "faridabad", "ghaziabad"].map((city) => (
+                <Link
+                  key={city}
+                  href={`/locations/${city}`}
+                  className="inline-flex items-center gap-1.5 bg-[#5b3a26]/40 hover:bg-[#5b3a26] border border-[#8c5a3b]/40 text-amber-200/90 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 hover:scale-105 capitalize"
+                >
+                  <span>📍 All {city} Areas</span>
+                </Link>
+              ))}
             </div>
           </div>
 
