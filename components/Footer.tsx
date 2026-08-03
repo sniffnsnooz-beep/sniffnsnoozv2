@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import FoliageAccents from "@/components/FoliageAccents";
 import {
   Phone,
   Mail,
@@ -55,6 +56,10 @@ export default function Footer() {
       />
 
       <footer className="relative bg-[#2b1a12] text-[#f6efe6] pt-20 pb-8 mt-0 overflow-hidden">
+        {/* Organic Foliage Accents */}
+        <FoliageAccents position="top-right" size="lg" className="opacity-40 brightness-125" />
+        <FoliageAccents position="bottom-left" size="lg" className="opacity-40 brightness-125" />
+
         {/* Gradient top border */}
         <div className="divider-gradient-top absolute top-0 left-0 w-full" />
 

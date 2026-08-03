@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FoliageAccents from "@/components/FoliageAccents";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   Stethoscope,
@@ -153,7 +154,10 @@ export default function VeterinaryPage() {
   const activeGroupData = ageGroups.find((g) => g.id === activeTab) || ageGroups[0];
 
   return (
-    <section className="relative min-h-screen page-bg overflow-hidden">
+    <section className="relative min-h-screen py-24 page-bg overflow-hidden">
+      {/* BOTANICAL FOLIAGE ACCENTS */}
+      <FoliageAccents position="top-right" size="xl" className="opacity-90" />
+      <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
       {/* Parallax Background */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img

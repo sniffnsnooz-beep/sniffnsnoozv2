@@ -3,6 +3,7 @@
 import { packages } from "@/data/packages";
 import { useBooking } from "@/context/BookingContext";
 import { useRouter } from "next/navigation";
+import FoliageAccents from "@/components/FoliageAccents";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle2, PhoneCall, Sparkles } from "lucide-react";
@@ -38,6 +39,9 @@ export default function PackagesPage() {
 
   return (
     <section className="relative bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] py-32 min-h-screen overflow-hidden">
+      {/* BOTANICAL FOLIAGE ACCENTS */}
+      <FoliageAccents position="top-right" size="xl" className="opacity-90" />
+      <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
       {/* Decorative background blur elements */}
       <motion.div style={{ y: yBg }} className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-10 left-10 w-96 h-96 bg-white/40 rounded-full blur-[100px] animate-bounce-slow" />

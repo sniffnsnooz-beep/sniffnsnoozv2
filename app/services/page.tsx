@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FoliageAccents from "@/components/FoliageAccents";
 import { motion } from "framer-motion";
 import {
   Scissors,
@@ -242,6 +243,9 @@ export default function ServicesPage() {
       />
 
       <section className="relative min-h-screen py-24 page-bg overflow-hidden">
+        {/* BOTANICAL FOLIAGE ACCENTS */}
+        <FoliageAccents position="top-right" size="xl" className="opacity-90" />
+        <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
         {/* PARALLAX BACKGROUND IMAGE */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <img
