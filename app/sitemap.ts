@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
 import { locations } from '../data/locations'
+import connectToDatabase from '@/libs/db'
+import News from '@/models/news'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sniffnsnooz.in'
   const now = new Date()
 
@@ -59,5 +61,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  return [...sitemapRoutes, ...locationRoutes]
+  // Dynamic News / Blog Routes — Essential for TOFU & MOFU GEO Visibility
+  let newsRoutes: MetadataRoute.Sitemap = [];
+  try {
+    await connectToDatabase();
+    const articles = await News.find({}, { slug: 1, updatedAt: 1 }).lean();
+    newsRoutes = articles.map((article: any) => ({
+      url: `${baseUrl}/news/${article.slug}`,
+      lastModified: article.updatedAt || now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }));
+  } catch (error) {
+    console.error("Error fetching news routes for sitemap:", error);
+  }
+
+  return [...sitemapRoutes, ...locationRoutes, ...newsRoutes]
 }
