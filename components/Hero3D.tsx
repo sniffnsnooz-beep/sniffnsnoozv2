@@ -3,17 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Stethoscope } from "lucide-react";
+import { ArrowRight, Stethoscope, Star } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#faf4ec] pt-[95px] pb-12 sm:pb-16 md:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#faf4ec] via-[#f7efe6] to-[#f4e9dc] pt-[95px] pb-12 sm:pb-16 md:py-20">
 
-      {/* WARM SOFT GOLDEN CIRCLE IN TOP RIGHT (Matching Image 2) */}
-      <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] md:w-[650px] h-[350px] sm:h-[550px] md:h-[650px] bg-[#f2e2d0] rounded-full blur-2xl opacity-60 pointer-events-none z-0" />
+      {/* WARM SOFT GOLDEN GLOW IN BACKGROUND */}
+      <div className="absolute top-0 right-0 w-[350px] sm:w-[550px] md:w-[650px] h-[350px] sm:h-[550px] md:h-[650px] bg-[#f2e2d0] rounded-full blur-3xl opacity-60 pointer-events-none z-0" />
 
-      {/* GREEN LEAVES BLEEDING FROM TOP-RIGHT (Matching Image 2) */}
-      <div className="absolute top-8 right-0 w-28 sm:w-48 md:w-64 h-28 sm:h-48 md:h-64 pointer-events-none z-20 select-none">
+      {/* GREEN LEAVES GRAPHIC IN TOP RIGHT */}
+      <div className="absolute top-6 right-0 w-28 sm:w-48 md:w-64 h-28 sm:h-48 md:h-64 pointer-events-none z-20 select-none">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <path d="M190 0C130 30 90 110 50 180C120 120 170 70 190 0Z" fill="#4a7051" opacity="0.8" />
           <path d="M210 20C150 50 110 130 70 200C140 140 190 90 210 20Z" fill="#36543b" opacity="0.6" />
@@ -21,7 +21,7 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      {/* PAW DOODLES IN BACKGROUND (Matching Image 2) */}
+      {/* PAW DOODLES IN BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none z-0 select-none opacity-30">
         <span className="absolute top-16 left-8 text-2xl text-[#d4ad78]">🐾</span>
         <span className="absolute top-28 left-[40%] text-xl text-[#d4ad78]">🐾</span>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 text-left relative z-20"
           >
-            {/* HEADING WITH GOLDEN HEART DOODLE (Matching Image 2) */}
+            {/* HEADING WITH GOLDEN HEART DOODLE */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#4e3323] font-bold leading-[1.12] tracking-tight mb-4 sm:mb-6">
               Complete Care.<br />
               Happy Pets.<br />
@@ -79,23 +79,54 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* RIGHT CUTOUT PETS GRAPHIC (NO RECTANGULAR CARD / NO BOX BORDER - MATCHING IMAGE 2) */}
+          {/* RIGHT TRANSPARENT PET IMAGE (doggy3dd.png WITHOUT BACKGROUND) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-6 relative flex justify-center lg:justify-end mt-4 lg:mt-0 z-10"
           >
+            {/* FLOATING BADGE 1 */}
+            <motion.div
+              animate={{ y: [-6, 6, -6] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="absolute top-4 left-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🏆</span>
+                <div>
+                  <div className="text-xs font-black text-[#5b3a26]">Best Groomer</div>
+                  <div className="text-[10px] text-[#7a5741] font-semibold">Delhi NCR</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* FLOATING BADGE 2 */}
+            <motion.div
+              animate={{ y: [6, -6, 6] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="absolute bottom-6 right-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-xl">✨</span>
+                <div>
+                  <div className="text-xs font-black text-[#5b3a26]">100% Stress-Free</div>
+                  <div className="text-[10px] text-[#7a5741] font-semibold">At Your Doorstep</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* TRANSPARENT 3D PET GRAPHIC */}
             <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
               <Image
-                src="/assets/hero_pets_blend.png"
-                alt="Golden Retriever puppy and Kitten"
-                fill
+                src="/assets/doggy3dd.png"
+                alt="Sniffnsnooz Pet"
+                width={700}
+                height={650}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 480px"
-                style={{ objectFit: "contain" }}
-                className="mix-blend-multiply drop-shadow-xl hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="relative z-20 drop-shadow-2xl hover:scale-105 transition-transform duration-700 object-contain"
               />
             </div>
           </motion.div>
