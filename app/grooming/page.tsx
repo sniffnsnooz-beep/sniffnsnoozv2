@@ -20,6 +20,8 @@ import {
   Award
 } from "lucide-react";
 
+import HeroBannerSlider from "@/components/HeroBannerSlider";
+
 import { corePackageTiers } from "@/data/packages";
 
 export default function GroomingPage() {
@@ -224,27 +226,8 @@ export default function GroomingPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex-1 w-full relative"
             >
-              <div className="w-full h-[450px] rounded-[40px] overflow-hidden shadow-2xl relative border-8 border-white">
-                <Image
-                  src="/assets/pet_spa_bath.png"
-                  alt="Pet Grooming Spa Bathing"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  className="hover:scale-105 transition-transform duration-700 brightness-95"
-                />
-              </div>
-
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 bg-white/90 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-white/60 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#5b3a26] text-white flex items-center justify-center text-xl font-bold">✨</div>
-                <div>
-                  <div className="text-xs text-[#7a5741] font-semibold">Certified Groomers</div>
-                  <div className="text-sm text-[#5b3a26] font-bold">100% Organic Products</div>
-                </div>
-              </motion.div>
+              {/* FEATURED HERO OFFER BANNER SLIDER */}
+              <HeroBannerSlider />
             </motion.div>
           </div>
 
