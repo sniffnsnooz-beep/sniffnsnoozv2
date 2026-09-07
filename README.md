@@ -1,4 +1,4 @@
-# 🐾 Sniff n Snooz — Premium Doorstep Pet Grooming
+# 🐾 Sniff n Snooz — Premium Doorstep Pet Grooming Delhi NCR
 
 A full-stack Next.js 15 website for Sniff n Snooz, a premium doorstep pet grooming service in Delhi NCR.
 
