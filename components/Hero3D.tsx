@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Stethoscope, Phone, MapPin, Sparkles, Truck, Building2 } from "lucide-react";
 import PetDoodleAccents from "@/components/PetDoodleAccents";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
 
 export default function HeroSection() {
   return (
@@ -31,7 +32,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-10">
 
           {/* LEFT CONTENT */}
           <div className="lg:col-span-6 text-left relative z-20">
@@ -99,44 +100,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT TRANSPARENT PET IMAGE (doggy3dd.webp WITHOUT BACKGROUND) */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-4 lg:mt-0 z-10">
-
-            {/* FLOATING BADGE 1 */}
-            <div className="animate-float-slow absolute top-4 left-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🏆</span>
-                <div>
-                  <div className="text-xs font-black text-[#5b3a26]">Best Groomer</div>
-                  <div className="text-[10px] text-[#7a5741] font-semibold">Delhi NCR</div>
-                </div>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 2 */}
-            <div className="animate-float-reverse absolute bottom-6 right-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">✨</span>
-                <div>
-                  <div className="text-xs font-black text-[#5b3a26]">100% Stress-Free</div>
-                  <div className="text-[10px] text-[#7a5741] font-semibold">At Your Doorstep</div>
-                </div>
-              </div>
-            </div>
-
-            {/* TRANSPARENT 3D PET GRAPHIC (WEB-P OPTIMIZED 90KB) */}
-            <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
-              <Image
-                src="/assets/doggy3dd.webp"
-                alt="Sniffnsnooz Pet"
-                width={700}
-                height={650}
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 500px"
-                className="relative z-20 drop-shadow-2xl hover:scale-105 transition-transform duration-700 object-contain"
-              />
-            </div>
+          {/* RIGHT HERO BANNER AUTO SLIDER (ONE BY ONE PAUSING LOOP SLIDER) */}
+          <div className="lg:col-span-6 relative z-20">
+            <HeroBannerSlider />
           </div>
 
         </div>
