@@ -114,8 +114,8 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "250"
+      "ratingValue": "5.0",
+      "reviewCount": "300"
     }
   };
 
@@ -193,7 +193,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
                     <Star className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
                     <div>
                       <div className="text-[10px] text-[#7a5741] font-bold uppercase">Local Rating</div>
-                      <div className="text-xs font-bold text-[#4e3323]">4.9 ★ (250+ Reviews)</div>
+                      <div className="text-xs font-bold text-[#4e3323]">5.0 ★ (300+ Reviews)</div>
                     </div>
                   </div>
 

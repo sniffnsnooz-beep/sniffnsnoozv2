@@ -43,8 +43,8 @@ export default function Footer() {
             "areaServed": "Delhi NCR",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "250",
+              "ratingValue": "5.0",
+              "reviewCount": "300",
             },
             "sameAs": [
               "https://x.com/sniffnsnooz",
@@ -86,7 +86,7 @@ export default function Footer() {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
-                <span className="text-xs text-[#c8b8a8] ml-2">4.9 by 250+ Pet Parents</span>
+                <span className="text-xs text-[#c8b8a8] ml-2">5.0 Rating by 300+ Pet Parents</span>
               </div>
 
               {/* Newsletter */}

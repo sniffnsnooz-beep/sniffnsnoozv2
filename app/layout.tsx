@@ -183,8 +183,8 @@ export default function RootLayout({
                     "paymentAccepted": "Cash, Credit Card, UPI, Net Banking",
                     "aggregateRating": {
                       "@type": "AggregateRating",
-                      "ratingValue": "4.9",
-                      "reviewCount": "250",
+                      "ratingValue": "5.0",
+                      "reviewCount": "300",
                       "bestRating": "5",
                       "worstRating": "1"
                     },

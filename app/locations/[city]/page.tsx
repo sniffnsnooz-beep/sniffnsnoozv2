@@ -78,8 +78,8 @@ export default async function LocationPage(props: Props) {
             },
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "250"
+              "ratingValue": "5.0",
+              "reviewCount": "300"
             }
           }),
         }}
@@ -108,7 +108,7 @@ export default async function LocationPage(props: Props) {
             <div className="flex text-amber-500">
               <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
             </div>
-            <span>4.9/5 from 1,200+ Pet Parents in NCR</span>
+            <span>5.0/5 from 3,000+ Pet Parents in NCR (300+ Ratings)</span>
           </div>
         </div>
       </section>
