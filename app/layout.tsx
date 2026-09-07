@@ -5,6 +5,7 @@ import { BookingProvider } from "@/context/BookingContext";
 import GlobalBubbles from "@/components/GlobalBubbles";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from "next/script"; // ✅ Script Import Kiya
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
@@ -84,38 +85,36 @@ export default function RootLayout({
         <link rel="preload" href="/assets/snifflogo.webp" as="image" type="image/webp" fetchPriority="high" />
 
         {/* ========================= 
-            📊 GOOGLE TAG MANAGER & ADS (DEFERRED FOR ZERO TBT BLOCKING)
+            📊 GOOGLE TAG (gtag.js) - GA4 (G-C819C0F186) & GOOGLE ADS (AW-17243845030)
         ========================= */}
-        <Script id="deferred-analytics" strategy="afterInteractive">
-          {`
-            function loadAnalytics() {
-              if (window.__analyticsLoaded) return;
-              window.__analyticsLoaded = true;
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C819C0F186" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
+              gtag('config', 'G-C819C0F186');
+              gtag('config', 'AW-17243845030');
+            `,
+          }}
+        />
+
+        {/* ========================= 
+            📊 GOOGLE TAG MANAGER (GT-K4TLPZHK)
+        ========================= */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GT-K4TLPZHK');
-
-              var gads = document.createElement('script');
-              gads.async = true;
-              gads.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17243845030';
-              document.head.appendChild(gads);
-
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17243845030');
-            }
-
-            var events = ['pointerdown', 'scroll', 'keydown', 'touchstart'];
-            events.forEach(function(e) {
-              window.addEventListener(e, loadAnalytics, { once: true, passive: true });
-            });
-            setTimeout(loadAnalytics, 3500);
-          `}
-        </Script>
+            `,
+          }}
+        />
       </head>
       <body>
         {/* ✅ GTM noscript fallback (required by Google) */}
@@ -127,6 +126,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
+        <AnalyticsPageView />
 
         <BookingProvider>
 
@@ -175,7 +176,7 @@ export default function RootLayout({
                     "image": "https://sniffnsnooz.in/assets/snifflogo.png",
                     "description":
                       "Sniffnsnooz is a premium doorstep pet grooming service providing stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
-                    "telephone": "+91-9971135063",
+                    "telephone": "+91-9818728444",
                     "email": "sniffnsnooz@gmail.com",
                     "priceRange": "₹₹",
                     "currenciesAccepted": "INR",
@@ -183,7 +184,7 @@ export default function RootLayout({
                     "aggregateRating": {
                       "@type": "AggregateRating",
                       "ratingValue": "4.9",
-                      "reviewCount": "1250",
+                      "reviewCount": "250",
                       "bestRating": "5",
                       "worstRating": "1"
                     },
@@ -235,7 +236,7 @@ export default function RootLayout({
                     },
                     "contactPoint": {
                       "@type": "ContactPoint",
-                      "telephone": "+91-9971135063",
+                      "telephone": "+91-9818728444",
                       "contactType": "customer service",
                       "areaServed": "IN",
                       "availableLanguage": ["English", "Hindi"],
@@ -377,7 +378,7 @@ export default function RootLayout({
                         "name": "How do I book a pet grooming session with Sniffnsnooz?",
                         "acceptedAnswer": {
                           "@type": "Answer",
-                          "text": "Visit sniffnsnooz.in/booking to book online, or call +91-9971135063 to schedule a doorstep grooming session."
+                          "text": "Visit sniffnsnooz.in/booking to book online, or call +91-9818728444 to schedule a doorstep grooming session."
                         }
                       },
                       {

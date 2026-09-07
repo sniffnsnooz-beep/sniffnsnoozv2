@@ -70,7 +70,7 @@ export default async function LocationPage(props: Props) {
             "name": `Sniffnsnooz - Pet Grooming ${location.name}`,
             "description": location.description,
             "url": `https://sniffnsnooz.in/locations/${location.city}`,
-            "telephone": "+91-9971135063",
+            "telephone": "+91-9818728444",
             "image": "https://sniffnsnooz.in/assets/snifflogo.png",
             "areaServed": {
               "@type": "City",
@@ -79,7 +79,7 @@ export default async function LocationPage(props: Props) {
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
-              "reviewCount": "1250"
+              "reviewCount": "250"
             }
           }),
         }}

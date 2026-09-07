@@ -29,7 +29,7 @@ export default function Footer() {
             "url": "https://sniffnsnooz.in",
             "logo": "https://sniffnsnooz.in/assets/snifflogo.png",
             "image": "https://sniffnsnooz.in/assets/snifflogo.png",
-            "telephone": "+91-9971135063",
+            "telephone": "+91-9818728444",
             "email": "sniffnsnooz@gmail.com",
             "priceRange": "₹₹",
             "address": {

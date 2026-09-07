@@ -20,6 +20,8 @@ import {
   Award
 } from "lucide-react";
 
+import { corePackageTiers } from "@/data/packages";
+
 export default function GroomingPage() {
   const parallaxRef = useRef<HTMLImageElement | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -37,75 +39,94 @@ export default function GroomingPage() {
 
   const groomingServices = [
     {
-      title: "Bath & Hygiene Spa",
-      desc: "Warm bath with premium organic shampoos, blow dry, ear cleaning, and paw sanitization for maximum comfort.",
-      features: ["Shampoo & Conditioner Bath", "Blow Dry & Fluffing", "Ear Cleaning & Sanitization", "Nail Clipping", "Paw Butter Application"],
-      href: "/services/bath-spa-addons",
+      title: "Bath & Spa",
+      desc: "Warm bath with imported organic shampoos, blow dry, ear cleaning, paw butter, and pet perfume for maximum hygiene.",
+      features: ["Organic Shampoo & Conditioner Bath", "Warm Air Blow Dry & Coat Fluffing", "Ear Hygiene & Sanitization", "Nail Trimming & Filing", "Soothing Paw Butter Application"],
+      href: "/store-booking",
       icon: <Bath className="w-8 h-8 text-[#5b3a26]" />,
-      popular: true
+      popular: true,
+      priceTag: "Starts at ₹599"
     },
     {
-      title: "Hair Trimming & Styling",
-      desc: "Professional haircut and breed-specific styling by certified master pet stylists.",
-      features: ["Breed Specific Haircut", "Face & Sanitary Trim", "De-matting & Combing", "Scissoring & Finishing", "Pet Perfume Application"],
-      href: "/services/hair-styling",
+      title: "Haircut & Styling",
+      desc: "Professional breed-specific haircuts, teddy bear styling, face sculpting, and sanitary trimming by master stylists.",
+      features: ["Full Breed Specific Haircut", "Face & Sanitary Trimming", "De-matting & Coat Combing", "Precision Scissoring & Finishing", "Pet Fragrance Spray"],
+      href: "/store-booking",
       icon: <Scissors className="w-8 h-8 text-[#5b3a26]" />,
-      popular: false
+      popular: true,
+      priceTag: "Starts at ₹1,799"
     },
     {
-      title: "Nail & Paw Care",
-      desc: "Gentle nail clipping, paw pad hair trimming, and soothing paw moisturizing cream.",
-      features: ["Precision Nail Trimming", "Nail Filing / Smoothing", "Paw Pad Hair Clearance", "Moisturizing Paw Balm"],
-      href: "/services/nail-paw-care",
-      icon: <Sparkles className="w-8 h-8 text-[#5b3a26]" />,
-      popular: false
-    },
-    {
-      title: "Coat & Skin Treatment",
-      desc: "Medicated baths, anti-tick treatments, shedding control, and deep nourishing oil massages.",
-      features: ["Anti-Tick & Flea Treatment", "De-shedding Treatment", "Medicated Anti-Fungal Bath", "Nourishing Oil Massage"],
-      href: "/services/coat-skin-treatment",
+      title: "Anti-Tick & Flea Treatment",
+      desc: "Specialized medicated anti-parasite bath, flea comb out, and long-lasting coat protection spray against ticks.",
+      features: ["Medicated Anti-Tick Bath", "Fine Flea Comb Out", "Anti-Itch Skin Conditioning", "Tick Shield Coat Spray", "Sanitary Clearance"],
+      href: "/store-booking",
       icon: <ShieldCheck className="w-8 h-8 text-[#5b3a26]" />,
-      popular: false
+      popular: false,
+      priceTag: "Starts at ₹1,599"
     },
     {
-      title: "Ear & Eye Hygiene Care",
-      desc: "Thorough ear plucking, wax clearance, tear stain removal, and eye flushing for optimal hygiene.",
-      features: ["Ear Canal Cleaning", "Ear Hair Plucking", "Tear Stain Cleaning", "Soothe & Flush Wash"],
-      href: "/services/ear-care",
+      title: "De-shedding Treatment",
+      desc: "Deep undercoat deshedding, dead hair removal, and shedding control bath to reduce home fur shedding by up to 90%.",
+      features: ["Undercoat Furminator Comb Out", "De-shedding Shampoo Bath", "Coat Strengthening Conditioner", "High-Velocity Blow Out", "Nail & Paw Care"],
+      href: "/store-booking",
+      icon: <Sparkles className="w-8 h-8 text-[#5b3a26]" />,
+      popular: false,
+      priceTag: "Starts at ₹1,399"
+    },
+    {
+      title: "Medicated Bath & Skin Spa",
+      desc: "Dermatologically formulated anti-fungal bath, neem oil massage, and soothing therapy for itchy or sensitive skin.",
+      features: ["Medicated Anti-Fungal Shampoo", "Skin Soothing Organic Bath", "Warm Coconut Coat Oil Massage", "Hypoallergenic Conditioning", "Ear & Paw Hygiene"],
+      href: "/store-booking",
+      icon: <Bath className="w-8 h-8 text-[#5b3a26]" />,
+      popular: false,
+      priceTag: "Starts at ₹1,499"
+    },
+    {
+      title: "Ear & Nail Care",
+      desc: "Gentle nail clipping, filing/smoothing, ear canal hair plucking, wax clearance, and moisturizing paw balm.",
+      features: ["Precision Nail Trimming", "Nail Filing & Edge Smoothing", "Ear Canal Hair Plucking", "Ear Wax Cleaning & Flush", "Moisturizing Paw Balm"],
+      href: "/store-booking",
       icon: <CheckCircle2 className="w-8 h-8 text-[#5b3a26]" />,
-      popular: false
+      popular: false,
+      priceTag: "Starts at ₹399"
     },
     {
-      title: "Oral & Dental Hygiene",
-      desc: "Enzyme tooth brushing, breath freshener spray, and tartar prevention checks for healthy teeth.",
-      features: ["Enzyme Tooth Brushing", "Breath Freshener Spray", "Gum Health Inspection", "Tartar Control Brush"],
-      href: "/services/oral-hygiene-care",
+      title: "Dental & Oral Hygiene",
+      desc: "Enzyme tooth brushing, breath freshener spray, tartar prevention check, and gum massage for fresh breath.",
+      features: ["Enzyme Tooth Brushing", "Breath Freshener Spray", "Gum Inspection & Massage", "Tartar Control Brush", "Plaque Protection"],
+      href: "/store-booking",
       icon: <Award className="w-8 h-8 text-[#5b3a26]" />,
-      popular: false
+      popular: false,
+      priceTag: "Starts at ₹499"
     }
   ];
 
   const groomingFaqs = [
     {
-      q: "Doorstep van grooming and store grooming me kya difference hai?",
-      a: "Doorstep van grooming me hamari fully-equipped temperature-controlled spa van aapke ghar aati hai aur saara grooming van ke andar hi stress-free tarike se hota hai. Store grooming me aap hamare nearest Sniff & Snooz luxury pet salon me appointment book karke laa sakte hain."
+      q: "How much does dog grooming cost in Gurgaon?",
+      a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549."
     },
     {
-      q: "Grooming session me kitna time lagta hai?",
-      a: "Standard bath and hygiene me 45-60 min lagte hain, jabki full hair styling aur spa package me 90-120 min lagte hain, depending on pet size aur coat condition."
+      q: "Is mobile grooming better for anxious dogs?",
+      a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van."
     },
     {
-      q: "Kya aap aggressive ya nervous pets ko bhi groom karte hain?",
-      a: "Haan! Hamare groomers fear-free certified hain aur patient handling techniques use karte hain. Pura session pet ke comfort ke hisab se arrange kiya jata hai."
+      q: "How often should my dog be groomed?",
+      a: "Dogs generally require grooming every 3 to 6 weeks depending on coat length, breed, and lifestyle. Long-haired breeds (like Shih Tzus, Poodles, and Pomeranians) need grooming every 3-4 weeks to prevent matting, while short-haired breeds (like Labradors and Beagles) benefit from monthly hygiene baths."
     },
     {
-      q: "Kya aap natural aur pet-safe products use karte hain?",
-      a: "Bilkul. Hum 100% paraben-free, sulphate-free, tearless aur pH-balanced organic pet shampoos & conditioners use karte hain jo skin allergy-safe hain."
+      q: "Do you groom cats at home?",
+      a: "Yes! Sniffnsnooz provides certified doorstep cat grooming across Gurgaon and Delhi NCR. Our gentle, fear-free cat groomers specialize in cat baths, lion cuts, de-matting, ear cleaning, and nail trimming without anesthesia or stress."
     },
     {
-      q: "Anti-tick treatment kitna effective hai?",
-      a: "Hamara medicated anti-tick bath 100% active ticks aur fleas ko clear karta hai aur skin ko soothe karne ke saath protective shield provide karta hai."
+      q: "Do you provide anti-tick grooming?",
+      a: "Yes, we offer specialized Anti-Tick & Flea Medicated Grooming (₹1,599). It includes a medicated anti-parasite bath, fine-tooth flea combing, skin-soothing conditioning, and a protective coat shield spray to eliminate ticks safely."
+    },
+    {
+      q: "How long does a grooming session take?",
+      a: "A standard Bath & Hygiene session takes about 45 to 60 minutes. Full haircut and luxury spa packages take 75 to 105 minutes depending on breed size, coat condition, and pet behavior. We prioritize gentleness over speed."
     }
   ];
 
@@ -251,8 +272,13 @@ export default function GroomingPage() {
                     )}
 
                     <div>
-                      <div className="p-4 bg-white/80 rounded-2xl shadow-sm text-[#5b3a26] group-hover:bg-[#5b3a26] group-hover:text-white transition-all duration-300 group-hover:scale-110 w-fit mb-6">
-                        {service.icon}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="p-4 bg-white/80 rounded-2xl shadow-sm text-[#5b3a26] group-hover:bg-[#5b3a26] group-hover:text-white transition-all duration-300 group-hover:scale-110 w-fit">
+                          {service.icon}
+                        </div>
+                        <span className="text-xs font-bold bg-[#f6efe6] text-[#5b3a26] border border-[#e5d6c5] px-3 py-1.5 rounded-full">
+                          {service.priceTag}
+                        </span>
                       </div>
                       <h3 className="text-2xl font-serif font-bold text-[#5b3a26] mb-3 group-hover:text-[#8c5a3b] transition-colors">
                         {service.title}
@@ -272,7 +298,7 @@ export default function GroomingPage() {
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-[#5b3a26]/10 font-bold text-[#5b3a26] flex items-center justify-between group-hover:text-[#8c5a3b] transition-colors">
-                      Explore Details
+                      <span>Book Service Now</span>
                       <span className="w-8 h-8 rounded-full bg-[#f6efe6] flex items-center justify-center group-hover:bg-[#5b3a26] group-hover:text-white transition-all transform group-hover:translate-x-1">&rarr;</span>
                     </div>
                   </div>
@@ -280,6 +306,58 @@ export default function GroomingPage() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* TRANSPARENT PACKAGES & PRICES SECTION */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <span className="section-label mb-3 inline-flex">
+                <span>🏷️</span> Transparent Rates
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-serif font-bold text-[#5b3a26] mb-3">
+                Grooming Packages &amp; Pricing
+              </h2>
+              <p className="text-base sm:text-lg text-[#7a5741] max-w-2xl mx-auto font-medium">
+                No hidden costs. See exact package inclusions and prices for doorstep mobile van grooming and salon sessions.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {corePackageTiers.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className={`card-premium p-6 flex flex-col justify-between relative bg-white/90 border ${pkg.popular ? "border-[#5b3a26] ring-2 ring-[#5b3a26]/20 shadow-xl" : "border-white/80 shadow-md"}`}
+                >
+                  {pkg.badge && (
+                    <span className={`absolute top-4 right-4 text-xs font-extrabold px-3 py-1 rounded-full ${pkg.popular ? "bg-[#5b3a26] text-white" : "bg-amber-100 text-amber-900 border border-amber-200"}`}>
+                      {pkg.badge}
+                    </span>
+                  )}
+                  <div>
+                    <h3 className="text-xl font-serif font-bold text-[#5b3a26] mb-1 pr-16">{pkg.name}</h3>
+                    <div className="flex items-baseline gap-2 mb-3">
+                      <span className="text-3xl font-black text-[#5b3a26]">₹{pkg.price}</span>
+                      <span className="text-sm text-gray-400 line-through font-semibold">₹{pkg.originalPrice}</span>
+                      <span className="text-xs text-[#8c5a3b] font-bold">({pkg.duration})</span>
+                    </div>
+                    <p className="text-xs text-[#7a5741] mb-5 leading-relaxed font-medium">
+                      {pkg.description}
+                    </p>
+                    <ul className="space-y-2 mb-6">
+                      {pkg.features.map((feat, idx) => (
+                        <li key={idx} className="flex items-start text-xs font-semibold text-[#5b3a26]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 mr-2 shrink-0" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Link href="/store-booking" className={`w-full text-center font-bold py-3 rounded-full text-sm transition-colors ${pkg.popular ? "bg-[#5b3a26] text-white hover:bg-[#432b1c]" : "bg-[#f6efe6] text-[#5b3a26] hover:bg-[#eadfce] border border-[#d8c3b0]"}`}>
+                    Select {pkg.name.split(" ")[0]} Package 🐾
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Grooming Add-ons Bar */}
           <div className="bg-white/60 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-xl mb-24">

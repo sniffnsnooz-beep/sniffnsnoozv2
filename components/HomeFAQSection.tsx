@@ -8,28 +8,32 @@ import { useRef } from "react";
 
 const faqs = [
   {
-    q: "Is doorstep grooming safe for my pet?",
-    a: "Yes. Doorstep grooming is actually safer and less stressful because your pet stays in a familiar environment. There is no travel anxiety, no loud salon noise, and no exposure to other animals. Pets remain calmer, which results in a safer and more comfortable grooming experience.",
+    q: "How much does dog grooming cost in Gurgaon?",
+    a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549.",
   },
   {
-    q: "What products does Sniffnsnooz use?",
-    a: "Sniffnsnooz uses imported pet grooming products trusted by professional show-pet groomers worldwide. We use premium brands like Hydra Professional shampoo and Bio-Groom conditioner, which are known for being pet-safe, skin-friendly, and suitable for different coat types and sensitive skin.",
+    q: "Is mobile grooming better for anxious dogs?",
+    a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van.",
   },
   {
-    q: "Are the grooming products safe for sensitive skin?",
-    a: "Yes. All grooming products used by Sniffnsnooz are dermatologically tested, free from harsh chemicals, and suitable for pets with sensitive skin. Our imported grooming products help maintain healthy coats while preventing irritation or allergies.",
+    q: "How often should my dog be groomed?",
+    a: "Dogs generally require grooming every 3 to 6 weeks depending on coat length, breed, and lifestyle. Long-haired breeds (like Shih Tzus, Poodles, and Pomeranians) need grooming every 3-4 weeks to prevent matting, while short-haired breeds (like Labradors and Beagles) benefit from monthly hygiene baths.",
   },
   {
-    q: "Do you provide grooming services all over Delhi NCR?",
-    a: "Yes. Sniffnsnooz provides premium doorstep pet grooming services across Delhi NCR, including Delhi, Noida, Greater Noida, Gurugram, Ghaziabad, and nearby areas.",
+    q: "Do you groom cats at home?",
+    a: "Yes! Sniffnsnooz provides certified doorstep cat grooming across Gurgaon and Delhi NCR. Our gentle, fear-free cat groomers specialize in cat baths, lion cuts, de-matting, ear cleaning, and nail trimming without anesthesia or stress.",
+  },
+  {
+    q: "Do you provide anti-tick grooming?",
+    a: "Yes, we offer specialized Anti-Tick & Flea Medicated Grooming (₹1,599). It includes a medicated anti-parasite bath, fine-tooth flea combing, skin-soothing conditioning, and a protective coat shield spray to eliminate ticks safely.",
   },
   {
     q: "How long does a grooming session take?",
-    a: "The duration depends on the service and your pet’s size, breed, and comfort level. We never rush a session — your pet’s comfort, safety, and grooming quality always come first.",
+    a: "A standard Bath & Hygiene session takes about 45 to 60 minutes. Full haircut and luxury spa packages take 75 to 105 minutes depending on breed size, coat condition, and pet behavior. We prioritize gentleness over speed.",
   },
   {
-    q: "Can I stay present during the grooming session?",
-    a: "Absolutely. We encourage pet parents to stay nearby during the grooming session. You can watch them through our glass door so they can see you and they don't feel anxious and aggressive, in result could bite the groomer. Your presence often helps pets feel safe, relaxed, and emotionally secure.",
+    q: "What products does Sniffnsnooz use?",
+    a: "We use 100% pet-safe, organic, paraben-free, and pH-balanced shampoos & coat conditioners (like Hydra Professional and Bio-Groom) imported for sensitive pet skin.",
   },
 ];
 

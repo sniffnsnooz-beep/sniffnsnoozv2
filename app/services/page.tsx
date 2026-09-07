@@ -25,6 +25,8 @@ import {
   Clock
 } from "lucide-react";
 
+import { corePackageTiers } from "@/data/packages";
+
 export default function ServicesPage() {
   const parallaxRef = useRef<HTMLImageElement | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -54,7 +56,7 @@ export default function ServicesPage() {
         "Medicated Anti-Tick & Skin Treatments"
       ],
       href: "/grooming",
-      actionText: "View Grooming Details",
+      actionText: "View Grooming Packages & Prices",
       icon: <Scissors className="w-8 h-8 text-[#5b3a26]" />,
       image: "/assets/pet_spa_bath.png",
       badge: "Most Popular"
@@ -143,7 +145,7 @@ export default function ServicesPage() {
         "24/7 Veterinary Support On-Call",
         "Daily Video & Photo Reports"
       ],
-      href: "/packages",
+      href: "/store-booking",
       actionText: "Book Boarding Stay",
       icon: <Home className="w-8 h-8 text-[#5b3a26]" />,
       image: "/assets/servicelogo.png",
@@ -153,28 +155,28 @@ export default function ServicesPage() {
 
   const servicesFaqs = [
     {
-      q: "Sniff & Snooz kya kya pet care services provide karta hai?",
-      a: "Hum 6 primary pet services provide karte hain: 1) Doorstep & Salon Grooming, 2) Veterinary Consultations & Vaccinations, 3) Find a Companion (Puppies & Kittens), 4) Pet Health Insurance, 5) In-Home Pet Sitting & Dog Walking, aur 6) Luxury Pet Boarding & Daycare."
+      q: "How much does dog grooming cost in Gurgaon?",
+      a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549."
     },
     {
-      q: "Main doorstep grooming ya vet service kaise book kar sakta hu?",
-      a: "Aap hamare website ke 'Book Appointment' button par click karke apni preferred date, location, aur service choose kar sakte hain. Aap direct call karke bhi booking request kar sakte hain (+91 98187 28444)."
+      q: "Is mobile grooming better for anxious dogs?",
+      a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van."
     },
     {
-      q: "Kya aapki services poore Delhi NCR me available hain?",
-      a: "Haan! Hamari doorstep van grooming, vet visits, pet sitting, aur companion delivery services Delhi, Gurgaon, Noida, Greater Noida, Ghaziabad, aur Faridabad me fully operational hain."
+      q: "How often should my dog be groomed?",
+      a: "Dogs generally require grooming every 3 to 6 weeks depending on coat length, breed, and lifestyle. Long-haired breeds (like Shih Tzus, Poodles, and Pomeranians) need grooming every 3-4 weeks to prevent matting, while short-haired breeds (like Labradors and Beagles) benefit from monthly hygiene baths."
     },
     {
-      q: "Pet Insurance me kya kya cover hota hai?",
-      a: "Pet Insurance me sudden illness, accidents, surgeries, hospitalization, lab diagnostic tests, aur emergency medical expenses cover hote hain."
+      q: "Do you groom cats at home?",
+      a: "Yes! Sniffnsnooz provides certified doorstep cat grooming across Gurgaon and Delhi NCR. Our gentle, fear-free cat groomers specialize in cat baths, lion cuts, de-matting, ear cleaning, and nail trimming without anesthesia or stress."
     },
     {
-      q: "Pet Boarding ke waqt mere pet ka khayal kaise rakha jata hai?",
-      a: "Hamare boarding facility me climate-controlled private suites, 24/7 attendant care, fresh nutritious meals, daily play sessions, aur daily photo/video updates milte hain."
+      q: "Do you provide anti-tick grooming?",
+      a: "Yes, we offer specialized Anti-Tick & Flea Medicated Grooming (₹1,599). It includes a medicated anti-parasite bath, fine-tooth flea combing, skin-soothing conditioning, and a protective coat shield spray to eliminate ticks safely."
     },
     {
-      q: "Find a Companion service me puppies aur kittens vaccinated hote hain?",
-      a: "Bilkul! Hamare dwara listed sabhi companions certified, health-checked, aur age-appropriate vaccinations ke saath aate hain."
+      q: "How long does a grooming session take?",
+      a: "A standard Bath & Hygiene session takes about 45 to 60 minutes. Full haircut and luxury spa packages take 75 to 105 minutes depending on breed size, coat condition, and pet behavior. We prioritize gentleness over speed."
     }
   ];
 

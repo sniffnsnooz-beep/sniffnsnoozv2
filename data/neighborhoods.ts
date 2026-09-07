@@ -140,6 +140,54 @@ export const neighborhoods: Neighborhood[] = [
       }
     ]
   },
+  {
+    slug: "sector-57",
+    name: "Sector 57",
+    citySlug: "gurugram",
+    cityName: "Gurugram",
+    heading: "Doorstep Pet Grooming & Dog Spa in Sector 57, Gurgaon",
+    tagline: "Mobile Van Grooming & Home Vet Visit Servicing BPTP Freedom Park, Boom Plaza & Sector 57",
+    description: "Sniffnsnooz offers premium doorstep dog & cat grooming vans and verified vet home visits in Sector 57, Gurgaon. Fully equipped mobile vans, organic shampoos, and stress-free grooming at your doorstep.",
+    popularBreeds: ["Shih Tzu", "Golden Retriever", "Labrador", "Beagle", "Persian Cat"],
+    societyNames: ["BPTP Freedom Park", "Boom Plaza", "Rail Vihar Sector 57", "AEZ Gurgaon One", "M2K Corporate Park"],
+    vanArrivalMinutes: 15,
+    latitude: 28.4110,
+    longitude: 77.0820,
+    faqs: [
+      {
+        q: "How quickly can the mobile grooming van arrive in Sector 57 Gurgaon?",
+        a: "Our mobile van is stationed right next to Sector 65 Emerald Plaza, so we arrive in Sector 57 within 15-20 minutes of your appointment."
+      },
+      {
+        q: "Do you offer cat grooming and anti-tick treatments in Sector 57?",
+        a: "Yes! We specialize in gentle cat grooming and medicated anti-tick bath treatments in Sector 57."
+      }
+    ]
+  },
+  {
+    slug: "sector-67",
+    name: "Sector 67",
+    citySlug: "gurugram",
+    cityName: "Gurugram",
+    heading: "Doorstep Pet Grooming & Mobile Spa in Sector 67, Gurgaon",
+    tagline: "VIP Mobile Pet Spa Servicing Ansal Esencia, Ireo Victory Valley & M3M Urbana",
+    description: "Book luxury doorstep dog bath, breed haircut, nail care, and vet home visits in Sector 67, Gurgaon. Fast 15-minute arrival with self-powered AC mobile van.",
+    popularBreeds: ["Golden Retriever", "French Bulldog", "Poodle", "Shih Tzu", "Lhasa Apso"],
+    societyNames: ["Ansal Esencia", "Ireo Victory Valley", "M3M Urbana", "Bestech Park View Spa Next", "Splendor Epitome"],
+    vanArrivalMinutes: 15,
+    latitude: 28.3880,
+    longitude: 77.0650,
+    faqs: [
+      {
+        q: "Is mobile pet grooming available for high-rise apartments in Sector 67 Gurgaon?",
+        a: "Yes! Our mobile grooming van parks inside visitor bays or society parking in Ireo Victory Valley, Ansal Esencia, and all Sector 67 societies."
+      },
+      {
+        q: "What grooming packages are available in Sector 67?",
+        a: "We offer Basic Bath (₹599), Classic Grooming (₹1399), Signature Styling (₹1799), Luxury Spa (₹2199), and Anti-Tick Medicated treatments."
+      }
+    ]
+  },
 
   // ── SOUTH DELHI & DELHI ─────────────────────────────────────
   {
