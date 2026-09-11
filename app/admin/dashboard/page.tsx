@@ -1,12 +1,13 @@
 "use client";
+
 import { useEffect, useState, useCallback } from "react";
 import { CldUploadWidget } from "next-cloudinary";
 import { X, Eye, Pencil, Trash, FileSpreadsheet, Plus, Settings, Shield, Award, Users, BarChart3, Star } from "lucide-react";
-import dynamic from 'next/dynamic';
+import nextDynamic from 'next/dynamic';
 import 'react-quill-new/dist/quill.snow.css';
 import { createPortal } from "react-dom";
 
-const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
+const ReactQuill = nextDynamic(() => import("react-quill-new"), { ssr: false });
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 interface NewsItem {
@@ -462,7 +463,7 @@ export default function AdminDashboard() {
       b.user?.phone?.includes(searchTerm)
   );
 
-  if (loading) return <div className="p-10 text-center font-bold text-[#5b3a26]">Initializing Admin Suite...</div>;
+  if (!mounted || loading) return <div className="p-10 text-center font-bold text-[#5b3a26] min-h-screen flex items-center justify-center bg-[#f6efe6]">Initializing Admin Suite... 🐾</div>;
 
   return (
     <div className="p-8 bg-gray-50 min-h-screen font-sans text-gray-800">
