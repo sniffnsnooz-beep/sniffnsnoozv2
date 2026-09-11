@@ -29,16 +29,23 @@ export default async function NewsPage(props: { searchParams: Promise<{ [key: st
   const page = typeof searchParams.page === 'string' ? Number(searchParams.page) : 1;
   const PAGE_SIZE = 12;
 
-  await connectToDatabase();
-  
-  const totalCount = await News.countDocuments();
-  const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+  let allNews: any[] = [];
+  let totalCount = 0;
 
-  const allNews = await News.find()
-    .sort({ createdAt: -1 })
-    .skip((page - 1) * PAGE_SIZE)
-    .limit(PAGE_SIZE);
+  try {
+    await connectToDatabase();
+    totalCount = await News.countDocuments();
+    const rawNews = await News.find()
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * PAGE_SIZE)
+      .limit(PAGE_SIZE)
+      .lean();
+    allNews = JSON.parse(JSON.stringify(rawNews));
+  } catch (error) {
+    console.error("❌ NewsPage DB Fetch Error:", error);
+  }
 
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
   const featuredPost = page === 1 && allNews.length > 0 ? allNews[0] : null;
   const gridPosts = page === 1 ? allNews.slice(1) : allNews;
 

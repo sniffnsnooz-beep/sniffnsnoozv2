@@ -8,27 +8,36 @@ export const revalidate = 0;
 
 // SEO Dynamic Metadata - Next.js 15 Fix
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // Params ko await kiya
-  await connectToDatabase();
-  
-  const post = await News.findOne({ slug: slug });
-  if (!post) return { title: "News Not Found" };
+  try {
+    const { slug } = await params;
+    await connectToDatabase();
+    const rawPost = await News.findOne({ slug: slug }).lean();
+    if (!rawPost) return { title: "News Not Found" };
+    const post: any = JSON.parse(JSON.stringify(rawPost));
 
-  return {
-    title: `${post.title} | Sniff n Snooz News`,
-    description: post.content.replace(/<[^>]*>?/gm, '').substring(0, 160),
-    openGraph: { images: [post.image || post.video] },
-  };
+    return {
+      title: `${post.title} | Sniff n Snooz News`,
+      description: (post.content || '').replace(/<[^>]*>?/gm, '').substring(0, 160),
+      openGraph: { images: [post.image || post.video] },
+    };
+  } catch (error) {
+    return { title: "Pet Care News | Sniffnsnooz" };
+  }
 }
 
 export default async function SingleNews({ params }: { params: Promise<{ slug: string }> }) {
-  // 1. Params ko await kiya (Next.js 15 crash fix)
   const { slug } = await params;
+  let post: any = null;
 
-  await connectToDatabase();
-  
-  // 2. Awaited slug se database search kiya
-  const post = await News.findOne({ slug: slug });
+  try {
+    await connectToDatabase();
+    const rawPost = await News.findOne({ slug: slug }).lean();
+    if (rawPost) {
+      post = JSON.parse(JSON.stringify(rawPost));
+    }
+  } catch (error) {
+    console.error("SingleNews DB error:", error);
+  }
 
   if (!post) notFound();
 
