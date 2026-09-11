@@ -36,12 +36,14 @@ export default function BookingSuccess() {
         >
           Go Back Home
         </Link>
-        <Link 
-          href="https://wa.me/919971135063" 
-          className="bg-green-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition shadow-lg flex items-center justify-center gap-2"
+        <a 
+          href="https://wa.me/919818728444" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-green-700 transition shadow-lg flex items-center justify-center gap-2"
         >
           Chat on WhatsApp
-        </Link>
+        </a>
       </div>
     </div>
   );

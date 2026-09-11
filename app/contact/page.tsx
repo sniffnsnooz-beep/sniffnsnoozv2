@@ -11,10 +11,10 @@ import { Send } from "lucide-react";
 
 export default function ContactPage() {
   const businessDetails = {
-    address: "Shop No. 12, Pet Street, Grooming Hub, New Delhi - 110001",
-    phone: "+91 9971135063",
+    address: "Ground Floor, GF-78/79, Emerald Plaza, Sector 65, Gurugram, HR 122018",
+    phone: "+91 98187 28444",
     email: "sniffnsnooz@gmail.com",
-    whatsapp: "919971135063",
+    whatsapp: "919818728444",
     mapsUrl: "https://maps.google.com/?q=Emerald+Plaza+Sector+65+Gurugram",
     socials: {
       instagram: "https://www.instagram.com/sniffnsnooz_/",

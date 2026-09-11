@@ -50,17 +50,17 @@ export default function HomeServiceGrid() {
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1">
                 <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-                <span className="text-xl font-black text-[#4e3323]">4.9+</span>
+                <span className="text-xl font-black text-[#4e3323]">5.0★</span>
               </div>
-              <span className="text-xs text-[#7a5741] font-medium">Rated by Pet Parents</span>
+              <span className="text-xs text-[#7a5741] font-medium">5-Star Rated by Pet Parents</span>
             </div>
 
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1">
                 <Users className="w-5 h-5 text-[#4e3323]" />
-                <span className="text-xl font-black text-[#4e3323]">2000+</span>
+                <span className="text-xl font-black text-[#4e3323]">3000+</span>
               </div>
-              <span className="text-xs text-[#7a5741] font-medium">Happy Pets</span>
+              <span className="text-xs text-[#7a5741] font-medium">Happy Customers</span>
             </div>
 
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
@@ -74,9 +74,9 @@ export default function HomeServiceGrid() {
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                <span className="text-sm sm:text-base font-black text-[#4e3323]">Stress-Free</span>
+                <span className="text-sm sm:text-base font-black text-[#4e3323]">300+ Ratings</span>
               </div>
-              <span className="text-xs text-[#7a5741] font-medium">At your doorstep</span>
+              <span className="text-xs text-[#7a5741] font-medium">Verified 5-Star Reviews</span>
             </div>
           </div>
 
@@ -98,7 +98,7 @@ export default function HomeServiceGrid() {
           </div>
         </div>
 
-        {/* 3. TRUSTED BY 2000+ AVATAR BAR (Matching Image 2) */}
+        {/* 3. TRUSTED BY 3000+ AVATAR BAR (Matching Image 2) */}
         <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 flex items-center gap-4 shadow-sm">
           <div className="flex -space-x-3 shrink-0">
             <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-[#e6d3c2]">
@@ -111,13 +111,13 @@ export default function HomeServiceGrid() {
               <Image src="/assets/snifflogo.png" alt="User 3" width={36} height={36} className="object-cover opacity-70" />
             </div>
             <div className="w-9 h-9 rounded-full border-2 border-white bg-[#4e3323] text-white text-xs font-bold flex items-center justify-center">
-              +2K
+              +3K
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-[#4e3323] text-sm">Trusted by 2,000+</h4>
-            <p className="text-xs text-[#7a5741] font-medium">happy pet parents in NCR</p>
+            <h4 className="font-bold text-[#4e3323] text-sm">Trusted by 3,000+</h4>
+            <p className="text-xs text-[#7a5741] font-medium">happy pet parents in NCR (300+ 5-Star Ratings)</p>
           </div>
         </div>
 

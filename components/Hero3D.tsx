@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Stethoscope } from "lucide-react";
+import { ArrowRight, Stethoscope, Phone, MapPin, Sparkles, Truck, Building2 } from "lucide-react";
 import PetDoodleAccents from "@/components/PetDoodleAccents";
+import HeroBannerSlider from "@/components/HeroBannerSlider";
 
 export default function HeroSection() {
   return (
@@ -31,12 +32,19 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-10">
 
           {/* LEFT CONTENT */}
           <div className="lg:col-span-6 text-left relative z-20">
+            
+            {/* PRIMARY LOCATION BADGE - GURGAON & NCR FOCUS */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#5b3a26]/10 text-[#5b3a26] text-xs font-bold mb-4 border border-[#5b3a26]/15">
+              <MapPin className="w-3.5 h-3.5 text-[#8c5a3b]" />
+              <span>Gurgaon's #1 Doorstep &amp; Salon Pet Grooming Spa · Servicing Delhi NCR</span>
+            </div>
+
             {/* HEADING WITH GOLDEN HEART DOODLE */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#4e3323] font-bold leading-[1.12] tracking-tight mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#4e3323] font-bold leading-[1.12] tracking-tight mb-4 sm:mb-5">
               Complete Care.<br />
               Happy Pets.<br />
               Happy Homes.
@@ -45,67 +53,56 @@ export default function HeroSection() {
               </svg>
             </h1>
 
+            {/* DOORSTEP + SALON HIGHLIGHT BADGE */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-100/90 text-emerald-900 text-xs font-bold border border-emerald-200">
+                <Truck className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Mobile Van Doorstep Grooming</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-100/90 text-amber-900 text-xs font-bold border border-amber-200">
+                <Building2 className="w-3.5 h-3.5 text-amber-700" />
+                <span>Flagship Salon: Emerald Plaza, Sec 65 Gurgaon</span>
+              </span>
+            </div>
+
             {/* SUBTITLE */}
             <p className="text-sm sm:text-base md:text-lg text-[#7a5741] font-medium leading-relaxed mb-6 sm:mb-8 max-w-xl">
-              From grooming and veterinary care to pet guidance, insurance and trusted companionship services – Sniffnsnooz brings complete pet solutions to your doorstep.
+              Book certified pet groomers in Gurgaon &amp; Delhi NCR. From organic spa baths and breed haircuts to vet home visits – premium care delivered at your doorstep or luxury salon.
             </p>
 
             {/* ACTION BUTTONS */}
             <div className="flex flex-row items-center gap-3 sm:gap-4 flex-wrap">
-              <Link href="/booking">
-                <span className="bg-[#4e3323] text-white hover:bg-[#3b2518] active:scale-95 transition-transform duration-200 px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-md cursor-pointer whitespace-nowrap">
-                  <span>Book Grooming</span>
-                  <ArrowRight className="w-4 h-4" />
+              {/* PRIMARY STRONGEST CTA */}
+              <Link href="/store-booking">
+                <span className="bg-[#4e3323] text-white hover:bg-[#3b2518] active:scale-95 transition-all duration-200 px-6 sm:px-7 py-3.5 rounded-full font-extrabold text-sm sm:text-base flex items-center gap-2.5 shadow-xl hover:shadow-2xl cursor-pointer whitespace-nowrap ring-4 ring-[#4e3323]/20">
+                  <span>Book Grooming 🐾</span>
+                  <ArrowRight className="w-4 h-4 text-amber-300" />
                 </span>
               </Link>
 
+              {/* CALL / WHATSAPP DIRECT CTA */}
+              <a
+                href="tel:+919818728444"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 transition-all duration-200 px-5 sm:px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-md cursor-pointer whitespace-nowrap"
+                title="Call or WhatsApp Sniffnsnooz"
+              >
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call / WhatsApp: 98187 28444</span>
+              </a>
+
+              {/* VET CONSULTATION */}
               <Link href="/veterinary-booking">
-                <span className="bg-white text-[#4e3323] border border-[#4e3323]/25 hover:bg-[#4e3323]/5 active:scale-95 transition-transform duration-200 px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 shadow-sm cursor-pointer whitespace-nowrap">
-                  <Stethoscope className="w-4 h-4 text-[#4e3323]" />
+                <span className="bg-white text-[#4e3323] border border-[#4e3323]/25 hover:bg-[#4e3323]/5 active:scale-95 transition-transform duration-200 px-5 py-3 rounded-full font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-sm cursor-pointer whitespace-nowrap">
+                  <Stethoscope className="w-3.5 h-3.5 text-[#4e3323]" />
                   <span>Consult Vet</span>
                 </span>
               </Link>
             </div>
           </div>
 
-          {/* RIGHT TRANSPARENT PET IMAGE (doggy3dd.webp WITHOUT BACKGROUND) */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-4 lg:mt-0 z-10">
-
-            {/* FLOATING BADGE 1 */}
-            <div className="animate-float-slow absolute top-4 left-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🏆</span>
-                <div>
-                  <div className="text-xs font-black text-[#5b3a26]">Best Groomer</div>
-                  <div className="text-[10px] text-[#7a5741] font-semibold">Delhi NCR</div>
-                </div>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 2 */}
-            <div className="animate-float-reverse absolute bottom-6 right-0 z-30 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-lg border border-white/80">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">✨</span>
-                <div>
-                  <div className="text-xs font-black text-[#5b3a26]">100% Stress-Free</div>
-                  <div className="text-[10px] text-[#7a5741] font-semibold">At Your Doorstep</div>
-                </div>
-              </div>
-            </div>
-
-            {/* TRANSPARENT 3D PET GRAPHIC (WEB-P OPTIMIZED 90KB) */}
-            <div className="relative w-full max-w-[480px] aspect-square flex items-center justify-center">
-              <Image
-                src="/assets/doggy3dd.webp"
-                alt="Sniffnsnooz Pet"
-                width={700}
-                height={650}
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 500px"
-                className="relative z-20 drop-shadow-2xl hover:scale-105 transition-transform duration-700 object-contain"
-              />
-            </div>
+          {/* RIGHT HERO BANNER AUTO SLIDER (ONE BY ONE PAUSING LOOP SLIDER) */}
+          <div className="lg:col-span-6 relative z-20">
+            <HeroBannerSlider />
           </div>
 
         </div>

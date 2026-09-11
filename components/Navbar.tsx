@@ -120,8 +120,18 @@ export default function Navbar() {
 
           {/* RIGHT ICONS */}
           <div className="flex items-center gap-2">
+            {/* CALL / WHATSAPP CTA - Desktop */}
+            <a
+              href="tel:+919818728444"
+              className="hidden lg:inline-flex items-center gap-1.5 bg-[#f6efe6] text-[#5b3a26] hover:bg-[#eadfce] text-xs font-bold px-3.5 py-2 rounded-full border border-[#d8c3b0] transition shrink-0"
+              title="Call or WhatsApp: 98187 28444"
+            >
+              <Phone size={13} className="text-[#8c5a3b]" />
+              <span>98187 28444</span>
+            </a>
+
             {/* CART */}
-            <Link href="/booking" className="relative p-2 rounded-full hover:bg-white/60 transition">
+            <Link href="/booking" className="relative p-2 rounded-full hover:bg-white/60 transition" title="Shopping Cart">
               <ShoppingCart size={20} className="text-[#5b3a26]" />
               <AnimatePresence>
                 {count > 0 && (
@@ -140,10 +150,10 @@ export default function Navbar() {
             {/* BOOK CTA - Visible on Mobile too! */}
             <Link
               href="/store-booking"
-              className="inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
+              className="inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
             >
               <CalendarCheck size={14} className="text-white" />
-              <span>Book Now</span>
+              <span>Book Grooming 🐾</span>
             </Link>
 
             {/* HAMBURGER */}

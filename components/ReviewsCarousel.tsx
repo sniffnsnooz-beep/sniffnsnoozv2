@@ -82,8 +82,8 @@ export default function ReviewsCarousel() {
         <h2 className="text-3xl font-serif text-[#5b3a26] mb-1">
           NCR Pet Parents Love Us!
         </h2>
-        <p className="text-[#7a5741] mb-6 text-sm">
-          Real reviews from verified Sniffnsnooz customers
+        <p className="text-[#7a5741] mb-6 text-sm font-semibold">
+          ⭐ 5.0 Rating (300+ Verified 5-Star Reviews from Sniffnsnooz pet parents)
         </p>
 
         {/* CAROUSEL */}

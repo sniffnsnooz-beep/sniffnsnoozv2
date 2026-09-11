@@ -121,8 +121,8 @@ export default function HomeAboutSection() {
         <div className="relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: "2000+", label: "Happy Pets Groomed", emoji: "🐾" },
-              { value: "4.9★", label: "Average Rating", emoji: "⭐" },
+              { value: "3000+", label: "Happy Customers", emoji: "🐾" },
+              { value: "5.0★", label: "5-Star Rating (300+ Reviews)", emoji: "⭐" },
               { value: "6+", label: "Cities Covered", emoji: "📍" },
               { value: "3+", label: "Years of Excellence", emoji: "🏆" },
             ].map((stat, i) => (
