@@ -141,6 +141,10 @@ export default function AdminDashboard() {
     setMounted(true);
   }, []);
 
+if (typeof window !== "undefined" && !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME) {
+  (process.env as any).NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME = "dfwpzolir";
+}
+
   // --- Fetch Data Logic (Dynamic Tabbed Fetching) ---
   const fetchData = useCallback(async () => {
     try {
@@ -165,6 +169,10 @@ export default function AdminDashboard() {
       }
 
       const resCompLeads = await fetch("/api/admin/companion-leads", { cache: "no-store" });
+      if (resCompLeads.status === 401) {
+        window.location.replace("/admin");
+        return;
+      }
       if (resCompLeads.ok) {
         const compLeads = await resCompLeads.json();
         setCompanionLeads(Array.isArray(compLeads) ? compLeads : []);
@@ -172,6 +180,10 @@ export default function AdminDashboard() {
 
       // Fetch Insurance Leads
       const resInsLeads = await fetch("/api/admin/insurance-leads", { cache: "no-store" });
+      if (resInsLeads.status === 401) {
+        window.location.replace("/admin");
+        return;
+      }
       if (resInsLeads.ok) {
         const insLeads = await resInsLeads.json();
         setInsuranceLeads(Array.isArray(insLeads) ? insLeads : []);
@@ -179,6 +191,10 @@ export default function AdminDashboard() {
 
       // Fetch Gallery List
       const resGal = await fetch("/api/admin/gallery", { cache: "no-store" });
+      if (resGal.status === 401) {
+        window.location.replace("/admin");
+        return;
+      }
       if (resGal.ok) {
         const galData = await resGal.json();
         setGalleryList(Array.isArray(galData) ? galData : []);
