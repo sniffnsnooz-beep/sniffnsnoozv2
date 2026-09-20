@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from "next/script"; // ✅ Script Import Kiya
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import MobileBottomNav from "@/components/MobileBottomNav";
+import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
 import type { Metadata, Viewport } from "next";
@@ -143,6 +144,7 @@ export default function RootLayout({
         </noscript>
 
         <AnalyticsPageView />
+        <ServiceWorkerRegistration />
 
         <BookingProvider>
 
