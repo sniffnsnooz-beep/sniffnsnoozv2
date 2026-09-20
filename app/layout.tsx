@@ -6,12 +6,27 @@ import GlobalBubbles from "@/components/GlobalBubbles";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from "next/script"; // ✅ Script Import Kiya
 import AnalyticsPageView from "@/components/AnalyticsPageView";
+import MobileBottomNav from "@/components/MobileBottomNav";
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#5b3a26",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false, // Prevents zooming on inputs like a real app
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sniffnsnooz.in"),
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Sniffnsnooz",
+  },
   title: {
     default: "Sniffnsnooz | Premium Doorstep Pet Grooming in Delhi NCR",
     template: "%s | Sniffnsnooz",
@@ -423,11 +438,12 @@ export default function RootLayout({
 
             <Navbar />
 
-            <main className="pt-20 relative z-10 page-animate">
+            <main className="pt-20 pb-24 md:pb-0 relative z-10 page-animate">
               {children}
             </main>
 
             <Footer />
+            <MobileBottomNav />
           </div>
 
         </BookingProvider>

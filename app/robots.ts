@@ -6,11 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/admin/",        // Admin panel
-          "/api/",          // API routes
-          "/_next/",        // Next.js internals
-        ],
       },
       {
         userAgent: [

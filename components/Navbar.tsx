@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useBooking } from "@/context/BookingContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Menu, X, Phone, Star, CalendarCheck } from "lucide-react";
+import { ShoppingCart, Menu, X, Phone, Star, CalendarCheck, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
@@ -130,8 +130,8 @@ export default function Navbar() {
               <span>98187 28444</span>
             </a>
 
-            {/* CART */}
-            <Link href="/booking" className="relative p-2 rounded-full hover:bg-white/60 transition" title="Shopping Cart">
+            {/* CART - Hidden on mobile, in bottom nav */}
+            <Link href="/booking" className="hidden md:flex relative p-2 rounded-full hover:bg-white/60 transition" title="Shopping Cart">
               <ShoppingCart size={20} className="text-[#5b3a26]" />
               <AnimatePresence>
                 {count > 0 && (
@@ -147,10 +147,10 @@ export default function Navbar() {
               </AnimatePresence>
             </Link>
 
-            {/* BOOK CTA - Visible on Mobile too! */}
+            {/* BOOK CTA - Hidden on mobile, in bottom nav */}
             <Link
               href="/store-booking"
-              className="inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
+              className="hidden md:inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
             >
               <CalendarCheck size={14} className="text-white" />
               <span>Book Grooming 🐾</span>
@@ -188,21 +188,23 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-[280px] z-50 bg-white/98 backdrop-blur-xl shadow-2xl md:hidden flex flex-col"
+              className="fixed top-0 right-0 h-full w-[85vw] max-w-[320px] z-50 bg-gradient-to-b from-[#fdfbf7] to-[#f6efe6] shadow-2xl md:hidden flex flex-col rounded-l-3xl border-l border-white/60"
             >
-              <div className="flex items-center justify-between p-5 border-b border-[#f0e8df]">
-                <Image src="/assets/snifflogo.png" alt="Logo" width={130} height={40} className="object-contain h-9 w-auto" />
-                <button onClick={() => setOpen(false)} className="p-2 rounded-full bg-[#f6efe6] text-[#5b3a26]">
+              <div className="flex flex-col items-center justify-center p-6 border-b border-[#f0e8df]/60 relative">
+                <button onClick={() => setOpen(false)} className="absolute top-4 right-4 p-2 rounded-full bg-white text-[#5b3a26] shadow-sm hover:scale-105 transition">
                   <X size={18} />
                 </button>
+                <Image src="/assets/snifflogo.webp" alt="Logo" width={140} height={42} className="object-contain h-10 w-auto mb-3 drop-shadow-sm" />
+                <p className="text-xs font-semibold text-[#8c5a3b] mb-4">Welcome, Pet Parent! 🐾</p>
+                <div className="flex items-center gap-1.5 bg-gradient-to-r from-amber-50 to-orange-50/40 border border-amber-200/60 rounded-full px-4 py-2 shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} className="text-amber-500 fill-amber-400 drop-shadow-sm" />)}
+                  </div>
+                  <span className="text-xs font-bold text-amber-900 ml-1">5.0 · 3000+ happy pets</span>
+                </div>
               </div>
 
-              <div className="mx-4 mt-3 mb-1 flex items-center gap-1.5 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2">
-                {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} className="text-amber-400 fill-amber-400" />)}
-                <span className="text-xs font-semibold text-amber-800 ml-1">4.9 · 2000+ happy pets</span>
-              </div>
-
-              <nav className="flex flex-col gap-0.5 p-4 flex-grow overflow-y-auto">
+              <nav className="flex flex-col gap-1.5 p-4 flex-grow overflow-y-auto scrollbar-hide">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
@@ -213,38 +215,43 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${isActive(link.href)
-                          ? "bg-[#5b3a26] text-white shadow-md"
-                          : "text-[#5b3a26] hover:bg-[#f6efe6]"
-                        } ${link.highlight && !isActive(link.href) ? "text-orange-800 bg-orange-50/50" : ""}`}
+                      className={`flex items-center justify-between px-4 py-3.5 rounded-2xl font-medium transition-all ${isActive(link.href)
+                          ? "bg-gradient-to-r from-[#5b3a26] to-[#7a5741] text-white shadow-lg shadow-[#5b3a26]/20"
+                          : "text-[#4e3323] hover:bg-white hover:shadow-sm"
+                        } ${link.highlight && !isActive(link.href) ? "text-orange-800 bg-orange-50/50 border border-orange-100/50" : ""}`}
                     >
-                      <span className="text-base">{link.emoji}</span>
-                      {link.label}
+                      <div className="flex items-center gap-3">
+                        <span className="text-lg drop-shadow-sm">{link.emoji}</span>
+                        <span className="text-[15px]">{link.label}</span>
+                      </div>
+                      {!isActive(link.href) && (
+                        <ChevronRight size={16} className="text-[#8c5a3b]/50" />
+                      )}
                     </Link>
                   </motion.div>
                 ))}
               </nav>
 
-              <div className="p-4 space-y-2 border-t border-[#f0e8df]">
+              <div className="p-5 space-y-2.5 bg-white/50 border-t border-[#f0e8df]/60 rounded-bl-3xl">
                 <Link
                   href="/store-booking"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full btn-primary !py-3 !rounded-2xl !text-base"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#5b3a26] to-[#7a5741] text-white py-3.5 rounded-full font-bold text-[15px] shadow-[0_8px_20px_rgba(91,58,38,0.25)] hover:scale-[0.98] transition-transform"
                 >
                   Book Grooming 🐾
                 </Link>
                 <Link
                   href="/veterinary-booking"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full bg-red-50 text-red-800 border-2 border-red-100 py-3 rounded-2xl font-semibold text-sm hover:bg-red-100 transition"
+                  className="flex items-center justify-center gap-2 w-full bg-white text-red-700 border-2 border-red-100 py-3 rounded-full font-bold text-[14px] hover:bg-red-50 transition-colors shadow-sm"
                 >
                   🩺 Book Vet Appointment
                 </Link>
                 <a
                   href="tel:+919818728444"
-                  className="flex items-center justify-center gap-2 w-full bg-[#f6efe6] text-[#5b3a26] py-3 rounded-2xl font-semibold text-sm hover:bg-[#eadfce] transition"
+                  className="flex items-center justify-center gap-2 w-full bg-[#f6efe6] text-[#5b3a26] py-3 rounded-full font-bold text-[14px] hover:bg-[#eadfce] transition-colors"
                 >
-                  <Phone size={16} /> Call Us Now
+                  <Phone size={15} /> Call Us Now
                 </a>
               </div>
             </motion.div>
