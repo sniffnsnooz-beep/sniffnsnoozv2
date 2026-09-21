@@ -9,8 +9,7 @@ export default function HairStylingAccordion() {
   return (
     <div
       className="
-        bg-white/60
-        backdrop-blur-xl
+        bg-white/95
         rounded-2xl
         shadow-[0_20px_40px_rgba(0,0,0,0.08)]
         overflow-hidden

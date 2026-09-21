@@ -134,7 +134,7 @@ export default function Home() {
 
           {/* KEYWORD HIGHLIGHT BANNER */}
           <ScrollReveal delay={0.3}>
-            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-[#e5d6c5] shadow-sm text-center max-w-4xl mx-auto">
+            <div className="bg-white/80  rounded-2xl p-6 border border-[#e5d6c5] shadow-sm text-center max-w-4xl mx-auto">
               <h3 className="font-serif font-bold text-[#4e3323] text-lg mb-2">
                 Mobile Pet Grooming &amp; Dog Grooming at Home in Gurgaon
               </h3>

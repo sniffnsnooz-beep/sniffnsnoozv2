@@ -115,21 +115,21 @@ export default async function LocationPage(props: Props) {
 
       {/* Trust & Features Section */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-slate-200/60">
-        <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
+        <div className="bg-white/95 p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
           <div className="w-16 h-16 mx-auto bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
             <FaCheckCircle />
           </div>
           <h3 className="text-xl font-bold text-slate-800">Certified Groomers</h3>
           <p className="text-slate-600">Expertly trained to handle pets of all breeds and temperaments with care.</p>
         </div>
-        <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
+        <div className="bg-white/95 p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
           <div className="w-16 h-16 mx-auto bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
             <FaCheckCircle />
           </div>
           <h3 className="text-xl font-bold text-slate-800">Imported Products</h3>
           <p className="text-slate-600">We use only the finest, vet-approved imported shampoos and conditioners.</p>
         </div>
-        <div className="bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
+        <div className="bg-white/95 p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-4">
           <div className="w-16 h-16 mx-auto bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl shadow-inner">
             <FaCheckCircle />
           </div>

@@ -71,7 +71,7 @@ export default function HomeFAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/50 backdrop-blur-md shadow-sm border border-white mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/95 shadow-sm border border-white mb-6">
             <MessageCircleQuestion className="w-8 h-8 text-[#8c5a3b]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-[#5b3a26] mb-4">
@@ -97,7 +97,7 @@ export default function HomeFAQSection() {
                 variants={itemVariants}
                 key={i}
                 className={`
-                  bg-white/50 backdrop-blur-xl border border-white/60 rounded-3xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md
+                  bg-white/95 border border-white/60 rounded-3xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md
                   ${isOpen ? "shadow-lg bg-white/70 border-white/80" : ""}
                 `}
               >
@@ -148,7 +148,7 @@ export default function HomeFAQSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 text-center bg-white/40 backdrop-blur-md rounded-[40px] p-10 border border-white/60 shadow-lg"
+          className="mt-20 text-center bg-white/95 rounded-[40px] p-10 border border-white/60 shadow-lg"
         >
           <h3 className="text-2xl font-serif text-[#5b3a26] mb-3">Still have questions?</h3>
           <p className="text-[#6b4a35] mb-8 text-lg">

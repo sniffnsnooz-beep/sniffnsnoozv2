@@ -316,7 +316,7 @@ export default function ServicesPage() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-5 rounded-3xl shadow-2xl border border-white/80 flex items-center gap-4"
+                className="absolute -bottom-6 -left-6 bg-white/95  p-5 rounded-3xl shadow-2xl border border-white/80 flex items-center gap-4"
               >
                 <div className="w-12 h-12 rounded-2xl bg-[#5b3a26] text-white flex items-center justify-center text-2xl font-bold">
                   🐾
@@ -388,7 +388,7 @@ export default function ServicesPage() {
           </motion.div>
 
           {/* WHY CHOOSE US HIGHLIGHTS */}
-          <div className="bg-white/70 backdrop-blur-md rounded-3xl p-10 border border-white/80 shadow-xl mb-24">
+          <div className="bg-white/95 rounded-3xl p-10 border border-white/80 shadow-xl mb-24">
             <div className="text-center mb-12">
               <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#5b3a26] mb-3">Why Pet Parents Trust Sniff & Snooz</h3>
               <p className="text-[#7a5741]">Uncompromised safety, certified experts, and doorstep convenience.</p>
@@ -424,7 +424,7 @@ export default function ServicesPage() {
               {servicesFaqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-white/80 backdrop-blur-md rounded-2xl border border-white/60 overflow-hidden shadow-sm transition-all"
+                  className="bg-white/80  rounded-2xl border border-white/60 overflow-hidden shadow-sm transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}

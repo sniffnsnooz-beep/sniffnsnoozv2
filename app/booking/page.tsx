@@ -144,7 +144,7 @@ export default function BookingPage() {
   return (
     <section className="min-h-screen py-24 bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] relative overflow-hidden">
       {showSuccessOverlay && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#5b3a26]/90 backdrop-blur-md">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#5b3a26]/90 ">
           <div className="bg-white p-10 rounded-[40px] text-center shadow-2xl">
             <div className="text-5xl mb-4">🐾</div>
             <h2 className="text-3xl font-serif text-[#5b3a26] mb-2">Booking Confirmed!</h2>
@@ -154,7 +154,7 @@ export default function BookingPage() {
       )}
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="bg-white/70 backdrop-blur-md p-10 rounded-[40px] shadow-sm border border-white">
+        <div className="bg-white/95 p-10 rounded-[40px] shadow-sm border border-white">
           <h1 className="text-4xl font-serif text-[#5b3a26] mb-2 text-center">Book Grooming</h1>
           <p className="text-center text-sm text-[#7a5741] mb-8">Fill all fields to enable the booking button</p>
 
@@ -316,7 +316,7 @@ export default function BookingPage() {
           )}
 
           {/* SUBMIT */}
-          <div className="bg-white/90 backdrop-blur-md border-t border-[#eadfce] pt-6">
+          <div className="bg-white/95 border-t border-[#eadfce] pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div>
                 <span className="text-2xl font-bold text-[#5b3a26]">Total: ₹{total}</span>

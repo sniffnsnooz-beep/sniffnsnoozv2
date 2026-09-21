@@ -75,8 +75,8 @@ export default function Navbar() {
       <nav
         className={`fixed left-0 w-full z-50 transition-all duration-300 ${showAnnouncement ? "top-[32px]" : "top-0"
           } ${scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-white/40"
-            : "bg-white/60 backdrop-blur-md"
+            ? "bg-white/95 shadow-lg shadow-black/5 border-b border-white/40"
+            : "bg-white/95"
           }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-6 h-[64px]">
@@ -178,7 +178,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/20  md:hidden"
               onClick={() => setOpen(false)}
             />
 

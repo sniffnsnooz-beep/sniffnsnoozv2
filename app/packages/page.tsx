@@ -89,7 +89,7 @@ export default function PackagesPage() {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-xl p-5 rounded-3xl shadow-xl border border-white/60 flex items-center gap-4"
+              className="absolute -bottom-6 -left-6 bg-white/95  p-5 rounded-3xl shadow-xl border border-white/60 flex items-center gap-4"
             >
               <div className="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-black text-xl">
                 %

@@ -184,7 +184,7 @@ export default function GalleryPage() {
               onClick={() => setSelectedMedia(null)}
             >
               <button 
-                className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full text-white flex items-center justify-center transition-colors backdrop-blur-md border border-white/20"
+                className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full text-white flex items-center justify-center transition-colors  border border-white/20"
                 onClick={(e) => { e.stopPropagation(); setSelectedMedia(null); }}
               >
                 <X size={24} />
@@ -211,7 +211,7 @@ export default function GalleryPage() {
                     className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border-4 border-white/10"
                   />
                 )}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs px-4 py-2 rounded-full backdrop-blur-sm select-none">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs px-4 py-2 rounded-full  select-none">
                   {selectedMedia.title} • {selectedMedia.category}
                 </div>
               </motion.div>

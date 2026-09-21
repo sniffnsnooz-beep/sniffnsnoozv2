@@ -143,7 +143,7 @@ export default async function NewsPage(props: { searchParams: Promise<{ [key: st
                     />
                   )}
                   {/* Floating Category Badge */}
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-[#5b3a26] text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
+                  <div className="absolute top-4 left-4 bg-white/95 text-[#5b3a26] text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
                     {post.category}
                   </div>
                 </div>

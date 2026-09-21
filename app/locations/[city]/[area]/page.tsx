@@ -162,7 +162,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </div>
 
           {/* HERO SECTION */}
-          <div className="bg-white/80 backdrop-blur-xl border border-white/80 rounded-3xl p-6 sm:p-10 shadow-xl mb-12 relative overflow-hidden">
+          <div className="bg-white/80  border border-white/80 rounded-3xl p-6 sm:p-10 shadow-xl mb-12 relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
               <div className="lg:col-span-7 space-y-4">
@@ -244,7 +244,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </div>
 
           {/* SOCIETIES & CONDOMINIUMS SERVED */}
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/60 mb-12 shadow-sm">
+          <div className="bg-white/95 rounded-2xl p-6 sm:p-8 border border-white/60 mb-12 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#4e3323] mb-4 flex items-center gap-2">
               <span>🏢</span> Condominiums &amp; Societies Serviced in {area.name}
             </h2>
@@ -345,7 +345,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </div>
 
           {/* LOCAL FAQS */}
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/60 shadow-sm">
+          <div className="bg-white/80  rounded-2xl p-6 sm:p-8 border border-white/60 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#4e3323] mb-6">
               Frequently Asked Questions in {area.name}
             </h2>

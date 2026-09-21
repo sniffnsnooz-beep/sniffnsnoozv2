@@ -179,7 +179,7 @@ export default function BookingPage() {
     <section className="min-h-screen py-24 bg-[#f6efe6] relative overflow-hidden font-sans">
       
       {showSuccessOverlay && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#5b3a26]/90 backdrop-blur-md">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#5b3a26]/90 ">
           <div className="bg-white p-10 rounded-[40px] text-center shadow-2xl animate-in zoom-in-90 duration-300">
             <div className="text-5xl mb-4">🐾</div>
             <h2 className="text-3xl font-serif text-[#5b3a26] mb-2">Booking Confirmed!</h2>

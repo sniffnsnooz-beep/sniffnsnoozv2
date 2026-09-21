@@ -108,8 +108,7 @@ export default function ReviewsCarousel() {
               <SwiperSlide key={i}>
                 <div
                   className="
-                    bg-white/60 
-                    backdrop-blur-xl 
+                    bg-white/95 
                     border border-white/40 
                     rounded-3xl 
                     p-5 

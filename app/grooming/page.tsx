@@ -343,7 +343,7 @@ export default function GroomingPage() {
           </div>
 
           {/* Grooming Add-ons Bar */}
-          <div className="bg-white/60 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-xl mb-24">
+          <div className="bg-white/95 rounded-3xl p-8 border border-white/80 shadow-xl mb-24">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-serif font-bold text-[#5b3a26] mb-2">Special Grooming Add-Ons</h3>
               <p className="text-[#7a5741] text-sm font-medium">Customize your pet's spa session with targeted specialty care.</p>
@@ -379,7 +379,7 @@ export default function GroomingPage() {
               {groomingFaqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-white/80 backdrop-blur-md rounded-2xl border border-white/60 overflow-hidden shadow-sm transition-all"
+                  className="bg-white/80  rounded-2xl border border-white/60 overflow-hidden shadow-sm transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}

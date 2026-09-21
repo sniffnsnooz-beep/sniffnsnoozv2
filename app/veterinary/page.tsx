@@ -389,7 +389,7 @@ export default function VeterinaryPage() {
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#e8d8cc] rounded-2xl overflow-hidden bg-white/70 backdrop-blur-sm shadow-sm">
+              <div key={idx} className="border border-[#e8d8cc] rounded-2xl overflow-hidden bg-white/95 shadow-sm">
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                   className="w-full flex items-center justify-between p-6 text-left font-bold text-[#5b3a26] hover:bg-white/40 transition-colors"

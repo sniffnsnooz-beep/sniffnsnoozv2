@@ -49,7 +49,7 @@ export default function HomeAboutSection() {
             animate={isInView1 ? "visible" : "hidden"}
             className="space-y-8"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/50">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/95 px-4 py-2 rounded-full shadow-sm border border-white/50">
               <Sparkles className="w-4 h-4 text-[#8c5a3b]" />
               <span className="text-sm font-bold tracking-widest uppercase text-[#5b3a26]">Our Philosophy</span>
             </motion.div>
@@ -63,7 +63,7 @@ export default function HomeAboutSection() {
               At <strong>Sniffnsnooz</strong>, we believe your pet deserves the same care, comfort, and patience as any loved family member. Customer satisfaction is not just a goal — it is our priority, our responsibility, and our promise.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="p-6 bg-white/40 backdrop-blur-xl border border-white/60 rounded-2xl shadow-sm relative overflow-hidden group hover:shadow-lg transition-all duration-300">
+            <motion.div variants={itemVariants} className="p-6 bg-white/95 border border-white/60 rounded-2xl shadow-sm relative overflow-hidden group hover:shadow-lg transition-all duration-300">
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#e6d3c2] to-transparent rounded-bl-full opacity-50 transition-transform group-hover:scale-110" />
               <h3 className="text-2xl font-serif text-[#5b3a26] mb-3 flex items-center gap-2 relative z-10">
                 <Scissors className="w-6 h-6 text-[#8c5a3b]" /> Premium Grooming
@@ -102,7 +102,7 @@ export default function HomeAboutSection() {
               className="object-cover scale-110 hover:scale-100 transition-transform duration-700 brightness-95"
             />
             {/* Glassmorphism Badge */}
-            <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md rounded-2xl p-6 border border-white/50 shadow-lg">
+            <div className="absolute bottom-8 left-8 right-8 bg-white/95 rounded-2xl p-6 border border-white/50 shadow-lg">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-[#5b3a26] rounded-full flex items-center justify-center">
                   <HeartHandshake className="w-6 h-6 text-white" />
@@ -131,7 +131,7 @@ export default function HomeAboutSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView1 ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="bg-white/60 backdrop-blur-xl border border-white/60 rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+                className="bg-white/95 border border-white/60 rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
               >
                 <div className="text-2xl mb-1 group-hover:scale-110 transition-transform duration-300">{stat.emoji}</div>
                 <div className="text-3xl font-black text-[#5b3a26] leading-none">{stat.value}</div>
@@ -187,7 +187,7 @@ export default function HomeAboutSection() {
                 animate={isInView2 ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white/50 backdrop-blur-xl border border-white/60 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                className="bg-white/95 border border-white/60 p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
               >
                 {/* Hover Glow Background */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

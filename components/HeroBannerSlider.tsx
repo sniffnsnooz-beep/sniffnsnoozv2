@@ -142,14 +142,14 @@ export default function HeroBannerSlider() {
 
       {/* TOP HEADER OVERLAY */}
       <div className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-amber-300 text-xs font-black border border-amber-500/40 shadow-lg">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/95 text-amber-300 text-xs font-black border border-amber-500/40 shadow-lg">
           <Tag className="w-3.5 h-3.5 text-amber-400" />
           <span>EXCLUSIVE OFFER {currentIndex + 1} / {bannerSlides.length}</span>
         </div>
 
         <button
           onClick={() => setIsPaused(!isPaused)}
-          className="pointer-events-auto w-8 h-8 rounded-full bg-black/80 backdrop-blur-md text-white hover:text-amber-400 flex items-center justify-center border border-white/20 transition shadow-lg active:scale-90"
+          className="pointer-events-auto w-8 h-8 rounded-full bg-black/95 text-white hover:text-amber-400 flex items-center justify-center border border-white/20 transition shadow-lg active:scale-90"
           title={isPaused ? "Resume Auto Slide" : "Pause Auto Slide"}
         >
           {isPaused ? <Play className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
@@ -186,7 +186,7 @@ export default function HeroBannerSlider() {
         {/* NAVIGATION ARROWS */}
         <button
           onClick={handlePrev}
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/75 hover:bg-amber-500 hover:text-black text-white backdrop-blur-md flex items-center justify-center transition shadow-2xl border border-white/20 active:scale-90"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/95 hover:bg-amber-500 hover:text-black text-white  flex items-center justify-center transition shadow-2xl border border-white/20 active:scale-90"
           aria-label="Previous Offer Poster"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -194,7 +194,7 @@ export default function HeroBannerSlider() {
 
         <button
           onClick={handleNext}
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/75 hover:bg-amber-500 hover:text-black text-white backdrop-blur-md flex items-center justify-center transition shadow-2xl border border-white/20 active:scale-90"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/95 hover:bg-amber-500 hover:text-black text-white  flex items-center justify-center transition shadow-2xl border border-white/20 active:scale-90"
           aria-label="Next Offer Poster"
         >
           <ChevronRight className="w-6 h-6" />

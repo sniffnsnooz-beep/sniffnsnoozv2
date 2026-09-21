@@ -216,7 +216,7 @@ export default function ContactPage() {
                 href="https://maps.app.goo.gl/mne3pYM2wdLeUuvk9"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md text-[#5b3a26] py-3.5 rounded-xl font-bold text-center border border-white/60 hover:bg-[#5b3a26] hover:text-white hover:border-[#5b3a26] transition-all shadow-xl z-20 flex items-center justify-center gap-2"
+                className="absolute bottom-8 left-8 right-8 bg-white/95  text-[#5b3a26] py-3.5 rounded-xl font-bold text-center border border-white/60 hover:bg-[#5b3a26] hover:text-white hover:border-[#5b3a26] transition-all shadow-xl z-20 flex items-center justify-center gap-2"
               >
                 <FaMapMarkerAlt /> Open in Maps
               </a>
