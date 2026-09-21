@@ -46,10 +46,10 @@ export default function ServicesPage() {
     {
       id: "grooming",
       title: "Pet Grooming & Spa Services",
-      tagline: "Doorstep Van Spa & Luxury Salon Grooming",
+      tagline: "Doorstep Home Spa & Luxury Salon Lounge",
       desc: "Complete pampering and hygiene care for dogs & cats. From bath, hair styling, nail care, to anti-tick treatments and hydra spa.",
       features: [
-        "Doorstep Mobile Van & Store Salon",
+        "Doorstep Home Visit & Store Salon Lounge",
         "Bath, Blow Dry & Fluffing",
         "Breed Specific Hair Trimming & Styling",
         "Nail Trimming & Paw Hygiene",
@@ -76,7 +76,7 @@ export default function ServicesPage() {
       href: "/veterinary",
       actionText: "Book Vet Consultation",
       icon: <Stethoscope className="w-8 h-8 text-[#5b3a26]" />,
-      image: "/assets/servicelogo.png",
+      image: "/assets/pet_clinic_reception.png",
       badge: "Certified Vets"
     },
     {
@@ -94,26 +94,26 @@ export default function ServicesPage() {
       href: "/find-a-companion",
       actionText: "Explore Companions",
       icon: <HeartHandshake className="w-8 h-8 text-[#5b3a26]" />,
-      image: "/assets/snifflogo.png",
+      image: "/assets/hero_pets_bed.png",
       badge: "Companion Finder"
     },
     {
       id: "insurance",
-      title: "Pet Insurance & Health Cover",
-      tagline: "Financial Protection for Pet Emergencies",
-      desc: "Protect your furry family members against unexpected illness, medical bills, surgery, and emergency hospitalization costs.",
+      title: "Pet Health Insurance Guidance",
+      tagline: "Comprehensive Health & Surgery Cover",
+      desc: "Protect your pet against unexpected medical bills, accidents, surgeries, and OPD expenses with tailored insurance plans.",
       features: [
-        "Accident & Illness Coverage",
-        "Cashless Claims & Reimbursements",
-        "Surgery & Hospitalization Support",
-        "Flexible Monthly & Annual Plans",
-        "Preventive Wellness Add-ons"
+        "Cashless Hospitalization & Surgery Coverage",
+        "OPD, Doctor Visits & Diagnostic Cover",
+        "Accidents & Critical Illness Protection",
+        "Fast & Easy Claim Assistance",
+        "Tailored Plans for Dogs & Cats of All Ages"
       ],
       href: "/pet-insurance",
-      actionText: "Get Insurance Plan",
+      actionText: "Explore Insurance Plans",
       icon: <ShieldCheck className="w-8 h-8 text-[#5b3a26]" />,
-      image: "/assets/snifflogo.png",
-      badge: "Health Shield"
+      image: "/assets/premium_pet_grooming_box.png",
+      badge: "Financial Protection"
     },
     {
       id: "sitting",
@@ -159,8 +159,8 @@ export default function ServicesPage() {
       a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549."
     },
     {
-      q: "Is mobile grooming better for anxious dogs?",
-      a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van."
+      q: "Is doorstep home grooming better for anxious dogs?",
+      a: "Yes! Doorstep home grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right in the comfort of your home with our certified stylists."
     },
     {
       q: "How often should my dog be groomed?",
@@ -397,7 +397,7 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
                 { title: "Certified Groomers & Vets", desc: "Trained professionals handling your pet with extreme care & patience.", icon: <Award className="w-8 h-8 text-[#5b3a26]" /> },
-                { title: "Doorstep Convenience", desc: "Mobile spa vans & home vet visits right at your location.", icon: <Sparkles className="w-8 h-8 text-[#5b3a26]" /> },
+                { title: "Doorstep Convenience", desc: "Doorstep home grooming & vet visits right at your location.", icon: <Sparkles className="w-8 h-8 text-[#5b3a26]" /> },
                 { title: "100% Organic & Safe", desc: "Skin-friendly, toxin-free, and veterinary-approved products.", icon: <ShieldCheck className="w-8 h-8 text-[#5b3a26]" /> },
                 { title: "24/7 Care & Support", desc: "Emergency medical support and monitored pet boarding.", icon: <Clock className="w-8 h-8 text-[#5b3a26]" /> }
               ].map((item, idx) => (

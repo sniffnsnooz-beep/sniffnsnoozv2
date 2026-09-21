@@ -61,7 +61,7 @@ export default function PackagesPage() {
             <div className="section-label mb-6">
               <Sparkles className="w-4 h-4 text-[#8c5a3b]" /> Value Bundles
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-[#5b3a26] mb-6 leading-tight drop-shadow-sm">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-elsie font-black text-[#5b3a26] mb-6 leading-tight drop-shadow-sm">
               Premium Pet <br/> <span className="shimmer-text">Care Packages</span>
             </h1>
             <p className="text-lg text-[#7a5741] mb-8 max-w-lg font-medium leading-relaxed">

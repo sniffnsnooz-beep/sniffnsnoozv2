@@ -115,11 +115,11 @@ export const corePackageTiers: PackageTier[] = [
     price: 3549,
     originalPrice: 4999,
     duration: "5 Sessions",
-    description: "Pay for 4 spa bath sessions and get 1 free session. Valid for 90 days across doorstep van visits.",
+    description: "Pay for 4 spa bath sessions and get 1 free session. Valid for 90 days across doorstep home visits.",
     features: [
       "5 Full Spa Bath & Hygiene Sessions",
       "Priority Slot Booking Guarantee",
-      "Doorstep Mobile Van Visits Included",
+      "Doorstep Home Visits Included",
       "Valid for 90 Days",
       "Transferable within Family Pets"
     ]

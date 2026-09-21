@@ -57,7 +57,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-100/90 text-emerald-900 text-xs font-bold border border-emerald-200">
                 <Truck className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Mobile Van Doorstep Grooming</span>
+                <span>Doorstep Pet Grooming &amp; Vet Care</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-100/90 text-amber-900 text-xs font-bold border border-amber-200">
                 <Building2 className="w-3.5 h-3.5 text-amber-700" />

@@ -12,8 +12,8 @@ const faqs = [
     a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549.",
   },
   {
-    q: "Is mobile grooming better for anxious dogs?",
-    a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van.",
+    q: "Is doorstep home grooming better for anxious dogs?",
+    a: "Yes! Doorstep home grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right in the comfort of your home with certified stylists.",
   },
   {
     q: "How often should my dog be groomed?",

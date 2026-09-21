@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
   }
 
   const title = `${area.name}, ${area.cityName} Doorstep Pet Grooming & Vet Visit | Sniffnsnooz`;
-  const description = `${area.description} Fast ${area.vanArrivalMinutes}-min mobile van arrival servicing ${area.societyNames.slice(0, 3).join(", ")}. Book online now!`;
+  const description = `${area.description} Fast ${area.vanArrivalMinutes}-min mobile grooming arrival servicing ${area.societyNames.slice(0, 3).join(", ")}. Book online now!`;
   const url = `https://sniffnsnooz.in/locations/${area.citySlug}/${area.slug}`;
 
   return {
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
       `cat grooming ${area.name} ${area.cityName}`,
       `doorstep pet spa ${area.name}`,
       `home vet visit ${area.name}`,
-      `mobile pet van ${area.name}`,
+      `mobile pet grooming ${area.name}`,
       `sniffnsnooz ${area.slug}`
     ],
     alternates: {
@@ -184,7 +184,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
                   <div className="flex items-center gap-2 bg-[#faf4ec] p-2.5 rounded-xl border border-[#e8d8cc]">
                     <Clock className="w-4 h-4 text-[#8c5a3b] shrink-0" />
                     <div>
-                      <div className="text-[10px] text-[#7a5741] font-bold uppercase">Estimated Van Arrival</div>
+                      <div className="text-[10px] text-[#7a5741] font-bold uppercase">Estimated Arrival</div>
                       <div className="text-xs font-bold text-[#4e3323]">{area.vanArrivalMinutes} Mins</div>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
               <span>🏢</span> Condominiums &amp; Societies Serviced in {area.name}
             </h2>
             <p className="text-xs sm:text-sm text-[#7a5741] font-medium mb-4">
-              Our AC mobile grooming van parks inside visitor parking bays or society visitor bays with zero hassle:
+              Our mobile grooming setup operates seamlessly with zero hassle:
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -284,7 +284,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
                     <Scissors className="w-6 h-6 text-[#d48c38]" />
                   </div>
                   <h3 className="font-serif font-bold text-[#4e3323] text-lg mb-2">
-                    Doorstep Van Grooming
+                    Doorstep Grooming
                   </h3>
                   <p className="text-xs text-[#7a5741] font-medium leading-relaxed mb-4">
                     Full bath, blow dry, haircut, nail trimming, ear cleaning, and paw butter application at your residence.

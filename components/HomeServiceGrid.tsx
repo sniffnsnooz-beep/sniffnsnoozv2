@@ -101,16 +101,16 @@ export default function HomeServiceGrid() {
         {/* 3. TRUSTED BY 3000+ AVATAR BAR (Matching Image 2) */}
         <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 flex items-center gap-4 shadow-sm">
           <div className="flex -space-x-3 shrink-0">
-            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-[#e6d3c2]">
-              <Image src="/assets/snifflogo.png" alt="User 1" width={36} height={36} className="object-cover opacity-70" />
+            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-primary text-on-primary font-bold flex items-center justify-center text-xs">
+              D
             </div>
-            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-[#d8c3b0]">
-              <Image src="/assets/snifflogo.png" alt="User 2" width={36} height={36} className="object-cover opacity-70" />
+            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-secondary text-on-secondary font-bold flex items-center justify-center text-xs">
+              A
             </div>
-            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-[#c9b29e]">
-              <Image src="/assets/snifflogo.png" alt="User 3" width={36} height={36} className="object-cover opacity-70" />
+            <div className="w-9 h-9 rounded-full border-2 border-white overflow-hidden bg-tertiary text-on-tertiary font-bold flex items-center justify-center text-xs">
+              R
             </div>
-            <div className="w-9 h-9 rounded-full border-2 border-white bg-[#4e3323] text-white text-xs font-bold flex items-center justify-center">
+            <div className="w-9 h-9 rounded-full border-2 border-white bg-charcoal-dark text-amber-bright text-xs font-bold flex items-center justify-center">
               +3K
             </div>
           </div>

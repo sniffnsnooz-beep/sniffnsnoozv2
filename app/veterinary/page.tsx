@@ -189,7 +189,7 @@ export default function VeterinaryPage() {
             <div className="section-label mb-6 mx-auto inline-flex items-center gap-2">
               <HeartPulse className="w-4 h-4 text-red-500" /> Veterinary Care System
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif text-[#5b3a26] mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-elsie font-black text-[#5b3a26] mb-6 leading-tight">
               Honest Veterinary Care <br />
               <span className="shimmer-text">For Every Stage of Life</span>
             </h1>

@@ -111,8 +111,8 @@ export default function GroomingPage() {
       a: "Dog grooming in Gurgaon at Sniffnsnooz starts at ₹599 for our Basic Bath & Hygiene package. Our Classic Grooming package with hygiene styling is ₹1,399, Signature Breed Styling is ₹1,799, and Luxury Hydra Spa package is ₹2,199. We also offer 4+1 Spa Bath Combo saver packs starting at ₹3,549."
     },
     {
-      q: "Is mobile grooming better for anxious dogs?",
-      a: "Yes! Mobile van grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right outside your home in a quiet, temperature-controlled mobile van."
+      q: "Is doorstep home grooming better for anxious dogs?",
+      a: "Yes! Doorstep home grooming is ideal for nervous or anxious dogs because it eliminates car travel stress, waiting rooms, barking dogs, and unfamiliar salon environments. Your dog gets 1-on-1 personalized attention right inside your home with our certified stylists."
     },
     {
       q: "How often should my dog be groomed?",
@@ -158,7 +158,7 @@ export default function GroomingPage() {
       }
     },
     "areaServed": "Delhi NCR",
-    "description": "Doorstep mobile pet grooming van & store salon grooming for dogs and cats across Delhi NCR. Baths, haircuts, tick treatments, spa & paw care."
+    "description": "Doorstep mobile pet grooming & store salon grooming for dogs and cats across Delhi NCR. Baths, haircuts, tick treatments, spa & paw care."
   };
 
   return (
@@ -203,16 +203,16 @@ export default function GroomingPage() {
               <div className="section-label mb-6">
                 <span>✂️</span> Luxury Pet Grooming
               </div>
-              <h1 className="text-5xl md:text-6xl font-serif text-[#5b3a26] mb-6 drop-shadow-sm leading-tight">
-                Pamper Your Pet With <br /> <span className="shimmer-text">Doorstep & Salon Grooming</span>
+              <h1 className="text-5xl md:text-6xl font-elsie font-black text-[#5b3a26] mb-6 drop-shadow-sm leading-tight">
+                Pamper Your Pet With <br /> <span className="shimmer-text">Doorstep &amp; Salon Grooming</span>
               </h1>
               <p className="text-lg text-[#7a5741] max-w-2xl font-medium leading-relaxed mb-8">
-                Professional, stress-free pet grooming sessions tailored for dogs and cats. Choose doorstep mobile van grooming at your home or visit our luxury salon.
+                Professional, stress-free pet grooming sessions tailored for dogs and cats. Choose doorstep home grooming at your residence or visit our luxury salon.
               </p>
 
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
                 <Link href="/booking" className="btn-primary !px-7 !py-3.5 flex items-center gap-2">
-                  <Truck className="w-5 h-5" /> Book Doorstep Van Grooming
+                  <Scissors className="w-5 h-5" /> Book Doorstep Grooming
                 </Link>
                 <Link href="/store-booking" className="btn-secondary !px-7 !py-3.5 flex items-center gap-2">
                   <Building2 className="w-5 h-5" /> Book Store Salon
@@ -300,7 +300,7 @@ export default function GroomingPage() {
                 Grooming Packages &amp; Pricing
               </h2>
               <p className="text-base sm:text-lg text-[#7a5741] max-w-2xl mx-auto font-medium">
-                No hidden costs. See exact package inclusions and prices for doorstep mobile van grooming and salon sessions.
+                No hidden costs. See exact package inclusions and prices for doorstep mobile grooming and salon sessions.
               </p>
             </div>
 

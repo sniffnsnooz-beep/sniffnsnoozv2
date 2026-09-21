@@ -82,17 +82,26 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-3 sm:px-6 h-[64px]">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center h-full py-1 shrink-0">
-            <Image
-              src="/assets/snifflogo.webp"
-              alt="Sniffnsnooz logo"
-              width={180}
-              height={56}
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 640px) 140px, 180px"
-              className="object-contain h-[42px] sm:h-[48px] w-auto"
-            />
+          <Link href="/" className="flex items-center gap-2.5 py-1 shrink-0 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-md bg-white flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
+              <Image
+                src="/assets/snifflogo.webp"
+                alt="Sniffnsnooz logo"
+                width={44}
+                height={44}
+                priority
+                fetchPriority="high"
+                className="object-cover w-full h-full rounded-full"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-elsie text-xl sm:text-2xl font-black text-charcoal-dark leading-none tracking-tight">
+                Sniff &apos;n&apos; Snooz
+              </span>
+              <span className="text-[10px] sm:text-xs text-primary tracking-wider uppercase font-extrabold mt-0.5">
+                Pet Lounge &amp; Vet Clinic
+              </span>
+            </div>
           </Link>
 
           {/* DESKTOP NAV */}
@@ -194,8 +203,11 @@ export default function Navbar() {
                 <button onClick={() => setOpen(false)} className="absolute top-4 right-4 p-2 rounded-full bg-white text-[#5b3a26] shadow-sm hover:scale-105 transition">
                   <X size={18} />
                 </button>
-                <Image src="/assets/snifflogo.webp" alt="Logo" width={140} height={42} className="object-contain h-10 w-auto mb-3 drop-shadow-sm" />
-                <p className="text-xs font-semibold text-[#8c5a3b] mb-4">Welcome, Pet Parent! 🐾</p>
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-amber-500/30 shadow-md bg-white flex items-center justify-center p-0.5 mb-2">
+                  <Image src="/assets/snifflogo.webp" alt="Logo" width={56} height={56} className="object-cover w-full h-full rounded-full" />
+                </div>
+                <span className="font-headline-sm text-headline-sm text-charcoal-dark font-bold leading-none tracking-tight">Sniff &apos;n&apos; Snooz</span>
+                <p className="text-xs font-semibold text-[#8c5a3b] mb-3 mt-1">Welcome, Pet Parent! 🐾</p>
                 <div className="flex items-center gap-1.5 bg-gradient-to-r from-amber-50 to-orange-50/40 border border-amber-200/60 rounded-full px-4 py-2 shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} className="text-amber-500 fill-amber-400 drop-shadow-sm" />)}

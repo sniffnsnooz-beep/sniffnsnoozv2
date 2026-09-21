@@ -1,5 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SlimAppBanner from "@/components/SlimAppBanner";
+import CategoryPillBar from "@/components/CategoryPillBar";
 import Footer from "@/components/Footer";
 import { BookingProvider } from "@/context/BookingContext";
 import GlobalBubbles from "@/components/GlobalBubbles";
@@ -11,6 +13,8 @@ import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
 import type { Metadata, Viewport } from "next";
+
+import AppPreloader from "@/components/AppPreloader";
 
 export const viewport: Viewport = {
   themeColor: "#5b3a26",
@@ -29,11 +33,11 @@ export const metadata: Metadata = {
     title: "Sniffnsnooz",
   },
   title: {
-    default: "Sniffnsnooz | Premium Doorstep Pet Grooming in Delhi NCR",
+    default: "Sniffnsnooz | Doorstep Pet Grooming & Veterinary Care in Delhi NCR",
     template: "%s | Sniffnsnooz",
   },
   description:
-    "Sniffnsnooz is a premium doorstep pet grooming service providing stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+    "Sniffnsnooz provides premium doorstep pet grooming and expert veterinary care at home across Delhi NCR. Book a home vet visit or pet spa today.",
   keywords: [
     "pet grooming Delhi NCR",
     "dog grooming at home Delhi",
@@ -42,10 +46,11 @@ export const metadata: Metadata = {
     "pet grooming Noida",
     "pet grooming Gurugram",
     "home dog grooming service",
-    "mobile pet grooming Delhi",
+    "veterinary clinic Gurugram",
+    "home vet visit Delhi NCR",
     "sniffnsnooz",
     "pet spa Delhi NCR",
-    "dog bath at home",
+    "dog doctor at home",
     "pet grooming near me",
   ],
   authors: [{ name: "Sniffnsnooz Team" }],
@@ -58,9 +63,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://sniffnsnooz.in",
-    title: "Sniffnsnooz | Premium Doorstep Pet Grooming",
+    title: "Sniffnsnooz | Doorstep Pet Grooming & Veterinary Care",
     description:
-      "Stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+      "Premium doorstep pet grooming and expert veterinary care at home across Delhi NCR.",
     siteName: "Sniffnsnooz",
     images: [
       {
@@ -73,9 +78,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sniffnsnooz | Premium Doorstep Pet Grooming",
+    title: "Sniffnsnooz | Doorstep Pet Grooming & Veterinary Care",
     description:
-      "Stress-free dog and cat grooming at home across Delhi NCR using imported professional grooming products.",
+      "Premium doorstep pet grooming and expert veterinary care at home across Delhi NCR.",
     images: ["/assets/snifflogo.png"],
   },
   verification: {
@@ -109,8 +114,10 @@ export default function RootLayout({
         {/* ========================= 
             📊 GOOGLE TAG (gtag.js) - GA4 (G-C819C0F186) & GOOGLE ADS (AW-17243845030)
         ========================= */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C819C0F186" />
-        <script
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-C819C0F186" />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -126,7 +133,9 @@ export default function RootLayout({
         {/* ========================= 
             📊 GOOGLE TAG MANAGER (GT-K4TLPZHK)
         ========================= */}
-        <script
+        <Script
+          id="gtm-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -149,6 +158,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        <AppPreloader />
         <AnalyticsPageView />
         <ServiceWorkerRegistration />
 
@@ -446,7 +456,11 @@ export default function RootLayout({
 
             <Navbar />
 
-            <main className="pt-20 pb-24 md:pb-0 relative z-10 page-animate">
+            <main className="pt-[100px] sm:pt-[110px] pb-24 md:pb-0 relative z-10 page-animate">
+              <div className="flex flex-col">
+                <SlimAppBanner />
+                <CategoryPillBar />
+              </div>
               {children}
             </main>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Professional Pet Grooming & Spa Services | Sniffnsnooz",
-  description: "Book doorstep mobile pet grooming van or luxury store salon grooming for dogs and cats across Delhi NCR. Baths, haircuts, tick treatments, spa & paw care.",
+  description: "Book doorstep mobile pet grooming or luxury store salon grooming for dogs and cats across Delhi NCR. Baths, haircuts, tick treatments, spa & paw care.",
   alternates: {
     canonical: "/grooming",
   },

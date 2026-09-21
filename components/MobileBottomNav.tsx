@@ -8,10 +8,10 @@ export default function MobileBottomNav() {
 
   const navItems = [
     { label: "Home", href: "/", icon: "pets" },
-    { label: "Services", href: "/services", icon: "spa" },
-    { label: "Book Van", href: "/store-booking", icon: "airport_shuttle", isCenter: true },
-    { label: "Packages", href: "/packages", icon: "loyalty" },
-    { label: "Contact", href: "/contact", icon: "account_circle" },
+    { label: "Doorstep", href: "/grooming", icon: "content_cut" },
+    { label: "Vet Care", href: "/veterinary", icon: "stethoscope", isCenter: true },
+    { label: "Book Salon", href: "/store-booking", icon: "calendar_month" },
+    { label: "Contact", href: "/contact", icon: "call" },
   ];
 
   return (
@@ -27,10 +27,10 @@ export default function MobileBottomNav() {
                 href={item.href}
                 className="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-space-2xs text-on-surface-variant transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_4px_12px_rgba(141,75,0,0.35)] -mt-5 active:scale-95 transition-transform">
-                  <span className="material-symbols-outlined text-[20px]">airport_shuttle</span>
+                <div className="w-11 h-11 rounded-full bg-gradient-to-r from-red-700 via-amber-700 to-primary flex items-center justify-center text-white shadow-[0_4px_14px_rgba(185,28,28,0.4)] -mt-6 active:scale-95 transition-transform ring-4 ring-[#FFFDF9]">
+                  <span className="material-symbols-outlined text-[22px]">stethoscope</span>
                 </div>
-                <span className="font-label-sm text-label-sm mt-space-2xs text-primary font-bold">{item.label}</span>
+                <span className="font-label-sm text-label-sm mt-space-2xs text-primary font-black uppercase tracking-tight">{item.label}</span>
               </Link>
             );
           }

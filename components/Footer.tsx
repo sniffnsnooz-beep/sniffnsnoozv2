@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import FoliageAccents from "@/components/FoliageAccents";
 import { neighborhoods } from "@/data/neighborhoods";
 import {
@@ -56,7 +57,7 @@ export default function Footer() {
         }}
       />
 
-      <footer className="relative bg-[#2b1a12] text-[#f6efe6] pt-20 pb-8 mt-0 overflow-hidden">
+      <footer className="relative bg-[#2b1a12] text-[#f6efe6] pt-20 pb-8 mt-0 overflow-hidden hidden md:block">
         {/* Organic Foliage Accents */}
         <FoliageAccents position="top-right" size="lg" className="opacity-80" />
         <FoliageAccents position="bottom-left" size="lg" className="opacity-80" />
@@ -76,7 +77,12 @@ export default function Footer() {
 
             {/* BRAND */}
             <div className="page-animate page-delay-1 lg:col-span-1">
-              <h3 className="text-2xl font-serif mb-4 gradient-text-amber">Sniffnsnooz</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-md bg-white flex items-center justify-center p-0.5 shrink-0">
+                  <Image src="/assets/snifflogo.webp" alt="Sniffnsnooz logo" width={40} height={40} className="object-cover w-full h-full rounded-full" />
+                </div>
+                <h3 className="text-2xl font-serif text-[#f6efe6] font-bold">Sniff &apos;n&apos; Snooz</h3>
+              </div>
               <p className="text-sm leading-relaxed text-[#c8b8a8]">
                 Premium doorstep pet grooming delivering stress-free, hygienic, and professional care for dogs and cats across Delhi NCR.
               </p>
