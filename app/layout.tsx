@@ -5,6 +5,7 @@ import CategoryPillBar from "@/components/CategoryPillBar";
 import Footer from "@/components/Footer";
 import { BookingProvider } from "@/context/BookingContext";
 import GlobalBubbles from "@/components/GlobalBubbles";
+import InfiniteBackground from "@/components/InfiniteBackground";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from "next/script"; // ✅ Script Import Kiya
 import AnalyticsPageView from "@/components/AnalyticsPageView";
@@ -447,6 +448,7 @@ export default function RootLayout({
           ========================= */}
           <div className="page-bg min-h-screen relative overflow-hidden">
             <GlobalBubbles />
+            <InfiniteBackground />
 
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               <div className="absolute top-24 left-10 w-32 h-32 bg-white/30 blur-xl rounded-2xl animate-bounce-slow" />

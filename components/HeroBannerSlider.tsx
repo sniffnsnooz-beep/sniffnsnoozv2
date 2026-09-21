@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Phone, CalendarCheck, Pause, Play, Tag, Sparkles } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 export interface BannerSlide {
   id: string;
@@ -219,6 +220,9 @@ export default function HeroBannerSlider() {
         <div className="flex items-center gap-2">
           <Link
             href={currentSlide.ctaLink}
+            onClick={() => trackConversion("hero_banner_book_click", { slide: currentSlide.title })}
+            aria-label={`Book ${currentSlide.title}`}
+            title="Book Offer"
             className="flex-1 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-extrabold text-xs sm:text-sm py-2.5 rounded-full shadow-lg flex items-center justify-center gap-1.5 transition active:scale-95"
           >
             <CalendarCheck className="w-4 h-4 text-black" />
@@ -227,8 +231,10 @@ export default function HeroBannerSlider() {
 
           <a
             href="tel:+919818728444"
-            className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm py-2.5 rounded-full shadow-lg flex items-center justify-center gap-1.5 transition active:scale-95"
+            onClick={() => trackConversion("hero_banner_call_click")}
+            aria-label="Call Sniffnsnooz for doorstep pet grooming"
             title="Call / WhatsApp: 98187 28444"
+            className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm py-2.5 rounded-full shadow-lg flex items-center justify-center gap-1.5 transition active:scale-95"
           >
             <Phone className="w-3.5 h-3.5 text-white" />
             <span>98187 28444</span>

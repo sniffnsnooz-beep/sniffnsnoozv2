@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Stethoscope, Sparkles, ChevronRight, Phone } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 export default function SlimAppBanner() {
   return (
@@ -25,15 +26,21 @@ export default function SlimAppBanner() {
 
           <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0 ml-4">
              <Link 
-               href="tel:+1234567890" 
+               href="tel:+919818728444" 
+               onClick={() => trackConversion("banner_call_click")}
                className="hidden md:flex items-center justify-center p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+               aria-label="Call Sniffnsnooz for doorstep pet grooming"
+               title="Call Us Now"
              >
                <Phone className="w-4 h-4 text-white" />
              </Link>
              
              <Link 
                href="/veterinary"
+               onClick={() => trackConversion("banner_book_click")}
                className="flex items-center bg-white text-amber-600 hover:bg-amber-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm transition-all hover:scale-105 active:scale-95"
+               aria-label="Book expert veterinary doctor care at home"
+               title="Veterinary Care"
              >
                Book Now
                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />

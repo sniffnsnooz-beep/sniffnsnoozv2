@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Stethoscope, Scissors, Store, Sparkles, Shield, HeartHandshake } from "lucide-react";
+import { trackConversion } from "@/lib/gtag";
 
 const categories = [
   { label: "Vet Doctors", href: "/veterinary", icon: <Stethoscope className="w-3.5 h-3.5 text-red-500" />, badge: "Top Priority" },
@@ -29,6 +30,9 @@ export default function CategoryPillBar() {
             <Link
               key={cat.href}
               href={cat.href}
+              onClick={() => trackConversion("category_pill_click", { category: cat.label })}
+              aria-label={`Go to ${cat.label}`}
+              title={cat.label}
               className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition-all shrink-0 border ${
                 isActive
                   ? "bg-gradient-to-r from-red-600 to-amber-600 text-white border-amber-400 shadow-md scale-105"

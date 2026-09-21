@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trackConversion } from "@/lib/gtag";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -25,6 +26,9 @@ export default function MobileBottomNav() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => trackConversion("mobile_nav_click", { location: item.label })}
+                aria-label={`Navigate to ${item.label}`}
+                title={item.label}
                 className="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-space-2xs text-on-surface-variant transition-colors"
               >
                 <div className="w-11 h-11 rounded-full bg-gradient-to-r from-red-700 via-amber-700 to-primary flex items-center justify-center text-white shadow-[0_4px_14px_rgba(185,28,28,0.4)] -mt-6 active:scale-95 transition-transform ring-4 ring-[#FFFDF9]">
@@ -39,6 +43,9 @@ export default function MobileBottomNav() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => trackConversion("mobile_nav_click", { location: item.label })}
+              aria-label={`Navigate to ${item.label}`}
+              title={item.label}
               className={`flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-space-2xs transition-colors ${
                 isActive ? "text-primary font-bold" : "text-on-surface-variant"
               }`}

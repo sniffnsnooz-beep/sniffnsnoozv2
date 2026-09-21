@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Star, Users, MapPin, CheckCircle2, Search, ShieldCheck, Award, Sparkles, Home } from "lucide-react";
 import FoliageAccents from "@/components/FoliageAccents";
 import PetDoodleAccents from "@/components/PetDoodleAccents";
+import { trackConversion } from "@/lib/gtag";
 
 export default function HomeServiceGrid() {
   return (
@@ -36,7 +37,13 @@ export default function HomeServiceGrid() {
             </div>
           </div>
 
-          <Link href="/find-a-companion" className="bg-white hover:bg-[#4e3323] hover:text-white transition-colors text-[#4e3323] border border-[#4e3323]/20 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-sm flex items-center gap-1.5 shrink-0">
+          <Link 
+            href="/find-a-companion" 
+            onClick={() => trackConversion("home_search_companion_click")}
+            className="bg-white hover:bg-[#4e3323] hover:text-white transition-colors text-[#4e3323] border border-[#4e3323]/20 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-sm flex items-center gap-1.5 shrink-0"
+            aria-label="Search for a companion"
+            title="Search Now"
+          >
             <span>Search Now</span>
             <Search className="w-3.5 h-3.5" />
           </Link>

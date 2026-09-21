@@ -115,6 +115,19 @@ h1, h2, h3, p, .font-serif, .font-headline, .font-elsie {
   animation: floatFast 4s ease-in-out infinite;
 }
 
+@keyframes floatUpInfinite {
+  0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+.animate-float-up {
+  position: absolute;
+  animation: floatUpInfinite linear infinite;
+  will-change: transform, opacity;
+}
+
 @keyframes floatMedium {
   0% { transform: translateY(0); }
   50% { transform: translateY(-20px); }

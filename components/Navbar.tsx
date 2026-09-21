@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useBooking } from "@/context/BookingContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Menu, X, Phone, Star, CalendarCheck, ChevronRight } from "lucide-react";
+import { ShoppingCart, Menu, X, Phone, PhoneCall, Star, CalendarCheck, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { trackConversion } from "@/lib/gtag";
 
 const navLinks: { href: string; label: string; emoji: string; highlight?: boolean }[] = [
   { href: "/", label: "Home", emoji: "🏠" },
@@ -56,8 +57,14 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-center gap-4 relative px-8 font-medium">
               <span>🚚 Free doorstep grooming consultation across Delhi NCR</span>
-              <a href="tel:+919818728444" className="hidden sm:flex items-center gap-1 bg-white/20 rounded-full px-3 py-0.5 text-xs hover:bg-white/30 transition">
-                <Phone size={11} /> Call Now
+              <a
+                href="tel:+919818728444"
+                onClick={() => trackConversion("nav_call_click")}
+                className="hidden sm:flex items-center gap-1 bg-white/20 rounded-full px-3 py-0.5 text-xs hover:bg-white/30 transition"
+                aria-label="Call Sniffnsnooz for doorstep pet grooming"
+                title="Call Us Now"
+              >
+                <PhoneCall size={13} /> Call Now
               </a>
               <button
                 onClick={() => setShowAnnouncement(false)}
@@ -140,7 +147,13 @@ export default function Navbar() {
             </a>
 
             {/* CART - Hidden on mobile, in bottom nav */}
-            <Link href="/booking" className="hidden md:flex relative p-2 rounded-full hover:bg-white/60 transition" title="Shopping Cart">
+            <Link 
+              href="/booking" 
+              onClick={() => trackConversion("nav_cart_click")}
+              className="hidden md:flex relative p-2 rounded-full hover:bg-white/60 transition" 
+              aria-label="View Shopping Cart"
+              title="Shopping Cart"
+            >
               <ShoppingCart size={20} className="text-[#5b3a26]" />
               <AnimatePresence>
                 {count > 0 && (
@@ -159,6 +172,9 @@ export default function Navbar() {
             {/* BOOK CTA - Hidden on mobile, in bottom nav */}
             <Link
               href="/store-booking"
+              onClick={() => trackConversion("nav_book_click")}
+              aria-label="Book Doorstep Pet Grooming"
+              title="Book Grooming"
               className="hidden md:inline-flex items-center gap-1.5 bg-[#5b3a26] text-white text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-md hover:bg-[#462d1d] transition shrink-0"
             >
               <CalendarCheck size={14} className="text-white" />

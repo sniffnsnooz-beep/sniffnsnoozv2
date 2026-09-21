@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { trackConversion } from "@/lib/gtag";
 
 export default function WhatsAppButton() {
   const phoneNumber = "919818728444"; // Updated phone number
@@ -14,9 +15,12 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackConversion("whatsapp_click", { location: "floating_button" })}
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
       style={{ backgroundColor: "#5b3a26" }}
-      aria-label="Contact us on WhatsApp"
+      aria-label="Chat with Sniffnsnooz on WhatsApp for doorstep pet grooming and veterinary care"
+      title="Contact us on WhatsApp"
+      role="button"
     >
       {/* WhatsApp SVG Icon */}
       <svg
