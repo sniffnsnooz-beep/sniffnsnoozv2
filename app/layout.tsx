@@ -94,6 +94,12 @@ export default function RootLayout({
         {/* ✅ Google Search Console Verification */}
         <meta name="google-site-verification" content="rBLyCvgHVJgwOvIgpBPXEs1N4boYVbewvVqWiejhDMo" />
 
+        {/* ⚡ STITCH DESIGN SYSTEM FONTS & ICONS */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
         {/* ⚡ CRITICAL LCP PERFORMANCE & RESOURCE PRELOADS FOR MOBILE PAGESPEED */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

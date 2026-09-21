@@ -745,3 +745,28 @@ h1, h2, h3, .font-serif {
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
+
+/* ================================
+   STITCH DESIGN SYSTEM UTILITIES
+================================ */
+.font-display-lg { fontFamily: 'Epilogue', sans-serif; font-size: 36px; line-height: 44px; letter-spacing: -0.02em; font-weight: 700; }
+.font-display-lg-mobile { fontFamily: 'Epilogue', sans-serif; font-size: 28px; line-height: 34px; letter-spacing: -0.01em; font-weight: 700; }
+.font-headline-lg { fontFamily: 'Epilogue', sans-serif; font-size: 26px; line-height: 32px; letter-spacing: -0.01em; font-weight: 700; }
+.font-headline-md { fontFamily: 'Epilogue', sans-serif; font-size: 22px; line-height: 28px; font-weight: 600; }
+.font-headline-sm { fontFamily: 'Epilogue', sans-serif; font-size: 18px; line-height: 24px; font-weight: 600; }
+.font-title-lg { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 18px; line-height: 24px; font-weight: 600; }
+.font-title-md { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 22px; font-weight: 600; }
+.font-body-lg { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 24px; font-weight: 400; }
+.font-body-md { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 14px; line-height: 20px; font-weight: 400; }
+.font-body-sm { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 12px; line-height: 16px; font-weight: 400; }
+.font-label-lg { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 14px; line-height: 18px; letter-spacing: 0.01em; font-weight: 600; }
+.font-label-md { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 12px; line-height: 16px; letter-spacing: 0.02em; font-weight: 600; }
+.font-label-sm { fontFamily: 'Plus Jakarta Sans', sans-serif; font-size: 10px; line-height: 12px; letter-spacing: 0.04em; font-weight: 700; }
+.font-price-callout { fontFamily: 'Epilogue', sans-serif; font-size: 22px; line-height: 26px; letter-spacing: -0.02em; font-weight: 800; }
+
+.pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
