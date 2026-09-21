@@ -100,9 +100,7 @@ export default function RootLayout({
         {/* ========================= 
             📊 GOOGLE TAG MANAGER (GTM-WRS3SCPB)
         ========================= */}
-        <Script
-          id="gtm-init"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -132,10 +130,8 @@ export default function RootLayout({
         {/* ========================= 
             📊 GOOGLE TAG (gtag.js) - GA4 (G-C819C0F186) & GOOGLE ADS (AW-17243845030)
         ========================= */}
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-C819C0F186" />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C819C0F186"></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
