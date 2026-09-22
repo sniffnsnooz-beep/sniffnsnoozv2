@@ -23,6 +23,4 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  // Required for PWA installability. Network handles it to let Next.js do its own caching.
-});
+

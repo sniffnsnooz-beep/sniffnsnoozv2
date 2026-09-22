@@ -126,8 +126,6 @@ export default function RootLayout({
         {/* ⚡ CRITICAL LCP PERFORMANCE & RESOURCE PRELOADS FOR MOBILE PAGESPEED */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preload" href="/assets/doggy3dd.webp" as="image" type="image/webp" fetchPriority="high" />
-        <link rel="preload" href="/assets/snifflogo.webp" as="image" type="image/webp" fetchPriority="high" />
 
         {/* ========================= 
             📊 GOOGLE TAG (gtag.js) - GA4 (G-C819C0F186) & GOOGLE ADS (AW-17243845030)
