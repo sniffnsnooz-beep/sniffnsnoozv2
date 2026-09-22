@@ -11,6 +11,7 @@ import Script from "next/script"; // ✅ Script Import Kiya
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import ServiceWorkerRegistration from "@/components/ServiceWorkerRegistration";
+import CookieConsent from "@/components/CookieConsent";
 /* ✅ ADD */
 import { Toaster } from "react-hot-toast";
 import type { Metadata, Viewport } from "next";
@@ -474,6 +475,7 @@ export default function RootLayout({
           </div>
 
         </BookingProvider>
+        <CookieConsent />
         <WhatsAppButton />
       </body>
     </html>
