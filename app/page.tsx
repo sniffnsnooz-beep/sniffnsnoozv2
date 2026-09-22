@@ -456,7 +456,7 @@ export default function Home() {
           <div className="h-8 w-px bg-outline-variant/40" />
           <div className="flex flex-col items-center">
             <span className="text-xl sm:text-3xl font-elsie font-black text-charcoal-dark">5.0★</span>
-            <span className="text-[10px] sm:text-xs text-on-surface-variant uppercase font-semibold">300+ Reviews</span>
+            <span className="text-[10px] sm:text-xs text-on-surface-variant uppercase font-semibold">3000+ Reviews</span>
           </div>
           <div className="h-8 w-px bg-outline-variant/40" />
           <div className="flex flex-col items-center">

@@ -110,7 +110,7 @@ export default async function LocationPage(props: Props) {
             <div className="flex text-amber-500">
               <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
             </div>
-            <span>5.0/5 from 3,000+ Pet Parents in NCR (300+ Ratings)</span>
+            <span>5.0/5 from 3,000+ Pet Parents in NCR (3000+ Ratings)</span>
           </div>
         </div>
       </section>

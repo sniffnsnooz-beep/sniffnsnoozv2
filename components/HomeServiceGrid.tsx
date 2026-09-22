@@ -81,7 +81,7 @@ export default function HomeServiceGrid() {
             <div className="bg-white border border-[#eae0d5] rounded-2xl p-4 shadow-sm flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                <span className="text-sm sm:text-base font-black text-[#4e3323]">300+ Ratings</span>
+                <span className="text-sm sm:text-base font-black text-[#4e3323]">3000+ Ratings</span>
               </div>
               <span className="text-xs text-[#7a5741] font-medium">Verified 5-Star Reviews</span>
             </div>
@@ -124,7 +124,7 @@ export default function HomeServiceGrid() {
 
           <div>
             <h4 className="font-bold text-[#4e3323] text-sm">Trusted by 3,000+</h4>
-            <p className="text-xs text-[#7a5741] font-medium">happy pet parents in NCR (300+ 5-Star Ratings)</p>
+            <p className="text-xs text-[#7a5741] font-medium">happy pet parents in NCR (3000+ 5-Star Ratings)</p>
           </div>
         </div>
 

@@ -92,7 +92,7 @@ export default function Footer() {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
-                <span className="text-xs text-[#c8b8a8] ml-2">5.0 Rating by 300+ Pet Parents</span>
+                <span className="text-xs text-[#c8b8a8] ml-2">5.0 Rating by 3000+ Pet Parents</span>
               </div>
 
               {/* Newsletter */}

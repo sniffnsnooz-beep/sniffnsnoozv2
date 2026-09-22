@@ -322,9 +322,9 @@ export default function ServicesPage() {
                 <div className="w-12 h-12 rounded-2xl bg-[#5b3a26] text-white flex items-center justify-center text-2xl font-bold">
                   🐾
                 </div>
-                <div>
-                  <div className="text-xs text-[#7a5741] font-bold">Trusted by 2000+ Pet Parents</div>
-                  <div className="text-sm text-[#5b3a26] font-bold">4.9 ★ Rating across Delhi NCR</div>
+                <div className="flex flex-col">
+                  <div className="text-xs text-[#7a5741] font-bold">Trusted by 3000+ Pet Parents</div>
+                  <div className="text-sm text-[#5b3a26] font-bold">5.0 ★ Rating across Delhi NCR</div>
                 </div>
               </motion.div>
             </motion.div>
