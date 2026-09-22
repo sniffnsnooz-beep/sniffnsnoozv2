@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 
 import { corePackageTiers } from "@/data/packages";
+import StackingCards from "@/components/StackingCards";
 
 export default function ServicesPage() {
   const parallaxRef = useRef<HTMLImageElement | null>(null);
@@ -457,6 +458,7 @@ export default function ServicesPage() {
           </Link>
         </motion.div>
       </section>
+      <StackingCards />
     </>
   );
 }

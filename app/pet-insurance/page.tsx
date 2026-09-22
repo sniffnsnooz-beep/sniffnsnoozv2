@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShieldAlert, Activity, Heart, Shield, Check, Info, HelpCircle } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
+import StackingCards from "@/components/StackingCards";
 
 const benefits = [
   {
@@ -77,6 +78,7 @@ export default function PetInsurancePage() {
   };
 
   return (
+    <>
     <div className="bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Dynamic SEO & FAQ Schema */}
       <script
@@ -357,5 +359,7 @@ export default function PetInsurancePage() {
 
       </div>
     </div>
+    <StackingCards />
+    </>
   );
 }

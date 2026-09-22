@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, HelpCircle, Star, Shield, Award, Sparkles, CheckCircle } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
+import StackingCards from "@/components/StackingCards";
 
 interface Companion {
   _id: string;
@@ -97,6 +98,7 @@ export default function FindCompanionPage() {
     : companions.filter(c => c.category === selectedCategory);
 
   return (
+    <>
     <div className="bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Dynamic SEO & AEO Structured Data */}
       <script
@@ -446,5 +448,7 @@ export default function FindCompanionPage() {
 
       </div>
     </div>
+    <StackingCards />
+    </>
   );
 }

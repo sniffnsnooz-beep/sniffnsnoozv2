@@ -7,6 +7,7 @@ import FoliageAccents from "@/components/FoliageAccents";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle2, PhoneCall, Sparkles } from "lucide-react";
+import StackingCards from "@/components/StackingCards";
 
 export default function PackagesPage() {
   const { addItem } = useBooking();
@@ -38,15 +39,15 @@ export default function PackagesPage() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] py-32 min-h-screen overflow-hidden">
-      {/* BOTANICAL FOLIAGE ACCENTS */}
-      <FoliageAccents position="top-right" size="xl" className="opacity-90" />
-      <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
+    <>
+    <section className="relative min-h-screen pt-32 pb-24 overflow-hidden bg-gradient-to-br from-[#fdfbf9] to-[#f4ebe1]">
+      <FoliageAccents />
       {/* Decorative background blur elements */}
       <motion.div style={{ y: yBg }} className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-10 left-10 w-96 h-96 bg-white/40 rounded-full blur-[100px] animate-bounce-slow" />
         <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#e6d3c2]/50 rounded-full blur-[120px] animate-bounce-medium" />
       </motion.div>
+
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -183,5 +184,7 @@ export default function PackagesPage() {
         </motion.div>
       </div>
     </section>
+    <StackingCards />
+    </>
   );
 }

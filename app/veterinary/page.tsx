@@ -19,6 +19,7 @@ import {
   ShieldAlert,
   ChevronDown
 } from "lucide-react";
+import StackingCards from "@/components/StackingCards";
 
 // Age group datasets
 const ageGroups = [
@@ -154,14 +155,40 @@ export default function VeterinaryPage() {
   const activeGroupData = ageGroups.find((g) => g.id === activeTab) || ageGroups[0];
 
   return (
-    <section className="relative min-h-screen py-24 page-bg overflow-hidden">
-      {/* BOTANICAL FOLIAGE ACCENTS */}
-      <FoliageAccents position="top-right" size="xl" className="opacity-90" />
-      <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
-      {/* Parallax Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+    <>
+    <div className="bg-gradient-to-b from-[#fdfbf9] to-[#f4ebe1] min-h-screen text-[#5b3a26] overflow-x-hidden relative">
+      {/* Dynamic SEO JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": ageGroups.flatMap((group) => [
+              ...group.vaccines.map((v) => ({
+                "@type": "Question",
+                "name": `What does the ${v.name} vaccine protect against for a ${group.id.replace("-", " ")}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": v.protects,
+                },
+              })),
+              ...group.tests.map((t) => ({
+                "@type": "Question",
+                "name": `Why is the ${t.name} test needed for a ${group.id.replace("-", " ")}?`,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": t.reason,
+                },
+              }))
+            ]),
+          }),
+        }}
+      />
+
+      {/* Decorative Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
         <img
-          ref={parallaxRef}
           src="/assets/servicelogo.png"
           alt=""
           aria-hidden="true"
@@ -417,6 +444,8 @@ export default function VeterinaryPage() {
         </div>
 
       </div>
-    </section>
+    </div>
+    <StackingCards />
+    </>
   );
 }

@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com' },
       { protocol: 'https', hostname: 'loremflickr.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
       // fallback for any future external image hosts
       { protocol: 'https', hostname: '*.cloudinary.com' },
     ],

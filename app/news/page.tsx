@@ -4,6 +4,7 @@ import Link from "next/link";
 import connectToDatabase from "@/libs/db";
 import News from "@/models/news";
 import { ArrowRight, Calendar, User } from "lucide-react";
+import StackingCards from "@/components/StackingCards";
 
 export const metadata: Metadata = {
   title: "Pet Care News & Grooming Tips | Sniffnsnooz Blog",
@@ -50,6 +51,7 @@ export default async function NewsPage(props: { searchParams: Promise<{ [key: st
   const gridPosts = page === 1 ? allNews.slice(1) : allNews;
 
   return (
+    <>
     <div className="bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/30 rounded-full blur-[120px] pointer-events-none" />
@@ -200,5 +202,7 @@ export default async function NewsPage(props: { searchParams: Promise<{ [key: st
         
       </div>
     </div>
+    <StackingCards />
+    </>
   );
 }

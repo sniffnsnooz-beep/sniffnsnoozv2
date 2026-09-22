@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaPaw, FaStar, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
+import StackingCards from "@/components/StackingCards";
 
 type Props = {
   params: Promise<{ city: string }>;
@@ -58,6 +59,7 @@ export default async function LocationPage(props: Props) {
   }
 
   return (
+    <>
     <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-24">
       {/* 🚀 Dynamic Local SEO Schema */}
       <script
@@ -148,5 +150,7 @@ export default async function LocationPage(props: Props) {
         </div>
       </section>
     </div>
+    <StackingCards />
+    </>
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, Play, ArrowLeft } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
+import StackingCards from "@/components/StackingCards";
 
 interface GalleryMedia {
   _id: string;
@@ -66,6 +67,7 @@ export default function GalleryPage() {
     : mediaList.filter((item) => item.category === activeCategory);
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] pt-32 pb-20 px-6 overflow-hidden relative">
       {/* Decorative backdrop elements */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-white/40 rounded-full blur-[100px] pointer-events-none" />
@@ -226,5 +228,7 @@ export default function GalleryPage() {
         </div>
       </div>
     </div>
+    <StackingCards />
+    </>
   );
 }

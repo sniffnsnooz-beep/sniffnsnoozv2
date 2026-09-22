@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 import HeroBannerSlider from "@/components/HeroBannerSlider";
+import StackingCards from "@/components/StackingCards";
 
 import { corePackageTiers } from "@/data/packages";
 
@@ -412,6 +413,7 @@ export default function GroomingPage() {
           </Link>
         </motion.div>
       </section>
+      <StackingCards />
     </>
   );
 }

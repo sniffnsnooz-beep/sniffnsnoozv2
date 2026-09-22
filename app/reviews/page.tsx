@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { db, storage } from "@/libs/firebase"; 
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import StackingCards from "@/components/StackingCards";
 
 export default function LiveReviews() {
   const [reviews, setReviews] = useState<any[]>([]);
@@ -41,8 +42,9 @@ export default function LiveReviews() {
   };
 
   return (
-    <section className="bg-[#f6efe6] py-12 px-6 min-h-screen">
-      <div className="max-w-4xl mx-auto">
+    <>
+    <section className="bg-gradient-to-br from-[#f6efe6] via-[#f2e9df] to-[#eadfce] min-h-screen pt-32 pb-20 px-6">
+      <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-serif text-[#5b3a26] text-center mb-10 font-bold">Happy Tails & Reviews 🐾</h2>
 
         {/* FORM SECTION */}
@@ -76,5 +78,7 @@ export default function LiveReviews() {
         </div>
       </div>
     </section>
+    <StackingCards />
+    </>
   );
 }
