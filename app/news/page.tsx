@@ -4,7 +4,7 @@ import Link from "next/link";
 import connectToDatabase from "@/libs/db";
 import News from "@/models/news";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import StackingCards from "@/components/StackingCards";
+
 
 export const metadata: Metadata = {
   title: "Pet Care News & Grooming Tips | Sniffnsnooz Blog",
@@ -202,7 +202,7 @@ export default async function NewsPage(props: { searchParams: Promise<{ [key: st
         
       </div>
     </div>
-    <StackingCards />
+    
     </>
   );
 }

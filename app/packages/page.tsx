@@ -7,7 +7,7 @@ import FoliageAccents from "@/components/FoliageAccents";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle2, PhoneCall, Sparkles } from "lucide-react";
-import StackingCards from "@/components/StackingCards";
+
 
 export default function PackagesPage() {
   const { addItem } = useBooking();
@@ -184,7 +184,7 @@ export default function PackagesPage() {
         </motion.div>
       </div>
     </section>
-    <StackingCards />
+    
     </>
   );
 }

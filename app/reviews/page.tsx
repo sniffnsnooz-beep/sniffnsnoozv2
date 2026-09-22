@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { db, storage } from "@/libs/firebase"; 
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import StackingCards from "@/components/StackingCards";
+
 
 export default function LiveReviews() {
   const [reviews, setReviews] = useState<any[]>([]);
@@ -78,7 +78,7 @@ export default function LiveReviews() {
         </div>
       </div>
     </section>
-    <StackingCards />
+    
     </>
   );
 }

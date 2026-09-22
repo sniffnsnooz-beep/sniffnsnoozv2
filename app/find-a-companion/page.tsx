@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, HelpCircle, Star, Shield, Award, Sparkles, CheckCircle } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
-import StackingCards from "@/components/StackingCards";
+
 
 interface Companion {
   _id: string;
@@ -448,7 +448,7 @@ export default function FindCompanionPage() {
 
       </div>
     </div>
-    <StackingCards />
+    
     </>
   );
 }

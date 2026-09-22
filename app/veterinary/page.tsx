@@ -19,7 +19,7 @@ import {
   ShieldAlert,
   ChevronDown
 } from "lucide-react";
-import StackingCards from "@/components/StackingCards";
+
 
 // Age group datasets
 const ageGroups = [
@@ -445,7 +445,7 @@ export default function VeterinaryPage() {
 
       </div>
     </div>
-    <StackingCards />
+    
     </>
   );
 }

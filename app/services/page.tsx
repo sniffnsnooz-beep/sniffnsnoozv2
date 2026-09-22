@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FoliageAccents from "@/components/FoliageAccents";
 import { motion } from "framer-motion";
+import StackingCards from "@/components/StackingCards";
 import {
   Scissors,
   Stethoscope,
@@ -26,7 +27,6 @@ import {
 } from "lucide-react";
 
 import { corePackageTiers } from "@/data/packages";
-import StackingCards from "@/components/StackingCards";
 
 export default function ServicesPage() {
   const parallaxRef = useRef<HTMLImageElement | null>(null);
@@ -245,7 +245,7 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section className="relative min-h-screen py-24 page-bg overflow-hidden">
+      <section className="relative min-h-screen py-24 page-bg">
         {/* BOTANICAL FOLIAGE ACCENTS */}
         <FoliageAccents position="top-right" size="xl" className="opacity-90" />
         <FoliageAccents position="bottom-left" size="xl" className="opacity-90" />
@@ -340,53 +340,49 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
-          >
-            {allServices.map((service, index) => (
-              <motion.div variants={itemVariants} key={service.id} className="flex h-full">
-                <div className="card-premium h-full p-8 flex flex-col justify-between group cursor-pointer relative overflow-hidden w-full">
-                  <span className="absolute top-4 right-4 bg-[#5b3a26]/10 text-[#5b3a26] text-xs px-3 py-1 rounded-full font-bold">
-                    {service.badge}
-                  </span>
+          <div className="mb-24">
+            <StackingCards>
+              {allServices.map((service, index) => (
+                <div key={service.id} className="flex justify-center w-full">
+                  <div className="card-premium p-8 flex flex-col justify-between group cursor-pointer relative overflow-hidden w-full max-w-4xl bg-white/95 backdrop-blur-sm shadow-[0_30px_60px_-15px_rgba(91,58,38,0.2)] hover:shadow-[0_35px_70px_-15px_rgba(91,58,38,0.3)] transition-shadow duration-500 rounded-[2.5rem] border border-white z-10">
+                    <span className="absolute top-6 right-6 bg-[#5b3a26]/10 text-[#5b3a26] text-sm px-4 py-1.5 rounded-full font-bold">
+                      {service.badge}
+                    </span>
 
-                  <div>
-                    <div className="p-4 bg-white/80 rounded-2xl shadow-sm text-[#5b3a26] group-hover:bg-[#5b3a26] group-hover:text-white transition-all duration-300 group-hover:scale-110 w-fit mb-6">
-                      {service.icon}
+                    <div className="md:w-3/4">
+                      <div className="p-4 bg-[#f6efe6] rounded-2xl shadow-sm text-[#5b3a26] group-hover:bg-[#5b3a26] group-hover:text-white transition-all duration-300 group-hover:scale-110 w-fit mb-8">
+                        {service.icon}
+                      </div>
+
+                      <h3 className="text-3xl font-serif font-bold text-[#5b3a26] mb-2 group-hover:text-[#8c5a3b] transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-[#8c5a3b] font-bold uppercase tracking-wider mb-4">
+                        {service.tagline}
+                      </p>
+                      <p className="text-[#7a5741] text-base leading-relaxed mb-8 font-medium">
+                        {service.desc}
+                      </p>
+
+                      <ul className="space-y-3 mb-8">
+                        {service.features.map((feature, fIndex) => (
+                          <li key={fIndex} className="flex items-start text-base text-[#5b3a26]/90 font-medium">
+                            <CheckCircle2 className="w-5 h-5 text-[#8c5a3b] mt-0.5 mr-3 shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <h3 className="text-2xl font-serif font-bold text-[#5b3a26] mb-1 group-hover:text-[#8c5a3b] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-[#8c5a3b] font-bold uppercase tracking-wider mb-3">
-                      {service.tagline}
-                    </p>
-                    <p className="text-[#7a5741] text-sm leading-relaxed mb-6 font-medium">
-                      {service.desc}
-                    </p>
-
-                    <ul className="space-y-2.5 mb-6">
-                      {service.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start text-sm text-[#5b3a26]/90 font-medium">
-                          <CheckCircle2 className="w-4 h-4 text-[#8c5a3b] mt-0.5 mr-2 shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <Link href={service.href} className="mt-2 pt-6 border-t border-[#5b3a26]/10 font-bold text-[#5b3a26] flex items-center justify-between group-hover:text-[#8c5a3b] transition-colors">
+                      <span className="text-lg">{service.actionText}</span>
+                      <span className="w-10 h-10 rounded-full bg-[#f6efe6] flex items-center justify-center group-hover:bg-[#5b3a26] group-hover:text-white transition-all transform group-hover:translate-x-2">&rarr;</span>
+                    </Link>
                   </div>
-
-                  <Link href={service.href} className="mt-4 pt-4 border-t border-[#5b3a26]/10 font-bold text-[#5b3a26] flex items-center justify-between group-hover:text-[#8c5a3b] transition-colors">
-                    <span>{service.actionText}</span>
-                    <span className="w-8 h-8 rounded-full bg-[#f6efe6] flex items-center justify-center group-hover:bg-[#5b3a26] group-hover:text-white transition-all transform group-hover:translate-x-1">&rarr;</span>
-                  </Link>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </StackingCards>
+          </div>
 
           {/* WHY CHOOSE US HIGHLIGHTS */}
           <div className="bg-white/95 rounded-3xl p-10 border border-white/80 shadow-xl mb-24">
@@ -458,7 +454,6 @@ export default function ServicesPage() {
           </Link>
         </motion.div>
       </section>
-      <StackingCards />
     </>
   );
 }

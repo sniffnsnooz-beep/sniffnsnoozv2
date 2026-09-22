@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShieldAlert, Activity, Heart, Shield, Check, Info, HelpCircle } from "lucide-react";
 import { trackEvent } from "@/utils/analytics";
-import StackingCards from "@/components/StackingCards";
+
 
 const benefits = [
   {
@@ -359,7 +359,7 @@ export default function PetInsurancePage() {
 
       </div>
     </div>
-    <StackingCards />
+    
     </>
   );
 }
