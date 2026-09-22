@@ -1,3 +1,28 @@
-self.addEventListener('fetch', function(event) {
-  // Empty fetch listener is enough to satisfy Chrome's PWA install criteria
+const CACHE_NAME = 'sniffnsnooz-cache-v2';
+
+self.addEventListener('install', (event) => {
+  // Force the new service worker to become the active service worker immediately.
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  // Take control of all open pages immediately without waiting for a reload.
+  event.waitUntil(
+    self.clients.claim().then(() => {
+      // Clear old caches if necessary
+      return caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE_NAME) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      });
+    })
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  // Required for PWA installability. Network handles it to let Next.js do its own caching.
 });
