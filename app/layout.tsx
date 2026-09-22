@@ -202,7 +202,7 @@ export default function RootLayout({
 
                   /* 2️⃣ PET CARE + LOCAL BUSINESS AUTHORITY */
                   {
-                    "@type": ["PetCareBusiness", "LocalBusiness"],
+                    "@type": "LocalBusiness",
                     "@id": "https://sniffnsnooz.in/#petcare",
                     "name": "Sniffnsnooz",
                     "url": "https://sniffnsnooz.in",
