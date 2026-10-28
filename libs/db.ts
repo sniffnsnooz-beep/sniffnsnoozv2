@@ -3,23 +3,32 @@ import mongoose from "mongoose";
 const DEFAULT_MONGODB_URI =
   "mongodb://sniffnsnooz_db_user:I0xqBeDtZ7oyRQK6@ac-j5lfmqj-shard-00-00.fgjcqov.mongodb.net:27017,ac-j5lfmqj-shard-00-01.fgjcqov.mongodb.net:27017,ac-j5lfmqj-shard-00-02.fgjcqov.mongodb.net:27017/sniffnsnooz?ssl=true&replicaSet=atlas-vmt7pn-shard-0&authSource=admin&retryWrites=true&w=majority";
 
-const MONGODB_URI = process.env.MONGODB_URI || DEFAULT_MONGODB_URI;
+const MONGODB_URI = (typeof process !== "undefined" && process.env?.MONGODB_URI) || DEFAULT_MONGODB_URI;
 
-declare global {
-  // eslint-disable-next-line no-var
-  var _mongooseCache: {
-    conn: typeof mongoose | null;
-    promise: Promise<typeof mongoose> | null;
-  };
+interface MongooseCache {
+  conn: any;
+  promise: Promise<any> | null;
 }
 
-if (!global._mongooseCache) {
-  global._mongooseCache = { conn: null, promise: null };
+const g = globalThis as unknown as { _mongooseCache?: MongooseCache };
+
+if (!g._mongooseCache) {
+  g._mongooseCache = { conn: null, promise: null };
 }
 
 const connectToDatabase = async () => {
-  // Already connected
-  if (global._mongooseCache.conn) return global._mongooseCache.conn;
+  const cache = g._mongooseCache!;
+
+  // Already connected and ready
+  if (cache.conn && mongoose.connection.readyState === 1) {
+    return cache.conn;
+  }
+
+  // If disconnected or disconnecting, reset cache
+  if (mongoose.connection.readyState === 0 || mongoose.connection.readyState === 3) {
+    cache.conn = null;
+    cache.promise = null;
+  }
 
   const targetUri =
     MONGODB_URI &&
@@ -28,28 +37,29 @@ const connectToDatabase = async () => {
       ? MONGODB_URI
       : DEFAULT_MONGODB_URI;
 
-  // If already connecting, wait for that
-  if (!global._mongooseCache.promise) {
-    global._mongooseCache.promise = mongoose
+  // If not currently connecting, initiate connection
+  if (!cache.promise) {
+    cache.promise = mongoose
       .connect(targetUri, {
         serverSelectionTimeoutMS: 15000,
         socketTimeoutMS: 45000,
-        bufferCommands: false,
+        bufferCommands: true,
         maxPoolSize: 10,
       })
-      .then((m) => {
+      .then((m: any) => {
         console.log("✅ MongoDB Connected Successfully");
         return m;
       })
-      .catch((err) => {
-        global._mongooseCache.promise = null;
-        console.error("❌ MongoDB Connection Error:", err.message);
+      .catch((err: any) => {
+        cache.promise = null;
+        cache.conn = null;
+        console.error("❌ MongoDB Connection Error:", err?.message || err);
         throw err;
       });
   }
 
-  global._mongooseCache.conn = await global._mongooseCache.promise;
-  return global._mongooseCache.conn;
+  cache.conn = await cache.promise;
+  return cache.conn;
 };
 
 export default connectToDatabase;

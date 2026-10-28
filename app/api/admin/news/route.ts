@@ -1,55 +1,119 @@
 // app/api/admin/news/route.ts
 import { NextResponse } from "next/server";
-import connectToDatabase from "@/libs/db"; // Tumhara original path
-import News from "@/models/news"; // Tumhara original path
+import connectToDatabase from "@/libs/db";
+import News from "@/models/news";
 
-// --- GET: Dashboard par news list dikhane ke liye ---
+// Helper function to safely generate a unique, URL-friendly slug
+async function generateUniqueSlug(title: string, currentId?: string): Promise<string> {
+  let baseSlug = (title || "")
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/[\s_-]+/g, "-") // Collapse spaces and hyphens
+    .replace(/^-+|-+$/g, ""); // Trim leading/trailing hyphens
+
+  if (!baseSlug) {
+    baseSlug = `article-${Date.now().toString(36)}`;
+  }
+
+  let slug = baseSlug;
+  let counter = 1;
+
+  while (true) {
+    const query: any = { slug };
+    if (currentId) {
+      query._id = { $ne: currentId };
+    }
+    const existing = await News.findOne(query).select("_id").lean();
+    if (!existing) {
+      break;
+    }
+    slug = `${baseSlug}-${counter}`;
+    counter++;
+  }
+
+  return slug;
+}
+
+// --- GET: Fetch all articles for admin dashboard ---
 export async function GET() {
   try {
     await connectToDatabase();
-    const news = await News.find({}).sort({ createdAt: -1 }); // Latest news pehle
+    const news = await News.find({}).sort({ createdAt: -1 });
     return NextResponse.json(news, { status: 200 });
   } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 500 });
+    console.error("GET /api/admin/news ERROR:", error);
+    return NextResponse.json(
+      { success: false, message: error?.message || "Failed to fetch articles" },
+      { status: 500 }
+    );
   }
 }
 
-// --- POST: News publish karne ke liye (Tumhara Original Code) ---
+// --- POST: Publish a new article (With automatic unique slug & validation) ---
 export async function POST(req: Request) {
   try {
     await connectToDatabase();
     const body = await req.json();
-    
-    console.log("Incoming Data:", body); 
 
-    if (!body.title || !body.content || (!body.image && !body.video)) {
-      return NextResponse.json({ message: "Missing fields (must provide image or video)" }, { status: 400 });
+    const title = (body.title || "").trim();
+    const content = (body.content || "").trim();
+    const image = (body.image || "").trim();
+    const video = (body.video || "").trim();
+    const category = (body.category || "Pet Care").trim();
+    const author = (body.author || "Sniff n Snooz").trim();
+
+    if (!title) {
+      return NextResponse.json({ success: false, message: "Article title is required." }, { status: 400 });
     }
 
-    const slug = body.title
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w ]+/g, "")
-      .replace(/ +/g, "-");
+    if (!content || content === "<p><br></p>") {
+      return NextResponse.json({ success: false, message: "Article content cannot be empty." }, { status: 400 });
+    }
+
+    if (!image && !video) {
+      return NextResponse.json(
+        { success: false, message: "Please upload at least one photo or video." },
+        { status: 400 }
+      );
+    }
+
+    // Auto-generate guaranteed unique slug to avoid E11000 duplicate key 500 errors
+    const slug = await generateUniqueSlug(title);
 
     const newNews = await News.create({
-      title: body.title,
-      slug: slug,
-      content: body.content,
-      image: body.image || "",
-      video: body.video || "",
-      category: body.category || "Pet Care",
-      author: "Sniff n Snooz"
+      title,
+      slug,
+      content,
+      image,
+      video,
+      category,
+      author,
     });
 
-    return NextResponse.json({ success: true, data: newNews }, { status: 201 });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Article published successfully! 🐾",
+        data: newNews,
+      },
+      { status: 201 }
+    );
   } catch (error: any) {
-    console.error("API ERROR:", error); 
-    return NextResponse.json({ message: error.message }, { status: 500 });
+    console.error("POST /api/admin/news ERROR:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: error?.message || "Internal server error while publishing article.",
+      },
+      { status: 500 }
+    );
   }
 }
 
-// --- PATCH: Article edit karne ke liye ---
+// --- PATCH: Update existing article ---
 export async function PATCH(req: Request) {
   try {
     await connectToDatabase();
@@ -57,52 +121,77 @@ export async function PATCH(req: Request) {
     const { id, title, content, image, video, category } = body;
 
     if (!id) {
-      return NextResponse.json({ message: "ID is required" }, { status: 400 });
+      return NextResponse.json({ success: false, message: "Article ID is required." }, { status: 400 });
     }
 
-    // Regenerate slug if title changed
-    const slug = title
-      .toLowerCase()
-      .trim()
-      .replace(/[^\w ]+/g, "")
-      .replace(/ +/g, "-");
+    const updateData: any = {};
+    if (category) updateData.category = category.trim();
+    if (content !== undefined) updateData.content = content;
+    if (image !== undefined) updateData.image = image;
+    if (video !== undefined) updateData.video = video;
 
-    const updated = await News.findByIdAndUpdate(
-      id,
-      { title, slug, content, image: image || "", video: video || "", category },
-      { new: true }
-    );
+    if (title && title.trim()) {
+      updateData.title = title.trim();
+      updateData.slug = await generateUniqueSlug(title.trim(), id);
+    }
+
+    const updated = await News.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
 
     if (!updated) {
-      return NextResponse.json({ message: "Article not found" }, { status: 404 });
+      return NextResponse.json({ success: false, message: "Article not found." }, { status: 404 });
     }
 
-    return NextResponse.json({ success: true, data: updated }, { status: 200 });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Article updated successfully! ✅",
+        data: updated,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
-    console.error("PATCH ERROR:", error);
-    return NextResponse.json({ message: error.message }, { status: 500 });
+    console.error("PATCH /api/admin/news ERROR:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: error?.message || "Internal server error while updating article.",
+      },
+      { status: 500 }
+    );
   }
 }
 
-// --- DELETE: Dashboard se news hatane ke liye ---
+// --- DELETE: Delete article ---
 export async function DELETE(req: Request) {
   try {
     await connectToDatabase();
     const { id } = await req.json();
 
     if (!id) {
-      return NextResponse.json({ message: "ID is required" }, { status: 400 });
+      return NextResponse.json({ success: false, message: "Article ID is required." }, { status: 400 });
     }
 
     const deletedNews = await News.findByIdAndDelete(id);
 
     if (!deletedNews) {
-      return NextResponse.json({ message: "Article not found" }, { status: 404 });
+      return NextResponse.json({ success: false, message: "Article not found." }, { status: 404 });
     }
 
-    return NextResponse.json({ success: true, message: "Deleted Successfully" }, { status: 200 });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Article deleted successfully! 🗑️",
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
-    console.error("DELETE ERROR:", error);
-    return NextResponse.json({ message: error.message }, { status: 500 });
+    console.error("DELETE /api/admin/news ERROR:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: error?.message || "Internal server error while deleting article.",
+      },
+      { status: 500 }
+    );
   }
 }
